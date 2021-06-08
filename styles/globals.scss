@@ -1,0 +1,85 @@
+@use './utils';
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+    font-family: utils.$font-regular;
+    font-weight: 400;
+}
+
+:root {
+    font-size: 16px;
+    --time: 300ms;
+    --br: 0.3em;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    background-color: hsl(189, 100%, 3%);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 900;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 1rem;
+    max-width: 1100px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.construction {
+    display: grid;
+    place-items: center;
+    color: hsl(random(360), 100%, 70%);
+    text-align: center;
+
+    svg {
+        --size: 80%;
+        width: var(--size);
+        height: var(--size);
+    }
+
+    span {
+        font-size: clamp(1.2rem, 6vw, 2rem);
+
+        a {
+            font-size: inherit;
+            color: inherit;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+    a:hover {
+        text-decoration: underline;
+    }
+
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+}
