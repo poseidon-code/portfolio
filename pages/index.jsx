@@ -126,7 +126,7 @@ const Home = () => {
                     github='https://github.com/poseidon-code/tailwind-colors'
                     deploy='https://tailwindcolors.netlify.app'
                     description='TailwindCSS color palette copier. Made with ReactJs JavaScript framework.'
-                    tech={['ReactJs', 'CSS']}
+                    tech={['ReactJs', 'CSS3']}
                 />
                 <Project
                     name='Sories.io'
@@ -198,14 +198,14 @@ const Home = () => {
                     <Technology technology='ReactJs' text='JavaScript Library' icon={<ReactJs />} />
                     <Technology technology='NextJs' text='Framework of ReactJs' icon={<ReactJs />} />
                     <Technology technology='Node JS' text='JavaScript Runtime' icon={<NodeJs />} />
-                    <Technology technology='Bootstrap 4' text='CSS Framework' icon={<Bootstrap />} />
+                    <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
                     <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
                     <Technology technology='MongoDB' text='No-Sequel Database' icon={<Database />} />
-                    <Technology technology='Postgres SQL' text='Sequel Database' icon={<Database />} />
+                    {/* <Technology technology='Postgres SQL' text='Sequel Database' icon={<Database />} /> */}
                     <Technology technology='Firebase' text='Cloud Service Provider' icon={<Database />} />
-                    <Technology technology='Amazon AWS' text='Cloud Service Provider' icon={<Aws />} />
-                    <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} />
-                    <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} />
+                    {/* <Technology technology='Amazon AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
+                    {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
+                    {/* <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} /> */}
                     <Technology technology='Adobe After Effects' text='Motion Graphics Software' icon={<Ae />} />
                     <Technology technology='Adobe Photoshop' text='Image Manipulation Software' icon={<Ps />} />
                     <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />

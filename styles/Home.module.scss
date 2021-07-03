@@ -65,12 +65,12 @@
 }
 
 .header {
-    height: 60vh;
+    height: calc(100vh - 2rem);
     @include utils.padding;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    @include utils.section-bg('../public/backgrounds/bg-1.jpg', 189, 120%);
+    @include utils.section-bg('../public/backgrounds/bg-1.jpg', 189, cover);
 
     h1 {
         font-size: 5rem;
@@ -536,6 +536,12 @@
                 span {
                     font-size: 1.6rem;
                 }
+
+                @media (max-width: 800px) {
+                    width: -webkit-fill-available;
+                    width: -moz-fill-available;
+                    width: -o-fill-available;
+                }
             }
         }
     }
@@ -548,6 +554,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
+
     p {
         font-family: utils.$font-mono;
         font-weight: bold;
