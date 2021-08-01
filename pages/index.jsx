@@ -22,6 +22,9 @@ import {
     Facebook,
     Instagram,
     Linkedin,
+    CV,
+    Resume,
+    Firebase,
 } from '../components/UI/Icons';
 import { useRef, useState } from 'react';
 
@@ -68,6 +71,36 @@ const Home = () => {
     return (
         <>
             <section className={styles.header}>
+                <pre style={{ fontSize: '.2rem', fontFamily: 'monospace' }}>
+                    {`
+              ███████  ███████
+          ████▓▓▓▓▓▓████░░░░░██
+        ██▓▓▓▓▓▓▓▓▓▓▓▓██░░░░░░██
+      ██▓▓▓▓▓▓████████████░░░░██
+    ██▓▓▓▓▓▓████████████████░██
+    ██▓▓████░░░░░░░░░░░░██████
+  ████████░░░░░░██░░██░░██▓▓▓▓██
+  ██░░████░░░░░░██░░██░░██▓▓▓▓██
+██░░░░██████░░░░░░░░░░░░░░██▓▓██
+██░░░░░░██░░░░██░░░░░░░░░░██▓▓██
+  ██░░░░░░░░░███████░░░░██████
+    ████░░░░░░░███████████▓▓██
+      ██████░░░░░░░░░░██▓▓▓▓██
+    ██▓▓▓▓██████████████▓▓██
+  ██▓▓▓▓▓▓▓▓████░░░░░░████
+████▓▓▓▓▓▓▓▓██░░░░░░░░░░██
+████▓▓▓▓▓▓▓▓██░░░░░░░░░░██
+██████▓▓▓▓▓▓▓▓██░░░░░░████████
+  ██████▓▓▓▓▓▓████████████████
+    ██████████████████████▓▓▓▓██
+  ██▓▓▓▓████████████████▓▓▓▓▓▓██
+████▓▓██████████████████▓▓▓▓▓▓██
+██▓▓▓▓██████████████████▓▓▓▓▓▓██
+██▓▓▓▓██████████      ██▓▓▓▓████
+██▓▓▓▓████              ██████
+  ████
+`}
+                </pre>
                 <h2>Hi, my name is</h2>
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
@@ -112,7 +145,7 @@ const Home = () => {
                     github='https://github.com/poseidon-code/portfolio'
                     deploy='https://pritamh.netlify.app'
                     description='You are viewing it currently designed by yours sincerely. Made with NextJs JavaScript framework.'
-                    tech={['NextJs', 'SCSS']}
+                    tech={['NextJs', 'SASS']}
                 />
                 <Project
                     name='Supacons'
@@ -133,7 +166,7 @@ const Home = () => {
                     github='https://github.com/poseidon-code/stories.io'
                     deploy='https://storiesio.netlify.app'
                     description='A short sotry telling app using WebAudio voices from the browser. Made with ReactJs JavaScript framework.'
-                    tech={['ReactJs', 'SCSS', 'WebAudioAPI', 'REST API']}
+                    tech={['ReactJs', 'SASS', 'WebAudioAPI', 'REST API']}
                 />
                 <Project
                     name='mp3 Downloader'
@@ -201,11 +234,11 @@ const Home = () => {
                     <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
                     <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
                     <Technology technology='MongoDB' text='No-Sequel Database' icon={<Database />} />
-                    {/* <Technology technology='Postgres SQL' text='Sequel Database' icon={<Database />} /> */}
-                    <Technology technology='Firebase' text='Cloud Service Provider' icon={<Database />} />
-                    {/* <Technology technology='Amazon AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
-                    {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
-                    {/* <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} /> */}
+                    <Technology technology='Postgres SQL' text='Sequel Database' icon={<Database />} />
+                    <Technology technology='Firebase' text='Cloud Service Provider' icon={<Firebase />} />
+                    <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} />
+                    <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} />
+                    <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} />
                     <Technology technology='Adobe After Effects' text='Motion Graphics Software' icon={<Ae />} />
                     <Technology technology='Adobe Photoshop' text='Image Manipulation Software' icon={<Ps />} />
                     <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />
@@ -225,7 +258,7 @@ const Home = () => {
                 <article>
                     <p>
                         Hello ! So now that you have gone through my skills, projects and my interests, how about I tell you about my
-                        passion :) ? I am a college student of Computer Science (Honors) in 2nd year, living with my parents and my younger
+                        passion :) ? I am a college student of Computer Science (Honors) in 3rd year, living with my parents and my younger
                         brother in Debpukur.
                         <br />
                         <br />
@@ -238,15 +271,16 @@ const Home = () => {
                         <br /> <br />
                         <a href='/Resume - Pritam Halder.pdf' download>
                             <Download />
-                            &nbsp;Resume
+                            &nbsp;Resume&nbsp;
+                            <Resume />
                         </a>
                         <br />
                         <a href='/CV - Pritam Halder.pdf' download>
                             <Download />
-                            &nbsp;CV
+                            &nbsp;CV&nbsp;
+                            <CV />
                         </a>
                     </p>
-                    <img src='https://i.imgur.com/sjvtlq0.png' alt='dp' />
                 </article>
                 <div>
                     <h1>Wanna know more about my experiences till now ?</h1>

@@ -393,15 +393,15 @@
 
     article {
         display: flex;
+        background-image: url('../public/backgrounds/bg-5.jpg');
+        background-color: hsl(189, 100%, 70%);
+        background-size: 100%;
+        background-blend-mode: screen;
+        box-shadow: inset 500px -20px 40px 20px hsl(189, 100%, 70%);
 
         p {
             @include utils.padding;
-            @include utils.section(189);
             max-width: 60ch;
-        }
-
-        img {
-            width: 50%;
         }
 
         a {
