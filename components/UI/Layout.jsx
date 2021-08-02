@@ -7,7 +7,6 @@ const Layout = (props) => {
                 <title>Pritam Halder</title>
                 <meta name='title' content='Pritam Halder Portfolio' />
                 <meta name='robots' content='index, follow' />
-                <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
                 <meta
                     name='description'
                     content="I'm a Kolkata based software engineer who specializes in building and designing full stack products leading projects from research to implementation."
@@ -15,7 +14,7 @@ const Layout = (props) => {
                 <meta name='author' content='poseidon-code' />
                 <meta
                     name='keywords'
-                    content='portfolio, pritam halder, pritam, developer, pritam halder portfolio designer portfolio, creative portfolio'
+                    content='portfolio, pritam halder, pritam, developer, pritam halder portfolio, designer portfolio, creative portfolio'
                 />
             </Head>
             <main className='container'>{props.children}</main>
