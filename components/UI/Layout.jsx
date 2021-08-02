@@ -6,6 +6,7 @@ const Layout = (props) => {
             <Head>
                 <title>Pritam Halder</title>
                 <meta name='title' content='Pritam Halder Portfolio' />
+                <link rel='shortcut icon' href='favicon.ico' type='image/x-icon' />
                 <meta name='robots' content='index, follow' />
                 <meta
                     name='description'
