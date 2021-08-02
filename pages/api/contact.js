@@ -1,24 +1,5 @@
 import Nodemailer from 'nodemailer';
 require('dotenv').config();
-import Cors from 'cors';
-
-const middleware = (middleware) => {
-    return (req, res) =>
-        new Promise((resolve, reject) => {
-            middleware(req, res, (result) => {
-                if (result instanceof Error) {
-                    return reject(result);
-                }
-                return resolve(result);
-            });
-        });
-};
-
-const cors = middleware(
-    Cors({
-        methods: ['GET', 'POST', 'OPTIONS'],
-    })
-);
 
 const transporter = Nodemailer.createTransport({
     port: 465,
@@ -29,8 +10,7 @@ const transporter = Nodemailer.createTransport({
     },
 });
 
-export default async (req, res) => {
-    await cors(req, res);
+export default (req, res) => {
     return new Promise((resolve) => {
         if (req.method == 'POST') {
             const mail = {
