@@ -11,24 +11,24 @@ const transporter = Nodemailer.createTransport({
 });
 
 export default (req, res) => {
-    return new Promise((resolve) => {
-        if (req.method == 'POST') {
-            const mail = {
-                from: process.env.EFROM,
-                to: process.env.ETO,
-                subject: `${req.body.subject} - ${req.body.name}`,
-                text: `Name: ${req.body.name} \nEmail: ${req.body.email} \n${req.body.message}`,
-            };
+    // return new Promise((resolve) => {
+    if (req.method == 'POST') {
+        const mail = {
+            from: process.env.EFROM,
+            to: process.env.ETO,
+            subject: `${req.body.subject} - ${req.body.name}`,
+            text: `Name: ${req.body.name} \nEmail: ${req.body.email} \n${req.body.message}`,
+        };
 
-            transporter.sendMail(mail, (err) => {
-                if (err) {
-                    res.status(500).send();
-                    return resolve();
-                } else {
-                    res.status(200).send();
-                    return resolve();
-                }
-            });
-        }
-    });
+        transporter.sendMail(mail, (err) => {
+            if (err) {
+                res.status(500).json({ msg: err });
+                // return resolve();
+            } else {
+                res.status(200).json({ msg: 'Sent succesfully.' });
+                // return resolve();
+            }
+        });
+    }
+    // });
 };

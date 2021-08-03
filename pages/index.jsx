@@ -60,7 +60,9 @@ const Home = () => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify(data),
-        }).then((res) => {
+        }).then(async (res) => {
+            const data = await res.json();
+            console.log(data);
             if (res.status == 200) {
                 resetForm();
             }
