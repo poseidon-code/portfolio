@@ -1,8 +1,10 @@
-import Button from '../components/UI/Button';
+import { useRef, useState } from 'react';
 import styles from '../styles/Home.module.scss';
+
+import Button from '../components/UI/Button';
 import {
     Clock,
-    Palette,
+    Visitors,
     Github,
     Frameworks,
     ExternalLink,
@@ -26,9 +28,51 @@ import {
     Resume,
     Firebase,
 } from '../components/UI/Icons';
-import { useRef, useState } from 'react';
 
-const Home = () => {
+export const getServerSideProps = async () => {
+    const formatCount = (number) => {
+        let format;
+        if (number >= 1000) format = (number / 1000).toFixed(1) + 'K';
+        else if (number >= 1000000) format = (number / 1000000).toFixed(1) + 'M';
+        else if (number >= 1000000000) format = (number / 1000000000).toFixed(1) + 'B';
+        else format = number;
+        return format;
+    };
+
+    const hours = await fetch('https://wakatime.com/api/v1/users/poseidoncode/all_time_since_today', {
+        method: 'GET',
+        headers: {
+            Authorization: `Basic ${Buffer.from(process.env.WAKATIME_API_KEY).toString('base64')}`,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => data.data.total_seconds);
+
+    const visitors = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
+        .then((res) => res.json())
+        .then((data) => data.value);
+
+    const repos = await fetch('https://api.github.com/users/poseidon-code')
+        .then((res) => res.json())
+        .then((data) => data.public_repos);
+
+    const data = {
+        hours: formatCount((hours / 3600).toFixed(1)),
+        visitors: formatCount(visitors),
+        repos: formatCount(repos),
+        frameworks: formatCount(16),
+    };
+
+    return {
+        props: {
+            stats: data,
+        },
+    };
+};
+
+const Home = (props) => {
+    const { stats } = props;
+
     const nameRef = useRef();
     const emailRef = useRef();
     const messageRef = useRef();
@@ -126,10 +170,10 @@ const Home = () => {
                 </section>
 
                 <section className={styles.stats}>
-                    <Stat icon={<Clock />} text='Hours Spent' number='3.2K' />
-                    <Stat icon={<Palette />} text='Design Ideas' number='243' />
-                    <Stat icon={<Github />} text='Github Repos' number='35' />
-                    <Stat icon={<Frameworks />} text='Frameworks' number='7' />
+                    <Stat icon={<Clock />} text='Hours Spent' number={stats.hours} />
+                    <Stat icon={<Visitors />} text='Visitors' number={stats.visitors} />
+                    <Stat icon={<Github />} text='Github Repos' number={stats.repos} />
+                    <Stat icon={<Frameworks />} text='Frameworks' number={stats.frameworks} />
                 </section>
             </div>
 

@@ -151,17 +151,23 @@
             height: var(--size);
             margin-bottom: 0.6rem;
         }
-        &:nth-of-type(1) {
-            @include utils.section-bg('../public/backgrounds/bg-2.jpg', 42, 200%);
-        }
-        &:nth-of-type(2) {
-            @include utils.section-bg('../public/backgrounds/bg-1.jpg', 42, 200%);
-        }
-        &:nth-of-type(3) {
-            @include utils.section-bg('../public/backgrounds/bg-3.jpg', 42, 200%);
-        }
-        &:nth-of-type(4) {
-            @include utils.section-bg('../public/backgrounds/bg-4.jpg', 42, 200%);
+
+        @for $i from 1 through 4 {
+            &:nth-of-type(#{$i}) {
+                color: hsl(42, 100%, 10%);
+                background-color: hsl(42, 100%, 70%);
+                transition: color var(--time) ease-out, background-color var(--time) ease-out;
+
+                &:hover {
+                    color: hsl(42, 100%, 70%);
+                    background-color: hsl(42, 100%, 10%);
+                }
+
+                ::selection {
+                    background: hsl(42, 100%, 10%);
+                    color: hsl(42, 100%, 70%);
+                }
+            }
         }
 
         @media (max-width: 800px) {
