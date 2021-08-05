@@ -12,6 +12,8 @@
 
 ### &bull; &bull; &bull;
 
+#### **[Resume](./assets/Resume%20-%20Pritam%20Halder.pdf) &bull; [CV](./assets/CV%20-%20Pritam%20Halder.pdf)**
+
 ### ✨ **[Portfolio](https://pritamh.netlify.app)** ✨
 
 <img src="./assets/current.gif" alt='current' width="80%">
@@ -136,13 +138,11 @@
 <br/>
 
 [![Portfolio](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=portfolio&theme=prussian)](https://github.com/poseidon-code/portfolio)
-
+[![Poseidon's Readme](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=poseidon-code&theme=prussian)](https://github.com/poseidon-code/poseidon-code)
 [![Supacons](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=supacons&theme=prussian)](https://github.com/poseidon-code/supacons)
 [![mp3 Download Script](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=mp3-download-script-v2&theme=prussian)](https://github.com/poseidon-code/mp3-download-script-v2)
-
 [![TailwindColors](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=tailwind-colors&theme=prussian)](https://github.com/poseidon-code/tailwind-colors)
 [![Stories.io](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=stories.io&theme=prussian)](https://github.com/poseidon-code/stories.io)
-
 [![Short Stories API](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=shortstories-api&theme=prussian)](https://github.com/poseidon-code/shortstories-api)
 
 # 🐱‍🏍 My Github Stats
@@ -150,6 +150,8 @@
 ![Poseidon's GitHub stats](https://github-readme-stats.vercel.app/api?username=poseidon-code&theme=prussian&show_icons=true)
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=poseidon-code&layout=compact&theme=prussian)
+
+![Poseidon's Wakatime](https://github-readme-stats.vercel.app/api/wakatime?username=poseidoncode&layout=compact&theme=prussian)
 
 </div>
 
@@ -172,6 +174,8 @@
 ### My true goal in my life is to do the job I love, that is programming, coding & designing; because in that moment I would be at my best, always :)
 
 ### &bull; &bull; &bull;
+
+#### **[Resume](./assets/Resume%20-%20Pritam%20Halder.pdf) &bull; [CV](./assets/CV%20-%20Pritam%20Halder.pdf)**
 
 ### ✨ **[Porfolio](https://pritamh.netlify.app)** ✨
 
