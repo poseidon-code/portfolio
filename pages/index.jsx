@@ -276,7 +276,7 @@ const Home = (props) => {
                 <ul>
                     <Technology technology='ReactJs' text='JavaScript Library' icon={<ReactJs />} />
                     <Technology technology='NextJs' text='Framework of ReactJs' icon={<ReactJs />} />
-                    <Technology technology='Node JS' text='JavaScript Runtime' icon={<NodeJs />} />
+                    <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
                     <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
                     <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
                     <Technology technology='MongoDB' text='No-Sequel Database' icon={<Database />} />
