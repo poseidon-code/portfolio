@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import styles from '../styles/Home.module.scss';
+import homeData from '../utility/HomeData';
 
 import Button from '../components/UI/Button';
 import {
@@ -30,38 +31,7 @@ import {
 } from '../components/UI/Icons';
 
 export const getServerSideProps = async () => {
-    const formatCount = (number) => {
-        let format;
-        if (number >= 1000) format = (number / 1000).toFixed(1) + 'K';
-        else if (number >= 1000000) format = (number / 1000000).toFixed(1) + 'M';
-        else if (number >= 1000000000) format = (number / 1000000000).toFixed(1) + 'B';
-        else format = number;
-        return format;
-    };
-
-    const hours = await fetch('https://wakatime.com/api/v1/users/poseidoncode/all_time_since_today', {
-        method: 'GET',
-        headers: {
-            Authorization: `Basic ${Buffer.from(process.env.WAKATIME_API_KEY).toString('base64')}`,
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => data.data.total_seconds);
-
-    const visitors = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
-        .then((res) => res.json())
-        .then((data) => data.value);
-
-    const repos = await fetch('https://api.github.com/users/poseidon-code')
-        .then((res) => res.json())
-        .then((data) => data.public_repos);
-
-    const data = {
-        hours: formatCount((hours / 3600).toFixed(1)),
-        visitors: formatCount(visitors),
-        repos: formatCount(repos),
-        frameworks: formatCount(16),
-    };
+    const data = await homeData();
 
     return {
         props: {
@@ -90,6 +60,7 @@ const Home = (props) => {
     const submitHandler = (e) => {
         e.preventDefault();
         setSending(true);
+
         const data = {
             name: nameRef.current.value,
             email: emailRef.current.value,
@@ -105,8 +76,9 @@ const Home = (props) => {
             },
             body: JSON.stringify(data),
         }).then(async (res) => {
-            const data = await res.json();
-            console.log(data);
+            // const data = await res.json();
+            // console.log(data);
+
             if (res.status == 200) {
                 resetForm();
             }
@@ -147,7 +119,7 @@ const Home = (props) => {
   ████
 `}
                 </pre>
-                <h2>Hi, my name is</h2>
+                <h2>Hi, I am</h2>
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
             </section>
