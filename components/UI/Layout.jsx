@@ -1,6 +1,19 @@
+import { useEffect, useState } from 'react';
+import { useRouter } from 'next/router';
 import Head from 'next/head';
 
+import Navbar from '../Navbar/Navbar';
+
 const Layout = (props) => {
+    const { pathname } = useRouter();
+    const [color, setColor] = useState();
+
+    useEffect(() => {
+        if (pathname === '/about') setColor(325);
+        else if (pathname === '/projects') setColor(238);
+        else setColor(189);
+    }, [pathname]);
+
     return (
         <>
             <Head>
@@ -36,6 +49,8 @@ const Layout = (props) => {
                 />
                 <meta property='twitter:image' content='/card.jpg' />
             </Head>
+
+            <Navbar color={color} />
             <main className='container'>{props.children}</main>
         </>
     );
