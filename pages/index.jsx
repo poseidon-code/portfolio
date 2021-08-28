@@ -212,6 +212,11 @@ const Home = (props) => {
                 <ul>
                     <Skill skill='JavaScript' />
                     <Skill skill='TypeScript' />
+                    <Skill skill='ReactJS' />
+                    <Skill skill='NextJS' />
+                    <Skill skill='NextJS Fullstack' />
+                    <Skill skill='NodeJS' />
+                    <Skill skill='GraphQL' />
                     <Skill skill='C/C++' />
                     <Skill skill='Algorithms' />
                     <Skill skill='Data Structures' />
@@ -219,17 +224,12 @@ const Home = (props) => {
                     <Skill skill='Core JAVA' />
                     <Skill skill='Fullstack Web Development' />
                     <Skill skill='MERN Stack' />
-                    <Skill skill='NodeJS' />
                     <Skill skill='Git & Github' />
                     <Skill skill='MongoDB' />
                     <Skill skill='REST API' />
-                    <Skill skill='GraphQL' />
                     <Skill skill='HTML5' />
                     <Skill skill='CSS3' />
                     <Skill skill='SASS' />
-                    <Skill skill='ReactJS' />
-                    <Skill skill='NextJS' />
-                    <Skill skill='NextJS Fullstack' />
                 </ul>
                 <div>
                     <h1>Want my skill sets for your project ?</h1>
