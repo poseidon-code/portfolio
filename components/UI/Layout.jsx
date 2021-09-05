@@ -11,6 +11,7 @@ const Layout = (props) => {
     useEffect(() => {
         if (pathname === '/about') setColor(325);
         else if (pathname === '/projects') setColor(238);
+        else if (pathname === '/blog') setColor(140);
         else setColor(189);
     }, [pathname]);
 
