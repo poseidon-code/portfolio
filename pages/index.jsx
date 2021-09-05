@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react';
 import styles from '../styles/Home.module.scss';
+
 import homeData from '../utility/HomeData';
 
 import Button from '../components/UI/Button';
@@ -8,7 +9,6 @@ import {
     Visitors,
     Github,
     Frameworks,
-    ExternalLink,
     ReactJs,
     NodeJs,
     Bootstrap,
@@ -29,6 +29,11 @@ import {
     Resume,
     Firebase,
 } from '../components/UI/Icons';
+
+import Stat from '../components/Home/Stat';
+import Project from '../components/Home/Project';
+import Skill from '../components/Home/Skill';
+import Technology from '../components/Home/Technology';
 
 export const getServerSideProps = async () => {
     const data = await homeData();
@@ -355,53 +360,3 @@ const Home = (props) => {
 };
 
 export default Home;
-
-const Stat = (props) => (
-    <div className={styles.stat}>
-        {props.icon}
-        <h1>{props.number}</h1>
-        <span>{props.text}</span>
-    </div>
-);
-
-const Project = (props) => (
-    <section className={styles.project}>
-        <div>
-            <h1>{props.name}</h1>
-            <span>{props.description}</span>
-            <ul>
-                {props.tech.map((t, i) => (
-                    <li key={i}>{t}</li>
-                ))}
-            </ul>
-
-            <div>
-                {props.github && (
-                    <a href={props.github} target='_blank' rel='noopener noreferrer'>
-                        <Github />
-                    </a>
-                )}
-                {props.deploy && (
-                    <a href={props.deploy} target='_blank' rel='noopener noreferrer'>
-                        <ExternalLink />
-                    </a>
-                )}
-            </div>
-        </div>
-        <div></div>
-    </section>
-);
-
-const Skill = (props) => (
-    <li className={styles.skill}>
-        <h2>{props.skill}</h2>
-    </li>
-);
-
-const Technology = (props) => (
-    <li className={styles.technology}>
-        {props.icon}
-        <h2>{props.technology}</h2>
-        <span>{props.text}</span>
-    </li>
-);
