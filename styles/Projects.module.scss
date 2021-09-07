@@ -34,6 +34,82 @@
     }
 }
 
+.projects {
+    width: 100%;
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (max-width: 800px) {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    @for $i from 1 through 20 {
+        .project:nth-of-type(#{$i}) {
+            $hue: random(360);
+            color: hsl($hue, 100%, 10%);
+            background-color: hsl($hue, 100%, 70%);
+        }
+    }
+
+    .project {
+        width: 100%;
+        @include utils.padding;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        overflow: hidden;
+
+        & > * {
+            z-index: 10;
+        }
+
+        h1:first-of-type {
+            position: absolute;
+            z-index: 1;
+            left: -3rem;
+            top: 50%;
+            transform: translate(0%, -50%) rotate(30deg);
+            font-size: 20rem;
+            opacity: 0.2;
+        }
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        span {
+            margin: 1rem 0;
+            display: inline-block;
+        }
+
+        ul {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+
+            li {
+                font-family: utils.$font-mono;
+                font-weight: bold;
+                font-size: 0.9rem;
+                margin-right: 1rem;
+            }
+        }
+
+        svg {
+            --size: 1.4rem;
+            width: var(--size);
+            height: var(--size);
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            margin-right: 1rem;
+        }
+    }
+}
+
 .footer {
     @include utils.section(238);
     @include utils.padding;
