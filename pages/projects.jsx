@@ -1,87 +1,21 @@
 import styles from '../styles/Projects.module.scss';
+import { projectData } from '../utility/ProjectsData';
 
 import Project from '../components/Projects/Project';
+import OSC from '../components/Projects/OSC';
 
-const PROJECTS = [
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-    {
-        name: 'Portfolio',
-        github: 'https://github.com/poseidon-code/portfolio',
-        website: 'https://supacons.netlify.app',
-        description:
-            'Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.',
-        tech: ['NextJs', 'CSS3'],
-    },
-];
+export const getStaticProps = async () => {
+    const data = await projectData();
 
-// export const getStaticProps = async () => {
+    return {
+        props: {
+            projects: data.projects,
+            osc: data.opensourcecontributions,
+        },
+    };
+};
 
-// }
-
-const Projects = () => {
+const Projects = (props) => {
     return (
         <>
             <section className={styles.header}>
@@ -110,14 +44,31 @@ const Projects = () => {
             </section>
 
             <section className={styles.projects}>
-                {PROJECTS.map((p, i) => (
+                {props.projects.map((p) => (
                     <Project
-                        key={i}
+                        key={p.id}
                         name={p.name}
-                        github={p.github}
-                        website={p.website}
+                        github={p.links.github}
+                        website={p.links.website}
                         description={p.description}
-                        tech={p.tech}
+                        tech={p.technologies}
+                    />
+                ))}
+            </section>
+
+            <section className={styles.oscs}>
+                <div className={styles.osc_head}>
+                    <h1>Open Source Contributions</h1>
+                    <h2>In real open source, you have the right to control your own destiny.</h2>
+                </div>
+                {props.osc.map((o) => (
+                    <OSC
+                        key={o.id}
+                        name={o.name}
+                        github={o.links.github}
+                        website={o.links.website}
+                        description={o.description}
+                        tech={o.technologies}
                     />
                 ))}
             </section>
