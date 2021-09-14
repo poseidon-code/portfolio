@@ -3,6 +3,7 @@ import { projectData } from '../utility/ProjectsData';
 
 import Project from '../components/Projects/Project';
 import OSC from '../components/Projects/OSC';
+import Repo from '../components/Projects/Repo';
 
 export const getStaticProps = async () => {
     const data = await projectData();
@@ -11,6 +12,7 @@ export const getStaticProps = async () => {
         props: {
             projects: data.projects,
             osc: data.opensourcecontributions,
+            repos: data.repos,
         },
     };
 };
@@ -71,6 +73,18 @@ const Projects = (props) => {
                         tech={o.technologies}
                     />
                 ))}
+            </section>
+
+            <section className={styles.repos}>
+                <div className={styles.repos_head}>
+                    <h1>Github Repositories</h1>
+                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ducimus.</h2>
+                </div>
+                <div>
+                    {props.repos.map((r, i) => (
+                        <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />
+                    ))}
+                </div>
             </section>
 
             <section className={styles.footer}>
