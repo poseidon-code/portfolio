@@ -213,7 +213,7 @@ const Home = (props) => {
                         logics helped me with my programming confidence.
                     </h2>
                 </div>
-                <ul>
+                <ul className={styles.skills_body}>
                     <Skill skill='JavaScript' />
                     <Skill skill='TypeScript' />
                     <Skill skill='ReactJS' />
@@ -238,10 +238,6 @@ const Home = (props) => {
                 <SectionButton text='Want my skill sets for your project ?' href='#contact'>
                     Hire Me
                 </SectionButton>
-                {/* <div>
-                    <h1>Want my skill sets for your project ?</h1>
-                    <Button href='#contact'></Button>
-                </div> */}
             </section>
 
             <section className={styles.technologies}>
@@ -253,7 +249,7 @@ const Home = (props) => {
                         designing softwares.
                     </h2>
                 </div>
-                <ul>
+                <ul className={styles.technologies_body}>
                     <Technology technology='ReactJs' text='JavaScript Library' icon={<ReactJs />} />
                     <Technology technology='NextJs' text='Framework of ReactJs' icon={<ReactJs />} />
                     <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
@@ -280,7 +276,7 @@ const Home = (props) => {
                     <h1>About Me</h1>
                     <h2>Success is not final, failure is not fatal, it is the courage to continue that counts.</h2>
                 </div>
-                <article>
+                <article className={styles.about_body}>
                     <p>
                         Hello ! So now that you have gone through my skills, projects and my interests, how about I tell
                         you about my passion :) ? I am a college student of Computer Science (Honors) in 3rd year,
@@ -318,7 +314,7 @@ const Home = (props) => {
                     <h1>Contact Me</h1>
                     <h2>Sometimes later becomes never...</h2>
                 </div>
-                <div>
+                <div className={styles.contact_links}>
                     <div>
                         <a href='https://facebook.com/pritamhalder0506' target='_blank' rel='noopener noreferrer'>
                             <Facebook />
@@ -336,7 +332,7 @@ const Home = (props) => {
                             <Github />
                         </a>
                     </div>
-                    <form method='POST' onSubmit={submitHandler}>
+                    <form className={styles.contact_body} method='POST' onSubmit={submitHandler}>
                         <input disabled={sending} type='text' ref={nameRef} name='name' placeholder='Name' required />
                         <input
                             disabled={sending}

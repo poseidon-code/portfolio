@@ -224,40 +224,40 @@
         @include utils.head(299, '../public/backgrounds/bg-3.jpg');
     }
 
-    ul {
+    .skills_body {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-    }
 
-    .skill {
-        padding: 1rem 2rem;
-        text-align: center;
-        flex-grow: 2;
-        transition: color var(--time) ease-out, background-color var(--time) ease-out;
+        .skill {
+            padding: 1rem 2rem;
+            text-align: center;
+            flex-grow: 2;
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        h2 {
-            pointer-events: none;
-            font-family: utils.$font-mono;
-            @media (max-width: 800px) {
-                font-size: 1.4rem;
-            }
-        }
+            @for $i from 1 through 20 {
+                &:nth-of-type(#{$i}) {
+                    $hue: random(360);
+                    color: hsl($hue, 100%, 10%);
+                    background-color: hsl($hue, 100%, 70%);
 
-        @for $i from 1 through 20 {
-            &:nth-of-type(#{$i}) {
-                $hue: random(360);
-                color: hsl($hue, 100%, 10%);
-                background-color: hsl($hue, 100%, 70%);
+                    &:hover {
+                        color: hsl($hue, 100%, 70%);
+                        background-color: hsl($hue, 100%, 10%);
+                    }
 
-                &:hover {
-                    color: hsl($hue, 100%, 70%);
-                    background-color: hsl($hue, 100%, 10%);
+                    ::selection {
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
+                    }
                 }
+            }
 
-                ::selection {
-                    background: hsl($hue, 100%, 10%);
-                    color: hsl($hue, 100%, 70%);
+            h2 {
+                pointer-events: none;
+                font-family: utils.$font-mono;
+                @media (max-width: 800px) {
+                    font-size: 1.4rem;
                 }
             }
         }
@@ -275,51 +275,51 @@
         @include utils.head(120, '../public/backgrounds/bg-4.jpg');
     }
 
-    ul {
+    .technologies_body {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-    }
 
-    .technology {
-        padding: 1rem 2rem;
-        text-align: center;
-        flex-grow: 2;
-        transition: color var(--time) ease-out, background-color var(--time) ease-out;
+        .technology {
+            padding: 1rem 2rem;
+            text-align: center;
+            flex-grow: 2;
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        h2 {
-            pointer-events: none;
-            font-family: utils.$font-mono;
-            @media (max-width: 800px) {
-                font-size: 1.4rem;
+            @for $i from 1 through 15 {
+                &:nth-of-type(#{$i}) {
+                    $hue: random(360);
+                    color: hsl($hue, 100%, 10%);
+                    background-color: hsl($hue, 100%, 70%);
+
+                    &:hover {
+                        color: hsl($hue, 100%, 70%);
+                        background-color: hsl($hue, 100%, 10%);
+                    }
+
+                    ::selection {
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
+                    }
+                }
             }
-        }
 
-        span {
-            font-family: utils.$font-mono;
-        }
-
-        svg {
-            --size: 3rem;
-            width: var(--size);
-            height: var(--size);
-        }
-
-        @for $i from 1 through 15 {
-            &:nth-of-type(#{$i}) {
-                $hue: random(360);
-                color: hsl($hue, 100%, 10%);
-                background-color: hsl($hue, 100%, 70%);
-
-                &:hover {
-                    color: hsl($hue, 100%, 70%);
-                    background-color: hsl($hue, 100%, 10%);
+            h2 {
+                pointer-events: none;
+                font-family: utils.$font-mono;
+                @media (max-width: 800px) {
+                    font-size: 1.4rem;
                 }
+            }
 
-                ::selection {
-                    background: hsl($hue, 100%, 10%);
-                    color: hsl($hue, 100%, 70%);
-                }
+            span {
+                font-family: utils.$font-mono;
+            }
+
+            svg {
+                --size: 3rem;
+                width: var(--size);
+                height: var(--size);
             }
         }
     }
@@ -336,13 +336,18 @@
         @include utils.head(189, '../public/backgrounds/bg-5.jpg');
     }
 
-    article {
+    .about_body {
         display: flex;
         background-image: url('../public/backgrounds/bg-5.jpg');
         background-color: hsl(189, 100%, 70%);
         background-size: 100%;
         background-blend-mode: screen;
         box-shadow: inset 500px -20px 40px 20px hsl(189, 100%, 70%);
+
+        ::selection {
+            background: hsl(189, 100%, 10%);
+            color: hsl(189, 100%, 70%);
+        }
 
         p {
             @include utils.padding;
@@ -386,7 +391,7 @@
         @include utils.head(0, '../public/backgrounds/bg-6.jpg');
     }
 
-    div:nth-of-type(2) {
+    .contact_links {
         display: flex;
         gap: 0.5rem;
 
@@ -438,7 +443,7 @@
             }
         }
 
-        form {
+        .contact_body {
             width: 100%;
             @include utils.section(0);
             @include utils.padding;
@@ -483,9 +488,7 @@
                 }
 
                 @media (max-width: 800px) {
-                    width: -webkit-fill-available;
-                    width: -moz-fill-available;
-                    width: -o-fill-available;
+                    width: stretch;
                 }
             }
         }
