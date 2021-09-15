@@ -1,40 +1,6 @@
 @use './utils';
 @use 'sass:list';
 
-@mixin section-button($hue, $bg) {
-    & > div:nth-of-type(2) {
-        ::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
-        }
-        display: flex;
-        h1 {
-            @include utils.padding;
-            width: 100%;
-            display: inline-block;
-            @include utils.section($hue);
-        }
-        button,
-        a {
-            width: stretch;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            span {
-                font-size: 1.6rem;
-            }
-            @include utils.section-bg($bg, $hue, 150%);
-            @media (max-width: 800px) {
-                background-size: 200%;
-            }
-        }
-
-        @media (max-width: 800px) {
-            flex-direction: column;
-        }
-    }
-}
-
 .header {
     height: calc(100vh - 6rem);
     @include utils.padding;
@@ -167,6 +133,23 @@
         display: flex;
         height: 400px;
 
+        $color: 0, 62, 157, 279, 192;
+        $bg: '../public/backgrounds/bg-1.jpg', '../public/backgrounds/bg-2.jpg', '../public/backgrounds/bg-3.jpg',
+            '../public/backgrounds/bg-4.jpg', '../public/backgrounds/bg-5.jpg';
+        @for $i from 1 through 5 {
+            &:nth-of-type(#{$i}) {
+                & > div:nth-of-type(2) {
+                    @include utils.section-bg(list.nth($bg, $i), list.nth($color, $i), 150%);
+                    @media (max-width: 800px) {
+                        background-size: 150%;
+                    }
+                }
+                & > div:nth-of-type(1) {
+                    @include utils.section(list.nth($color, $i));
+                }
+            }
+        }
+
         & > div:nth-of-type(2) {
             width: 100%;
             height: 100%;
@@ -227,26 +210,9 @@
             height: 100%;
             flex-direction: column-reverse;
         }
-
-        $color: 0, 62, 157, 279, 192;
-        $bg: '../public/backgrounds/bg-1.jpg', '../public/backgrounds/bg-2.jpg', '../public/backgrounds/bg-3.jpg',
-            '../public/backgrounds/bg-4.jpg', '../public/backgrounds/bg-5.jpg';
-        @for $i from 1 through 5 {
-            &:nth-of-type(#{$i}) {
-                & > div:nth-of-type(2) {
-                    @include utils.section-bg(list.nth($bg, $i), list.nth($color, $i), 150%);
-                    @media (max-width: 800px) {
-                        background-size: 150%;
-                    }
-                }
-                & > div:nth-of-type(1) {
-                    @include utils.section(list.nth($color, $i));
-                }
-            }
-        }
     }
 
-    @include section-button(238, '../public/backgrounds/bg-2.jpg');
+    @include utils.section-button(238, '../public/backgrounds/bg-2.jpg');
 }
 
 .skills {
@@ -297,7 +263,7 @@
         }
     }
 
-    @include section-button(299, '../public/backgrounds/bg-3.jpg');
+    @include utils.section-button(299, '../public/backgrounds/bg-3.jpg');
 }
 
 .technologies {
@@ -358,7 +324,7 @@
         }
     }
 
-    @include section-button(120, '../public/backgrounds/bg-4.jpg');
+    @include utils.section-button(120, '../public/backgrounds/bg-4.jpg');
 }
 
 .about {
@@ -408,7 +374,7 @@
         }
     }
 
-    @include section-button(189, '../public/backgrounds/bg-5.jpg');
+    @include utils.section-button(189, '../public/backgrounds/bg-5.jpg');
 }
 
 .contact {

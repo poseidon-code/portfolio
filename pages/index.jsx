@@ -34,6 +34,7 @@ import Stat from '../components/Home/Stat';
 import Project from '../components/Home/Project';
 import Skill from '../components/Home/Skill';
 import Technology from '../components/Home/Technology';
+import SectionButton from '../components/UI/SectionButton';
 
 export const getServerSideProps = async () => {
     const data = await homeData();
@@ -132,9 +133,9 @@ const Home = (props) => {
             <div className={styles.introduction}>
                 <section className={styles.cta}>
                     <p>
-                        I'm a Kolkata based software engineer who specializes in building and designing full stack products leading projects
-                        from research to implementation. I combine empathy, business strategy and design to create exceptional user
-                        experiences.
+                        I'm a Kolkata based software engineer who specializes in building and designing full stack
+                        products leading projects from research to implementation. I combine empathy, business strategy
+                        and design to create exceptional user experiences.
                     </p>
                     <div>
                         <Button href='#projects' style={{ '--hue': 332 }}>
@@ -158,8 +159,9 @@ const Home = (props) => {
                 <div className={styles.projects_head}>
                     <h1>Featured Projects</h1>
                     <h2>
-                        My creative mindset and my passion for designning yeilded these fine results. With a core background of computer
-                        programming and a creative hobby made me look always forwards to perfection.
+                        My creative mindset and my passion for designning yeilded these fine results. With a core
+                        background of computer programming and a creative hobby made me look always forwards to
+                        perfection.
                     </h2>
                 </div>
 
@@ -198,20 +200,17 @@ const Home = (props) => {
                     tech={['Python', 'YouTubeDL', 'FFmpeg']}
                 />
 
-                <div>
-                    <h1>Many more projects awaits you :)</h1>
-                    <Button link href='/projects'>
-                        Check Out
-                    </Button>
-                </div>
+                <SectionButton text='Many more projects awaits you :)' link href='/projects'>
+                    Check Out
+                </SectionButton>
             </section>
 
             <section className={styles.skills}>
                 <div className={styles.skills_head}>
                     <h1>Skill Sets</h1>
                     <h2>
-                        Modern technologies helped me to upgrade from traditional methods to new ways. Implementing logics helped me with my
-                        programming confidence.
+                        Modern technologies helped me to upgrade from traditional methods to new ways. Implementing
+                        logics helped me with my programming confidence.
                     </h2>
                 </div>
                 <ul>
@@ -236,18 +235,22 @@ const Home = (props) => {
                     <Skill skill='CSS3' />
                     <Skill skill='SASS' />
                 </ul>
-                <div>
+                <SectionButton text='Want my skill sets for your project ?' href='#contact'>
+                    Hire Me
+                </SectionButton>
+                {/* <div>
                     <h1>Want my skill sets for your project ?</h1>
-                    <Button href='#contact'>Hire Me</Button>
-                </div>
+                    <Button href='#contact'></Button>
+                </div> */}
             </section>
 
             <section className={styles.technologies}>
                 <div className={styles.technologies_head}>
                     <h1>Technologies Tackled</h1>
                     <h2>
-                        I have experience with most of the important UI designing / coding frameworks, proficient with with both javascript
-                        based backend and frontend development. I am also skilled with various designing softwares.
+                        I have experience with most of the important UI designing / coding frameworks, proficient with
+                        with both javascript based backend and frontend development. I am also skilled with various
+                        designing softwares.
                     </h2>
                 </div>
                 <ul>
@@ -267,10 +270,9 @@ const Home = (props) => {
                     <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />
                     <Technology technology='Git & Github' text='Version Control' icon={<Git />} />
                 </ul>
-                <div>
-                    <h1>Do you want to implement these technologies in your product ?</h1>
-                    <Button href='#contact'>Let's Talk</Button>
-                </div>
+                <SectionButton text='Do you want to implement these technologies in your product ?' href='#contact'>
+                    Let's Talk
+                </SectionButton>
             </section>
 
             <section className={styles.about}>
@@ -280,17 +282,18 @@ const Home = (props) => {
                 </div>
                 <article>
                     <p>
-                        Hello ! So now that you have gone through my skills, projects and my interests, how about I tell you about my
-                        passion :) ? I am a college student of Computer Science (Honors) in 3rd year, living with my parents and my younger
-                        brother in Debpukur.
+                        Hello ! So now that you have gone through my skills, projects and my interests, how about I tell
+                        you about my passion :) ? I am a college student of Computer Science (Honors) in 3rd year,
+                        living with my parents and my younger brother in Debpukur.
                         <br />
                         <br />
-                        I love drawing, digital painting, graphics designing, reading, coding, programming, photoshoping, making
-                        illustrations, making videos, running a youtube channel, managing businesses' / brands' pages and lots more.
+                        I love drawing, digital painting, graphics designing, reading, coding, programming,
+                        photoshoping, making illustrations, making videos, running a youtube channel, managing
+                        businesses' / brands' pages and lots more.
                         <br />
                         <br />
-                        My true goal in my life is to do the job I love, that is programming, coding & designing; because in that moment I
-                        would be at my best, always :)
+                        My true goal in my life is to do the job I love, that is programming, coding & designing;
+                        because in that moment I would be at my best, always :)
                         <br /> <br />
                         <a href='/Resume - Pritam Halder.pdf' download>
                             <Download />
@@ -305,12 +308,9 @@ const Home = (props) => {
                         </a>
                     </p>
                 </article>
-                <div>
-                    <h1>Wanna know more about my experiences till now ?</h1>
-                    <Button link href='/about'>
-                        More About Me
-                    </Button>
-                </div>
+                <SectionButton text='Wanna know more about my experiences till now ?' link href='/about'>
+                    More About Me
+                </SectionButton>
             </section>
 
             <section id='contact' className={styles.contact}>
@@ -326,7 +326,10 @@ const Home = (props) => {
                         <a href='https://instagram.com/pritam.poseidon' target='_blank' rel='noopener noreferrer'>
                             <Instagram />
                         </a>
-                        <a href='https://linkedin.com/in/pritam-halder-8306741b3' target='_blank' rel='noopener noreferrer'>
+                        <a
+                            href='https://linkedin.com/in/pritam-halder-8306741b3'
+                            target='_blank'
+                            rel='noopener noreferrer'>
                             <Linkedin />
                         </a>
                         <a href='https://github.com/poseidon-code' target='_blank' rel='noopener noreferrer'>
@@ -335,8 +338,22 @@ const Home = (props) => {
                     </div>
                     <form method='POST' onSubmit={submitHandler}>
                         <input disabled={sending} type='text' ref={nameRef} name='name' placeholder='Name' required />
-                        <input disabled={sending} type='email' ref={emailRef} name='email' placeholder='Email' required />
-                        <input disabled={sending} type='text' ref={subjectRef} name='subject' placeholder='Subject' required />
+                        <input
+                            disabled={sending}
+                            type='email'
+                            ref={emailRef}
+                            name='email'
+                            placeholder='Email'
+                            required
+                        />
+                        <input
+                            disabled={sending}
+                            type='text'
+                            ref={subjectRef}
+                            name='subject'
+                            placeholder='Subject'
+                            required
+                        />
                         <textarea
                             disabled={sending}
                             placeholder='Your Message'
