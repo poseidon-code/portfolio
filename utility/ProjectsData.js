@@ -21,15 +21,27 @@ const PROJECTDATA = gql`
     }
 `;
 
-const get = async () => {
+const get_projects = async () => {
     const { data } = await client.query({
         query: PROJECTDATA,
     });
 
+    return data;
+};
+
+const get_githubrepos = async () => {
     const githubrepos = await fetch('https://api.github.com/users/poseidon-code/repos', {
         method: 'GET',
         'Content-Type': 'application/json',
     }).then((res) => res.json());
+
+    githubrepos.sort((a, b) => {
+        let ta = new Date(a.updated_at).getTime();
+        let tb = new Date(b.updated_at).getTime();
+        if (ta < tb) return 1;
+        if (ta > tb) return -1;
+        return 0;
+    });
 
     const repos = githubrepos.map((g) => {
         return {
@@ -40,8 +52,15 @@ const get = async () => {
         };
     });
 
+    return repos;
+};
+
+const get = async () => {
+    const repos = await get_githubrepos();
+    const projects = await get_projects();
+
     return {
-        projectdata: data,
+        projectdata: projects,
         githubdata: repos,
         // githubstats: ,
     };
