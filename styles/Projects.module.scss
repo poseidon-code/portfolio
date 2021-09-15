@@ -37,7 +37,7 @@
 .projects {
     width: 100%;
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
     grid-template-columns: repeat(2, 1fr);
 
     @media (max-width: 800px) {
