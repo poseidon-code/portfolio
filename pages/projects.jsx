@@ -4,6 +4,7 @@ import { projectData } from '../utility/ProjectsData';
 import Project from '../components/Projects/Project';
 import OSC from '../components/Projects/OSC';
 import Repo from '../components/Projects/Repo';
+import SectionButton from '../components/UI/SectionButton';
 
 export const getStaticProps = async () => {
     const data = await projectData();
@@ -78,13 +79,16 @@ const Projects = (props) => {
             <section className={styles.repos}>
                 <div className={styles.repos_head}>
                     <h1>Github Repositories</h1>
-                    <h2>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo, ducimus.</h2>
+                    <h2>Simplicity is the soul of efficiency.</h2>
                 </div>
-                <div>
+                <div className={styles.repos_body}>
                     {props.repos.map((r, i) => (
                         <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />
                     ))}
                 </div>
+                <SectionButton text='Would you like to visit my Github ?' href='https://github.com/poseidon-code'>
+                    Check Github
+                </SectionButton>
             </section>
 
             <section className={styles.footer}>

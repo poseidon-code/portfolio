@@ -87,7 +87,7 @@
             top: 50%;
             transform: translate(0%, -50%) rotate(30deg);
             font-size: 20rem;
-            opacity: 0.2;
+            opacity: 0.1;
             user-select: none;
             pointer-events: none;
         }
@@ -180,7 +180,7 @@
             top: 50%;
             transform: translate(0%, -50%) rotate(-30deg);
             font-size: 20rem;
-            opacity: 0.2;
+            opacity: 0.1;
             user-select: none;
             pointer-events: none;
         }
@@ -230,75 +230,77 @@
         @include utils.head(74, '../public/backgrounds/bg-1.jpg');
     }
 
-    div:nth-of-type(2) {
+    .repos_body {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
-    }
 
-    .repo {
-        all: unset;
-        padding: 1rem 2rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 2;
-        transition: color var(--time) ease-out, background-color var(--time) ease-out;
-        cursor: pointer;
+        .repo {
+            all: unset;
+            padding: 1rem 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 2;
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
+            cursor: pointer;
 
-        @for $i from 1 through 50 {
-            &:nth-of-type(#{$i}) {
-                $hue: random(360);
-                color: hsl($hue, 100%, 10%);
-                background-color: hsl($hue, 100%, 70%);
+            @for $i from 1 through 50 {
+                &:nth-of-type(#{$i}) {
+                    $hue: random(360);
+                    color: hsl($hue, 100%, 10%);
+                    background-color: hsl($hue, 100%, 70%);
 
-                &:hover {
-                    color: hsl($hue, 100%, 70%);
-                    background-color: hsl($hue, 100%, 10%);
+                    &:hover {
+                        color: hsl($hue, 100%, 70%);
+                        background-color: hsl($hue, 100%, 10%);
+
+                        ::selection {
+                            background: hsl($hue, 100%, 70%);
+                            color: hsl($hue, 100%, 10%);
+                        }
+                    }
 
                     ::selection {
-                        background: hsl($hue, 100%, 70%);
-                        color: hsl($hue, 100%, 10%);
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
                     }
                 }
-
-                ::selection {
-                    background: hsl($hue, 100%, 10%);
-                    color: hsl($hue, 100%, 70%);
-                }
             }
-        }
 
-        svg {
-            --size: 2.4rem;
-            width: var(--size);
-            height: var(--size);
-        }
+            svg {
+                --size: 2.4rem;
+                width: var(--size);
+                height: var(--size);
+            }
 
-        p {
-            font-size: 1.4rem;
-            font-family: utils.$font-mono;
-            font-weight: bold;
-        }
-
-        div {
-            display: flex;
-            gap: 0.5rem;
-
-            span {
-                display: flex;
-                align-items: center;
-                font-size: 1rem;
-                font-weight: bold;
+            p {
+                font-size: 1.4rem;
                 font-family: utils.$font-mono;
+                font-weight: bold;
+            }
 
-                svg {
-                    --size: 1rem;
-                    width: var(--size);
-                    height: var(--size);
+            div {
+                display: flex;
+                gap: 0.5rem;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                    font-size: 1rem;
+                    font-weight: bold;
+                    font-family: utils.$font-mono;
+
+                    svg {
+                        --size: 1rem;
+                        width: var(--size);
+                        height: var(--size);
+                    }
                 }
             }
         }
     }
+
+    @include utils.section-button(74, '../public/backgrounds/bg-1.jpg');
 }
 
 .footer {
