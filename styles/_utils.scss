@@ -8,33 +8,6 @@ $font-regular: 'Overpass', sans-serif;
     }
 }
 
-@mixin section-bg($url, $hue, $bs) {
-    color: hsl($hue, 100%, 10%);
-    background: url($url) no-repeat;
-    background-color: hsl($hue, 100%, 70%);
-    background-size: $bs;
-    background-blend-mode: screen;
-    background-position: 50% 0%;
-    transition: color var(--time) ease-out, background-color var(--time) ease-out, background-position var(--time) ease-out,
-        background-blend-mode var(--time) ease-out;
-
-    &:hover {
-        color: hsl($hue, 100%, 70%);
-        background-color: hsl($hue, 100%, 10%);
-        background-position: 20% 0%;
-        background-blend-mode: luminosity;
-    }
-
-    ::selection {
-        background: hsl($hue, 100%, 10%);
-        color: hsl($hue, 100%, 70%);
-    }
-
-    @media (max-width: 800px) {
-        background-size: cover;
-    }
-}
-
 @mixin section($hue) {
     color: hsl($hue, 100%, 10%);
     background-color: hsl($hue, 100%, 70%);
@@ -71,6 +44,72 @@ $font-regular: 'Overpass', sans-serif;
         }
         h2 {
             font-size: 0.9rem;
+        }
+    }
+}
+
+@mixin section-bg($url, $hue, $bs) {
+    color: hsl($hue, 100%, 10%);
+    background: url($url) no-repeat;
+    background-color: hsl($hue, 100%, 70%);
+    background-size: $bs;
+    background-blend-mode: screen;
+    background-position: 50% 0%;
+    transition: color var(--time) ease-out, background-color var(--time) ease-out,
+        background-position var(--time) ease-out, background-blend-mode var(--time) ease-out;
+
+    &:hover {
+        color: hsl($hue, 100%, 70%);
+        background-color: hsl($hue, 100%, 10%);
+        background-position: 20% 0%;
+        background-blend-mode: luminosity;
+
+        ::selection {
+            background: hsl($hue, 100%, 70%);
+            color: hsl($hue, 100%, 10%);
+        }
+    }
+
+    ::selection {
+        background: hsl($hue, 100%, 10%);
+        color: hsl($hue, 100%, 70%);
+    }
+
+    @media (max-width: 800px) {
+        background-size: cover;
+    }
+}
+
+@mixin section-button($hue, $bg) {
+    & > div:last-of-type {
+        ::selection {
+            background: hsl($hue, 100%, 10%);
+            color: hsl($hue, 100%, 70%);
+        }
+        display: flex;
+        h1 {
+            @include padding;
+            width: 100%;
+            display: inline-block;
+            @include section($hue);
+        }
+        button,
+        a {
+            width: stretch;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+                font-size: 1.6rem;
+            }
+            @include section-bg($bg, $hue, 150%);
+            @media (max-width: 800px) {
+                background-size: 200%;
+            }
+        }
+
+        @media (max-width: 800px) {
+            flex-direction: column;
         }
     }
 }
