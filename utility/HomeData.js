@@ -1,7 +1,7 @@
 import formatCount from './formatCount';
 
-export default async () => {
-    const hours = await fetch('https://wakatime.com/api/v1/users/poseidoncode/all_time_since_today', {
+const get_hours = async () => {
+    const data = await fetch('https://wakatime.com/api/v1/users/poseidoncode/all_time_since_today', {
         method: 'GET',
         headers: {
             Authorization: `Basic ${Buffer.from(process.env.WAKATIME_API_KEY).toString('base64')}`,
@@ -10,13 +10,27 @@ export default async () => {
         .then((res) => res.json())
         .then((data) => data.data.total_seconds);
 
-    const visitors = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
+    return data;
+};
+
+const get_visitors = async () => {
+    const data = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
         .then((res) => res.json())
         .then((data) => data.value);
+    return data;
+};
 
-    const repos = await fetch('https://api.github.com/users/poseidon-code')
+const get_repos = async () => {
+    const data = await fetch('https://api.github.com/users/poseidon-code')
         .then((res) => res.json())
         .then((data) => data.public_repos);
+    return data;
+};
+
+export const homeData = async () => {
+    const hours = await get_hours();
+    const visitors = await get_visitors();
+    const repos = await get_repos();
 
     const data = {
         hours: formatCount((hours / 3600).toFixed(1)),

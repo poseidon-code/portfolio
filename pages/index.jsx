@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
+import { homeData } from '../utility/HomeData';
 import styles from '../styles/Home.module.scss';
 
-import homeData from '../utility/HomeData';
-
 import Button from '../components/UI/Button';
+import SectionButton from '../components/UI/SectionButton';
 import {
     Clock,
     Visitors,
@@ -34,7 +34,6 @@ import Stat from '../components/Home/Stat';
 import Project from '../components/Home/Project';
 import Skill from '../components/Home/Skill';
 import Technology from '../components/Home/Technology';
-import SectionButton from '../components/UI/SectionButton';
 
 export const getServerSideProps = async () => {
     const data = await homeData();
