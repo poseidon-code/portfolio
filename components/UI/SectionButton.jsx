@@ -1,12 +1,10 @@
 import Button from './Button';
 
-const SectionButton = (props) => {
+const SectionButton = ({ children, text, ...rest }) => {
     return (
         <div>
-            <h1>{props.text}</h1>
-            <Button link={props.link} href={props.href}>
-                {props.children}
-            </Button>
+            <h1>{text}</h1>
+            <Button {...rest}>{children}</Button>
         </div>
     );
 };

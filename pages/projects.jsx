@@ -86,7 +86,11 @@ const Projects = (props) => {
                         <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />
                     ))}
                 </div>
-                <SectionButton text='Would you like to visit my Github ?' href='https://github.com/poseidon-code'>
+                <SectionButton
+                    text='Would you like to visit my Github ?'
+                    href='https://github.com/poseidon-code'
+                    target='_blank'
+                    rel='noopener noreferrer'>
                     Check Github
                 </SectionButton>
             </section>
