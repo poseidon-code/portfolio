@@ -1,8 +1,6 @@
 import formatCount from './formatCount';
-import { gql } from '@apollo/client';
-import client from '../apollo';
 
-const PROJECTDATA = gql`
+const PROJECTDATA = `
     query GetData {
         projects {
             id
@@ -10,7 +8,7 @@ const PROJECTDATA = gql`
             description
             technologies
             links
-        }
+        },
         openSourceContributions {
             id
             name
@@ -21,10 +19,51 @@ const PROJECTDATA = gql`
     }
 `;
 
+const GITHUBDATA = `
+    query GithubData {
+
+    }
+`;
+
+const GITHUBSTATS = `
+    query GetGithubStats {
+        user(login: "poseidon-code") {
+            repositories(first: 100) {
+                totalCount
+                nodes {
+                    forkCount
+                    stargazerCount
+                    diskUsage
+                }
+            }
+        }
+    }
+`;
+
+const GITHUBLANGUAGES = `
+    query GetGihubLanguages {
+        user(login: "poseidon-code") {
+            repositories(first: 100) {
+                nodes {
+                    primaryLanguage {
+                        name
+                    }
+                }
+            }
+        }
+    }
+`;
+
 const get_projects = async () => {
-    const { data } = await client.query({
-        query: PROJECTDATA,
-    });
+    const data = await fetch('http://localhost:1337/graphql', {
+        method: 'POST',
+        body: JSON.stringify({ query: PROJECTDATA }),
+        headers: {
+            'Content-Type': 'application/json',
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => data.data);
 
     return data;
 };
@@ -55,14 +94,61 @@ const get_githubrepos = async () => {
     return repos;
 };
 
+const get_githubstats = async () => {
+    const data = await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        body: JSON.stringify({ query: GITHUBSTATS }),
+        headers: {
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => data.data);
+
+    const total_repos = formatCount(data.user.repositories.totalCount);
+    let total_forks = 0;
+    let total_stars = 0;
+    let total_size = 0;
+
+    data.user.repositories.nodes.forEach((r) => {
+        total_forks += r.forkCount;
+        total_stars += r.stargazerCount;
+        total_size += r.diskUsage;
+    });
+
+    return {
+        forks: formatCount(total_forks),
+        size: (total_size / 1000).toFixed(1) + 'M',
+        stars: formatCount(total_stars),
+        repos: formatCount(total_repos),
+    };
+};
+
+const get_languages = async () => {
+    const data = await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        body: JSON.stringify({ query: GITHUBLANGUAGES }),
+        headers: {
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => data.data);
+
+    console.log(data);
+};
+
 const get = async () => {
     const repos = await get_githubrepos();
     const projects = await get_projects();
+    const githubstats = await get_githubstats();
+    const languages = await get_languages();
 
     return {
         projectdata: projects,
         githubdata: repos,
-        // githubstats: ,
+        githubstats: githubstats,
+        languages: languages,
     };
 };
 
@@ -90,11 +176,13 @@ export const SYMBOLS = [
 ];
 
 export const projectData = async () => {
-    const { projectdata, githubdata } = await get();
+    const { projectdata, githubdata, githubstats, languages } = await get();
 
     return {
         projects: projectdata.projects,
         opensourcecontributions: projectdata.openSourceContributions,
         repos: githubdata,
+        stats: githubstats,
+        languages: languages,
     };
 };

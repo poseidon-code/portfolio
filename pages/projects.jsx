@@ -1,10 +1,13 @@
 import styles from '../styles/Projects.module.scss';
 import { projectData } from '../utility/ProjectsData';
 
+import SectionButton from '../components/UI/SectionButton';
+import { Star } from '../components/UI/Icons';
+
 import Project from '../components/Projects/Project';
 import OSC from '../components/Projects/OSC';
 import Repo from '../components/Projects/Repo';
-import SectionButton from '../components/UI/SectionButton';
+import Stat from '../components/Projects/Stat';
 
 export const getStaticProps = async () => {
     const data = await projectData();
@@ -14,6 +17,7 @@ export const getStaticProps = async () => {
             projects: data.projects,
             osc: data.opensourcecontributions,
             repos: data.repos,
+            stats: data.stats,
         },
     };
 };
@@ -44,6 +48,13 @@ const Projects = (props) => {
                 <h2>"You’re purrfect"</h2>
                 <h1>Projects</h1>
                 <h2>Imagination is more important than knowledge.</h2>
+            </section>
+
+            <section className={styles.stats}>
+                <Stat icon={<Star />} number={props.stats.repos} text='Repositories' />
+                <Stat icon={<Star />} number={props.stats.forks} text='Total Forks' />
+                <Stat icon={<Star />} number={props.stats.stars} text='Total Stars' />
+                <Stat icon={<Star />} number={props.stats.size} text='Total Size' />
             </section>
 
             <section className={styles.projects}>
