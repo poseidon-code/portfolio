@@ -23,7 +23,6 @@ const GITHUBREPOS = `
     query GetGithubRepos {
         user(login: "poseidon-code") {
             repositories(privacy: PUBLIC, first: 100, ownerAffiliations: OWNER) {
-                totalCount
                 nodes {
                     name
                     updatedAt
@@ -41,10 +40,10 @@ const GITHUBSTATS = `
         user(login: "poseidon-code") {
             repositories(first: 100) {
                 totalCount
+                totalDiskUsage
                 nodes {
                     forkCount
                     stargazerCount
-                    diskUsage
                 }
             }
         }
@@ -121,20 +120,19 @@ const get_githubstats = async () => {
         .then((res) => res.json())
         .then((data) => data.data);
 
-    const total_repos = formatCount(data.user.repositories.totalCount);
+    const total_repos = data.user.repositories.totalCount;
+    const total_size = (data.user.repositories.totalDiskUsage / 1000).toFixed(1) + 'M';
     let total_forks = 0;
     let total_stars = 0;
-    let total_size = 0;
 
     data.user.repositories.nodes.forEach((r) => {
         total_forks += r.forkCount;
         total_stars += r.stargazerCount;
-        total_size += r.diskUsage;
     });
 
     return {
         forks: formatCount(total_forks),
-        size: (total_size / 1000).toFixed(1) + 'M',
+        size: total_size,
         stars: formatCount(total_stars),
         repos: formatCount(total_repos),
     };
@@ -152,6 +150,8 @@ const get_languages = async () => {
         .then((data) => data.data);
 
     console.log(data);
+
+    return data;
 };
 
 const get = async () => {
