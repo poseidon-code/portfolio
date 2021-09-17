@@ -19,9 +19,20 @@ const PROJECTDATA = `
     }
 `;
 
-const GITHUBDATA = `
-    query GithubData {
-
+const GITHUBREPOS = `
+    query GetGithubRepos {
+        user(login: "poseidon-code") {
+            repositories(privacy: PUBLIC, first: 100, ownerAffiliations: OWNER) {
+                totalCount
+                nodes {
+                    name
+                    updatedAt
+                    url
+                    forkCount
+                    stargazerCount
+                }
+            }
+        }
     }
 `;
 
@@ -41,7 +52,7 @@ const GITHUBSTATS = `
 `;
 
 const GITHUBLANGUAGES = `
-    query GetGihubLanguages {
+    query GetGithubLanguages {
         user(login: "poseidon-code") {
             repositories(first: 100) {
                 nodes {
@@ -69,25 +80,30 @@ const get_projects = async () => {
 };
 
 const get_githubrepos = async () => {
-    const githubrepos = await fetch('https://api.github.com/users/poseidon-code/repos', {
-        method: 'GET',
-        'Content-Type': 'application/json',
-    }).then((res) => res.json());
+    const data = await fetch('https://api.github.com/graphql', {
+        method: 'POST',
+        body: JSON.stringify({ query: GITHUBREPOS }),
+        headers: {
+            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+        },
+    })
+        .then((res) => res.json())
+        .then((data) => data.data);
 
-    githubrepos.sort((a, b) => {
-        let ta = new Date(a.updated_at).getTime();
-        let tb = new Date(b.updated_at).getTime();
+    data.user.repositories.nodes.sort((a, b) => {
+        let ta = new Date(a.updatedAt).getTime();
+        let tb = new Date(b.updatedAt).getTime();
         if (ta < tb) return 1;
         if (ta > tb) return -1;
         return 0;
     });
 
-    const repos = githubrepos.map((g) => {
+    const repos = data.user.repositories.nodes.map((r) => {
         return {
-            name: g.name,
-            url: g.html_url,
-            stars: formatCount(g.stargazers_count),
-            forks: formatCount(g.forks_count),
+            name: r.name,
+            url: r.url,
+            stars: formatCount(r.stargazerCount),
+            forks: formatCount(r.forkCount),
         };
     });
 
@@ -146,7 +162,7 @@ const get = async () => {
 
     return {
         projectdata: projects,
-        githubdata: repos,
+        githubrepos: repos,
         githubstats: githubstats,
         languages: languages,
     };
@@ -176,12 +192,12 @@ export const SYMBOLS = [
 ];
 
 export const projectData = async () => {
-    const { projectdata, githubdata, githubstats, languages } = await get();
+    const { projectdata, githubrepos, githubstats, languages } = await get();
 
     return {
         projects: projectdata.projects,
         opensourcecontributions: projectdata.openSourceContributions,
-        repos: githubdata,
+        repos: githubrepos,
         stats: githubstats,
         languages: languages,
     };
