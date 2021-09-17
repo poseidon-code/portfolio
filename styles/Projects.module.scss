@@ -52,7 +52,7 @@
         align-items: center;
         font-size: 2rem;
 
-        $hue: 42;
+        $hue: 83;
         color: hsl($hue, 100%, 10%);
         background-color: hsl($hue, 100%, 70%);
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
@@ -64,9 +64,14 @@
         &:hover {
             color: hsl($hue, 100%, 70%);
             background-color: hsl($hue, 100%, 10%);
+
+            ::selection {
+                background: hsl($hue, 100%, 70%);
+                color: hsl($hue, 100%, 10%);
+            }
         }
 
-        &::selection {
+        ::selection {
             background: hsl($hue, 100%, 10%);
             color: hsl($hue, 100%, 70%);
         }
