@@ -65,7 +65,7 @@ const GITHUBLANGUAGES = `
 `;
 
 const get_projects = async () => {
-    const data = await fetch('http://localhost:1337/graphql', {
+    const projects = await fetch('http://localhost:1337/graphql', {
         method: 'POST',
         body: JSON.stringify({ query: PROJECTDATA }),
         headers: {
@@ -75,7 +75,7 @@ const get_projects = async () => {
         .then((res) => res.json())
         .then((data) => data.data);
 
-    return data;
+    return projects;
 };
 
 const get_githubrepos = async () => {
@@ -130,12 +130,14 @@ const get_githubstats = async () => {
         total_stars += r.stargazerCount;
     });
 
-    return {
+    const stats = {
         forks: formatCount(total_forks),
         size: total_size,
         stars: formatCount(total_stars),
         repos: formatCount(total_repos),
     };
+
+    return stats;
 };
 
 const get_languages = async () => {
@@ -155,14 +157,14 @@ const get_languages = async () => {
 };
 
 const get = async () => {
-    const repos = await get_githubrepos();
+    const githubrepos = await get_githubrepos();
     const projects = await get_projects();
     const githubstats = await get_githubstats();
     const languages = await get_languages();
 
     return {
-        projectdata: projects,
-        githubrepos: repos,
+        projects: projects,
+        githubrepos: githubrepos,
         githubstats: githubstats,
         languages: languages,
     };
@@ -192,11 +194,11 @@ export const SYMBOLS = [
 ];
 
 export const projectData = async () => {
-    const { projectdata, githubrepos, githubstats, languages } = await get();
+    const { projects, githubrepos, githubstats, languages } = await get();
 
     return {
-        projects: projectdata.projects,
-        opensourcecontributions: projectdata.openSourceContributions,
+        projects: projects.projects,
+        opensourcecontributions: projects.openSourceContributions,
         repos: githubrepos,
         stats: githubstats,
         languages: languages,
