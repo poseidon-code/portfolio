@@ -51,12 +51,15 @@ const GITHUBSTATS = `
 `;
 
 const GITHUBLANGUAGES = `
-    query GetGithubLanguages {
+    query GetLanguages {
         user(login: "poseidon-code") {
             repositories(first: 100) {
                 nodes {
-                    primaryLanguage {
-                        name
+                    languages(first: 100) {
+                        nodes {
+                            name
+                            color
+                        }
                     }
                 }
             }
@@ -151,9 +154,23 @@ const get_languages = async () => {
         .then((res) => res.json())
         .then((data) => data.data);
 
-    console.log(data);
+    let languages = [];
+    data.user.repositories.nodes.forEach((r) => {
+        r.languages.nodes.forEach((l) => {
+            languages.push(l.name);
+        });
+    });
+    const languages_used_count = languages.reduce((p, c) => (p[c] ? ++p[c] : (p[c] = 1), p), {});
 
-    return data;
+    let languages_map = new Map();
+    languages.forEach((l) => {
+        const percent = parseFloat(((languages_used_count[l] / languages.length) * 100).toFixed(2));
+        languages_map.set(l, percent);
+    });
+
+    const stats = Object.fromEntries(languages_map.entries());
+
+    return stats;
 };
 
 const get = async () => {

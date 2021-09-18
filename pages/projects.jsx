@@ -2,7 +2,7 @@ import styles from '../styles/Projects.module.scss';
 import { projectData } from '../utility/ProjectsData';
 
 import SectionButton from '../components/UI/SectionButton';
-import { Star } from '../components/UI/Icons';
+import { Star, Folder, Fork, Database } from '../components/UI/Icons';
 
 import Project from '../components/Projects/Project';
 import OSC from '../components/Projects/OSC';
@@ -18,6 +18,7 @@ export const getStaticProps = async () => {
             osc: data.opensourcecontributions,
             repos: data.repos,
             stats: data.stats,
+            languages: data.languages,
         },
     };
 };
@@ -51,10 +52,10 @@ const Projects = (props) => {
             </section>
 
             <section className={styles.stats}>
-                <Stat icon={<Star />} number={props.stats.repos} text='Repositories' />
-                <Stat icon={<Star />} number={props.stats.forks} text='Total Forks' />
+                <Stat icon={<Folder />} number={props.stats.repos} text='Repositories' />
+                <Stat icon={<Fork />} number={props.stats.forks} text='Total Forks' />
                 <Stat icon={<Star />} number={props.stats.stars} text='Total Stars' />
-                <Stat icon={<Star />} number={props.stats.size} text='Total Size' />
+                <Stat icon={<Database />} number={props.stats.size} text='Total Size' />
             </section>
 
             <section className={styles.projects}>
