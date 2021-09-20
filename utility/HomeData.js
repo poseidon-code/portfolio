@@ -14,10 +14,16 @@ const get_hours = async () => {
 };
 
 const get_visitors = async () => {
-    const data = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
+    const home = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app')
         .then((res) => res.json())
         .then((data) => data.value);
-    return data;
+    const projects = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app/projects')
+        .then((res) => res.json())
+        .then((data) => data.value);
+    const about = await fetch('https://api.countapi.xyz/hit/pritamh.netlify.app/about')
+        .then((res) => res.json())
+        .then((data) => data.value);
+    return home + projects + about;
 };
 
 const get_repos = async () => {
