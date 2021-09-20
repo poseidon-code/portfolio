@@ -8,6 +8,7 @@ import Project from '../components/Projects/Project';
 import OSC from '../components/Projects/OSC';
 import Repo from '../components/Projects/Repo';
 import Stat from '../components/Projects/Stat';
+import Languages from '../components/Projects/Languages'
 
 export const getStaticProps = async () => {
     const data = await projectData();
@@ -56,6 +57,10 @@ const Projects = (props) => {
                 <Stat icon={<Fork />} number={props.stats.forks} text='Total Forks' />
                 <Stat icon={<Star />} number={props.stats.stars} text='Total Stars' />
                 <Stat icon={<Database />} number={props.stats.size} text='Total Size' />
+            </section>
+
+            <section className={styles.languages}>
+                <Languages stats={props.languages} />
             </section>
 
             <section className={styles.projects}>
