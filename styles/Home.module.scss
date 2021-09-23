@@ -246,8 +246,13 @@
                     &:hover {
                         color: hsl($hue, 100%, 70%);
                         background-color: hsl($hue, 100%, 10%);
+            
+                        ::selection {
+                            background: hsl($hue, 100%, 70%);
+                            color: hsl($hue, 100%, 10%);
+                        }
                     }
-
+            
                     ::selection {
                         background: hsl($hue, 100%, 10%);
                         color: hsl($hue, 100%, 70%);
@@ -297,8 +302,13 @@
                     &:hover {
                         color: hsl($hue, 100%, 70%);
                         background-color: hsl($hue, 100%, 10%);
+            
+                        ::selection {
+                            background: hsl($hue, 100%, 70%);
+                            color: hsl($hue, 100%, 10%);
+                        }
                     }
-
+            
                     ::selection {
                         background: hsl($hue, 100%, 10%);
                         color: hsl($hue, 100%, 70%);
