@@ -1,4 +1,4 @@
-import formatCount from './formatCount';
+import { formatCount } from './formatCount';
 
 const PROJECTDATA = `
     query GetData {

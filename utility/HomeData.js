@@ -1,5 +1,5 @@
 import axios from 'axios';
-import formatCount from './formatCount';
+import { formatCount } from './formatCount';
 
 // GET (REST) "Hours Spent" from "wakatime.com"
 // uses: Basic Authorization (with Wakatime API key converted to base64 string)
