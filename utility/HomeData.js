@@ -33,6 +33,7 @@ const get_visitors = async () => {
      * (unless the owner wishes to remove previous counts)
      */
     const SITES = ['pritamh.netlify.app'];
+
     // Endpoints
     /**
      * it is required to have a base endpoint (i.e. '/') always
@@ -72,7 +73,7 @@ const get_visitors = async () => {
      * returns: summation of all counts
      */
     const data = await Promise.all(getcounts).then((counts) => {
-        // sum of every count in the counts[]
+        // sum of every number in the counts[]
         return counts.reduce((a, b) => a + b, 0);
     });
 
@@ -100,15 +101,15 @@ const get_repos = async () => {
 // returns: object containing counts for "Hours Spent", "Visitors", "Github Repos" and "Frameworks"
 // formatCount() is used for rounding values and suffixing their respective acronyms
 export const homeData = async () => {
-    const hours = await get_hours(); // fetching "Hours Spent"
-    const visitors = await get_visitors(); // fetching "Visitors"
-    const repos = await get_repos(); // fetching "Github Repos"
+    const hours = await get_hours();            // fetching "Hours Spent"
+    const visitors = await get_visitors();      // fetching "Visitors"
+    const repos = await get_repos();            // fetching "Github Repos"
 
     const data = {
-        hours: formatCount((hours / 3600).toFixed(1)), // getting in Hours format
-        visitors: formatCount(visitors), // formatting number
-        repos: formatCount(repos), // formating number
-        frameworks: formatCount(16), // setting & formating "Frameworks"
+        hours: formatCount((hours / 3600).toFixed(1)),      // getting in Hours format
+        visitors: formatCount(visitors),                    // formatting number
+        repos: formatCount(repos),                          // formating number
+        frameworks: formatCount(16),                        // setting & formating "Frameworks"
     };
 
     // returns: {hours, visitors, repos, frameworks}
