@@ -1,3 +1,4 @@
+import axios from 'axios';
 import { formatCount } from './formatCount';
 
 const PROJECTDATA = `
@@ -68,31 +69,21 @@ const GITHUBLANGUAGES = `
 `;
 
 const get_projects = async () => {
-    const projects = await fetch('http://localhost:1337/graphql', {
-        method: 'POST',
-        body: JSON.stringify({ query: PROJECTDATA }),
-        headers: {
-            'Content-Type': 'application/json',
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => data.data);
+    const data = await axios.post('http://localhost:1337/graphql', { query: PROJECTDATA }).then((res) => res.data.data);
 
-    return projects;
+    return data;
 };
 
 const get_githubrepos = async () => {
-    const data = await fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        body: JSON.stringify({ query: GITHUBREPOS }),
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => data.data);
+    const data = await axios
+        .post(
+            'https://api.github.com/graphql',
+            { query: GITHUBREPOS },
+            { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
+        )
+        .then((res) => res.data.data.user.repositories.nodes);
 
-    data.user.repositories.nodes.sort((a, b) => {
+    data.sort((a, b) => {
         let ta = new Date(a.updatedAt).getTime();
         let tb = new Date(b.updatedAt).getTime();
         if (ta < tb) return 1;
@@ -100,35 +91,31 @@ const get_githubrepos = async () => {
         return 0;
     });
 
-    const repos = data.user.repositories.nodes.map((r) => {
-        return {
-            name: r.name,
-            url: r.url,
-            stars: formatCount(r.stargazerCount),
-            forks: formatCount(r.forkCount),
-        };
-    });
+    const repos = data.map((r) => ({
+        name: r.name,
+        url: r.url,
+        stars: formatCount(r.stargazerCount),
+        forks: formatCount(r.forkCount),
+    }));
 
     return repos;
 };
 
 const get_githubstats = async () => {
-    const data = await fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        body: JSON.stringify({ query: GITHUBSTATS }),
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => data.data);
+    const data = await axios
+        .post(
+            'https://api.github.com/graphql',
+            { query: GITHUBSTATS },
+            { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
+        )
+        .then((res) => res.data.data.user.repositories);
 
-    const total_repos = data.user.repositories.totalCount;
-    const total_size = (data.user.repositories.totalDiskUsage / 1000).toFixed(1) + 'M';
+    const total_repos = data.totalCount;
+    const total_size = (data.totalDiskUsage / 1000).toFixed(1) + 'M';
     let total_forks = 0;
     let total_stars = 0;
 
-    data.user.repositories.nodes.forEach((r) => {
+    data.nodes.forEach((r) => {
         total_forks += r.forkCount;
         total_stars += r.stargazerCount;
     });
@@ -144,18 +131,16 @@ const get_githubstats = async () => {
 };
 
 const get_languages = async () => {
-    const data = await fetch('https://api.github.com/graphql', {
-        method: 'POST',
-        body: JSON.stringify({ query: GITHUBLANGUAGES }),
-        headers: {
-            Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        },
-    })
-        .then((res) => res.json())
-        .then((data) => data.data);
+    const data = await axios
+        .post(
+            'https://api.github.com/graphql',
+            { query: GITHUBLANGUAGES },
+            { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
+        )
+        .then((res) => res.data.data.user.repositories.nodes);
 
     let languages = [];
-    data.user.repositories.nodes.forEach((r) => {
+    data.forEach((r) => {
         r.languages.nodes.forEach((l) => {
             languages.push(l.name);
         });
@@ -174,8 +159,8 @@ const get_languages = async () => {
 };
 
 const get = async () => {
-    const githubrepos = await get_githubrepos();
     const projects = await get_projects();
+    const githubrepos = await get_githubrepos();
     const githubstats = await get_githubstats();
     const languages = await get_languages();
 
