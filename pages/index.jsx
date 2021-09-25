@@ -2,8 +2,7 @@ import { useRef, useState } from 'react';
 import { homeData } from '../utility/HomeData';
 import styles from '../styles/Home.module.scss';
 
-import Button from '../components/UI/Button';
-import SectionButton from '../components/UI/SectionButton';
+import { Button, SectionButton } from '../components/UI';
 import {
     Clock,
     Visitors,
@@ -30,23 +29,22 @@ import {
     Firebase,
 } from '../components/UI/Icons';
 
-import Stat from '../components/Home/Stat';
-import Project from '../components/Home/Project';
-import Skill from '../components/Home/Skill';
-import Technology from '../components/Home/Technology';
+import { Project, Skill, Stat, Technology } from '../components/Home';
 
 export const getServerSideProps = async () => {
-    const data = await homeData();
+    const { hours, visitors, repos, frameworks } = await homeData();
 
     return {
         props: {
-            stats: data,
+            stats: { hours, visitors, repos, frameworks },
         },
     };
 };
 
 const Home = (props) => {
-    const { stats } = props;
+    const {
+        stats: { hours, visitors, repos, frameworks },
+    } = props;
 
     const nameRef = useRef();
     const emailRef = useRef();
@@ -147,10 +145,10 @@ const Home = (props) => {
                 </section>
 
                 <section className={styles.stats}>
-                    <Stat icon={<Clock />} text='Hours Spent' number={stats.hours} />
-                    <Stat icon={<Visitors />} text='Visitors' number={stats.visitors} />
-                    <Stat icon={<Github />} text='Github Repos' number={stats.repos} />
-                    <Stat icon={<Frameworks />} text='Frameworks' number={stats.frameworks} />
+                    <Stat icon={<Clock />} text='Hours Spent' number={hours} />
+                    <Stat icon={<Visitors />} text='Visitors' number={visitors} />
+                    <Stat icon={<Github />} text='Github Repos' number={repos} />
+                    <Stat icon={<Frameworks />} text='Frameworks' number={frameworks} />
                 </section>
             </div>
 
