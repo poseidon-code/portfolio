@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { formatCount } from './formatCount';
 
+// GQL Query : "Projects" and "Open Source Contributions" from CMS
 const PROJECTDATA = `
     query GetData {
         projects {
@@ -20,6 +21,7 @@ const PROJECTDATA = `
     }
 `;
 
+// GQL Query : Publicly Owned Repositories from Github
 const GITHUBREPOS = `
     query GetGithubRepos {
         user(login: "poseidon-code") {
@@ -36,6 +38,7 @@ const GITHUBREPOS = `
     }
 `;
 
+// GQL Query : Some Repositories Stats from Github
 const GITHUBSTATS = `
     query GetGithubStats {
         user(login: "poseidon-code") {
@@ -51,6 +54,7 @@ const GITHUBSTATS = `
     }
 `;
 
+// GQL Query : Programming Languages used in every repositories from Github
 const GITHUBLANGUAGES = `
     query GetLanguages {
         user(login: "poseidon-code") {
@@ -68,12 +72,16 @@ const GITHUBLANGUAGES = `
     }
 `;
 
+// GET (GQL) "Projects" and "Open Source Contributions" from CMS
 const get_projects = async () => {
     const data = await axios.post('http://localhost:1337/graphql', { query: PROJECTDATA }).then((res) => res.data.data);
 
     return data;
 };
 
+// GET (GQL) Publicly owned Github repositories
+// uses: Bearer Token Authorization
+// requires: Github Personal Acess token with "repo" access
 const get_githubrepos = async () => {
     const data = await axios
         .post(
@@ -81,8 +89,15 @@ const get_githubrepos = async () => {
             { query: GITHUBREPOS },
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
-        .then((res) => res.data.data.user.repositories.nodes);
+        .then(
+            (res) =>
+                // only array of all repositories is required
+                res.data.data.user.repositories.nodes
+        );
 
+    // sort repositories according to the time it was last updated in descending order
+    // using "updatedAt" property of every repository object
+    // i.e.: shows recently updated first
     data.sort((a, b) => {
         let ta = new Date(a.updatedAt).getTime();
         let tb = new Date(b.updatedAt).getTime();
@@ -91,16 +106,21 @@ const get_githubrepos = async () => {
         return 0;
     });
 
+    // repos ([{name, url, stars, forks}])
+    // reformat every repository object with new property names
     const repos = data.map((r) => ({
         name: r.name,
         url: r.url,
-        stars: formatCount(r.stargazerCount),
-        forks: formatCount(r.forkCount),
+        stars: formatCount(r.stargazerCount),   // formatting total number of stars
+        forks: formatCount(r.forkCount),        // formatting total number of forkers
     }));
 
     return repos;
 };
 
+// GET (GQL) Github repositories stats
+// uses: Bearer Token Authorization
+// requires: Github Personal Acess token with "repo" access
 const get_githubstats = async () => {
     const data = await axios
         .post(
@@ -108,28 +128,37 @@ const get_githubstats = async () => {
             { query: GITHUBSTATS },
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
-        .then((res) => res.data.data.user.repositories);
+        .then(
+            (res) =>
+                // only repositories is required
+                res.data.data.user.repositories
+        );
 
-    const total_repos = data.totalCount;
-    const total_size = (data.totalDiskUsage / 1000).toFixed(1) + 'M';
+    const total_repos = data.totalCount; // total number of repositories (private + public)
+    const total_size = (data.totalDiskUsage / 1000).toFixed(1) + 'M'; // total disk usage formatted to 'Megabytes (M)'
     let total_forks = 0;
     let total_stars = 0;
 
+    // looping and counting total number of forkers and stars for every repository
     data.nodes.forEach((r) => {
         total_forks += r.forkCount;
         total_stars += r.stargazerCount;
     });
 
+    // stats ({forks, size, stars, repos})
     const stats = {
-        forks: formatCount(total_forks),
         size: total_size,
-        stars: formatCount(total_stars),
-        repos: formatCount(total_repos),
+        forks: formatCount(total_forks),    // formatting total number of forkers
+        stars: formatCount(total_stars),    // formatting total number of stars
+        repos: formatCount(total_repos),    // formatting total number of repositories
     };
 
     return stats;
 };
 
+// GET (GQL) Programming languages used in every Github repositories
+// uses: Bearer Token Authorization
+// requires: Github Personal Acess token with "repo" access
 const get_languages = async () => {
     const data = await axios
         .post(
@@ -137,41 +166,52 @@ const get_languages = async () => {
             { query: GITHUBLANGUAGES },
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
-        .then((res) => res.data.data.user.repositories.nodes);
+        .then(
+            (res) =>
+                // only array of all repositories is required
+                res.data.data.user.repositories.nodes
+        );
 
+    /**
+     * languages ([string])
+     * looping over all languages used in a single repository for every repositories and
+     * appending "name" of that programming language to languages[]
+     */
     let languages = [];
     data.forEach((r) => {
         r.languages.nodes.forEach((l) => {
             languages.push(l.name);
         });
     });
+
+    /**
+     * languages_used_count ({name: count, ...})
+     * counts the duplicate programming languages "name" inside languages[]
+     * and creates an Object with {<name> : <number of time that name occurred>, ...}
+     * i.e.: counts - what languages are used & how many times they are used, throughout github repositories (languages[])
+     */
     const languages_used_count = languages.reduce((p, c) => (p[c] ? ++p[c] : (p[c] = 1), p), {});
 
+    /**
+     * languages_map ({name => percentage, ...})
+     * counts the percentage of a unique language being used
+     * to the overall languages used (languages.length) throughout all repositories
+     */
     let languages_map = new Map();
-    languages.forEach((l) => {
-        const percent = parseFloat(((languages_used_count[l] / languages.length) * 100).toFixed(2));
-        languages_map.set(l, percent);
-    });
+    for (let l in languages_used_count) {
+        const p = parseFloat(((languages_used_count[l] / languages.length) * 100).toFixed(2));
+        languages_map.set(l, p);
+    }
 
+    // stats ({name: percentage, ...})
+    // creates a Javascript Object from the Javascript Map
     const stats = Object.fromEntries(languages_map.entries());
 
     return stats;
 };
 
-const get = async () => {
-    const projects = await get_projects();
-    const githubrepos = await get_githubrepos();
-    const githubstats = await get_githubstats();
-    const languages = await get_languages();
-
-    return {
-        projects: projects,
-        githubrepos: githubrepos,
-        githubstats: githubstats,
-        languages: languages,
-    };
-};
-
+// EXPORTED variable SYMBOLS ([character])
+// an array of Japanese Kanji single characters to use as background for '/projects' components
 export const SYMBOLS = [
     '出',
     '長',
@@ -195,9 +235,15 @@ export const SYMBOLS = [
     '聖',
 ];
 
+// EXPORTED function to get all the data/stats for the Projects page ('/projects')
+// returns: object containing Projects & Open Source Contributions data & Github repositories stats
 export const projectData = async () => {
-    const { projects, githubrepos, githubstats, languages } = await get();
+    const projects = await get_projects();          // fetching Projects & Open Source Contributions
+    const githubrepos = await get_githubrepos();    // fetching Publicly Owned Github Repositories
+    const githubstats = await get_githubstats();    // fetching Github Repositories stats
+    const languages = await get_languages();        // fetching Programming Languages used throughout Github repositories
 
+    // returns: {projects, opensourcecontributions, repos, stats, languages}
     return {
         projects: projects.projects,
         opensourcecontributions: projects.openSourceContributions,
