@@ -1,14 +1,10 @@
-import styles from '../styles/Projects.module.scss';
 import { projectData } from '../utility/ProjectsData';
+import styles from '../styles/Projects.module.scss';
 
-import SectionButton from '../components/UI/SectionButton';
+import { SectionButton } from '../components/UI';
 import { Star, Folder, Fork, Database } from '../components/UI/Icons';
 
-import Project from '../components/Projects/Project';
-import OSC from '../components/Projects/OSC';
-import Repo from '../components/Projects/Repo';
-import Stat from '../components/Projects/Stat';
-import Languages from '../components/Projects/Languages'
+import { Languages, OSC, Project, Repo, Stat } from '../components/Projects';
 
 export const getStaticProps = async () => {
     const data = await projectData();
