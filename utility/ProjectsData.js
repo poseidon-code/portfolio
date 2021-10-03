@@ -74,7 +74,7 @@ const GITHUBLANGUAGES = `
 
 // GET (GQL) "Projects" and "Open Source Contributions" from CMS
 const get_projects = async () => {
-    const data = await axios.post('http://localhost:1337/graphql', { query: PROJECTDATA }).then((res) => res.data.data);
+    const data = await axios.post(process.env.CMS, { query: PROJECTDATA }).then((res) => res.data.data);
 
     return data;
 };
