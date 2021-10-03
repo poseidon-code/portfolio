@@ -243,10 +243,10 @@ export const projectData = async () => {
     const githubstats = await get_githubstats();    // fetching Github Repositories stats
     const languages = await get_languages();        // fetching Programming Languages used throughout Github repositories
 
-    // returns: {projects, opensourcecontributions, repos, stats, languages}
+    // returns: {projects, osc, repos, stats, languages}
     return {
         projects: projects.projects,
-        opensourcecontributions: projects.openSourceContributions,
+        osc: projects.openSourceContributions,
         repos: githubrepos,
         stats: githubstats,
         languages: languages,

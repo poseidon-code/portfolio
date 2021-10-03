@@ -9,16 +9,10 @@ import { Star, Folder, Fork, Database } from '../components/UI/Icons';
 import { Languages, OSC, Project, Repo, Stat } from '../components/Projects';
 
 export const getStaticProps = async () => {
-    const data = await projectData();
+    const { projects, osc, repos, stats, languages } = await projectData();
 
     return {
-        props: {
-            projects: data.projects,
-            osc: data.opensourcecontributions,
-            repos: data.repos,
-            stats: data.stats,
-            languages: data.languages,
-        },
+        props: { projects, osc, repos, stats, languages }
     };
 };
 
