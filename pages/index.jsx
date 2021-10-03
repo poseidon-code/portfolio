@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
 import { homeData } from '../utility/HomeData';
 import styles from '../styles/Home.module.scss';
@@ -32,7 +32,7 @@ import {
 
 import { Project, Skill, Stat, Technology } from '../components/Home';
 
-export const getServerSideProps = async () => {
+export const getStaticProps = async () => {
     const { hours, visitors, repos, frameworks } = await homeData();
 
     return {
@@ -213,6 +213,7 @@ const Home = (props) => {
                     <Skill skill='NextJS Fullstack' />
                     <Skill skill='NodeJS' />
                     <Skill skill='GraphQL' />
+                    <Skill skill='Golang' />
                     <Skill skill='C/C++' />
                     <Skill skill='Algorithms' />
                     <Skill skill='Data Structures' />

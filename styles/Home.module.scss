@@ -237,7 +237,7 @@
             flex-grow: 2;
             transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-            @for $i from 1 through 20 {
+            @for $i from 1 through 21 {
                 &:nth-of-type(#{$i}) {
                     $hue: random(360);
                     color: hsl($hue, 100%, 10%);
@@ -246,13 +246,13 @@
                     &:hover {
                         color: hsl($hue, 100%, 70%);
                         background-color: hsl($hue, 100%, 10%);
-            
+
                         ::selection {
                             background: hsl($hue, 100%, 70%);
                             color: hsl($hue, 100%, 10%);
                         }
                     }
-            
+
                     ::selection {
                         background: hsl($hue, 100%, 10%);
                         color: hsl($hue, 100%, 70%);
@@ -302,13 +302,13 @@
                     &:hover {
                         color: hsl($hue, 100%, 70%);
                         background-color: hsl($hue, 100%, 10%);
-            
+
                         ::selection {
                             background: hsl($hue, 100%, 70%);
                             color: hsl($hue, 100%, 10%);
                         }
                     }
-            
+
                     ::selection {
                         background: hsl($hue, 100%, 10%);
                         color: hsl($hue, 100%, 70%);
