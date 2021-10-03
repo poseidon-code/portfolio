@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+import axios from 'axios';
 import { projectData } from '../utility/ProjectsData';
 import styles from '../styles/Projects.module.scss';
 
@@ -21,6 +23,10 @@ export const getStaticProps = async () => {
 };
 
 const Projects = (props) => {
+    useEffect(() => {
+        axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/projects');
+    }, []);
+
     return (
         <>
             <section className={styles.header}>

@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
+import axios from 'axios';
 import styles from '../styles/About.module.scss';
 
 const About = () => {
+    useEffect(() => {
+        axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
+    }, []);
+
     return (
         <>
             <section className={styles.header}>

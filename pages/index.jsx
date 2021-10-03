@@ -54,6 +54,10 @@ const Home = (props) => {
 
     const [sending, setSending] = useState(false);
 
+    useEffect(() => {
+        axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/');
+    }, []);
+
     const resetForm = () => {
         nameRef.current.value = null;
         emailRef.current.value = null;
