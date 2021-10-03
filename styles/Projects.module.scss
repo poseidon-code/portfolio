@@ -111,6 +111,8 @@
     .legends {
         display: flex;
         justify-content: space-between;
+        user-select: none;
+        pointer-events: none;
         flex-wrap: wrap;
         gap: 1rem;
 
