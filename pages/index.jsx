@@ -1,4 +1,5 @@
 import { useRef, useState } from 'react';
+import axios from 'axios';
 import { homeData } from '../utility/HomeData';
 import styles from '../styles/Home.module.scss';
 
@@ -71,17 +72,7 @@ const Home = (props) => {
             message: messageRef.current.value,
         };
 
-        fetch('/api/contact', {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json, text/plain, */*',
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data),
-        }).then(async (res) => {
-            // const data = await res.json();
-            // console.log(data);
-
+        axios.post('/api/contact', data).then((res) => {
             if (res.status == 200) {
                 resetForm();
             }
