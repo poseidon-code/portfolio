@@ -12,11 +12,11 @@ export const getStaticProps = async () => {
     const { projects, osc, repos, stats, languages } = await projectData();
 
     return {
-        props: { projects, osc, repos, stats, languages }
+        props: { projects, osc, repos, stats, languages },
     };
 };
 
-const Projects = (props) => {
+const Projects = props => {
     useEffect(() => {
         axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/projects');
     }, []);
@@ -55,12 +55,14 @@ const Projects = (props) => {
                 <Stat icon={<Database />} number={props.stats.size} text='Total Size' />
             </section>
 
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.languages) */}
             <section className={styles.languages}>
                 <Languages stats={props.languages} />
             </section>
 
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.projects.project) */}
             <section className={styles.projects}>
-                {props.projects.map((p) => (
+                {props.projects.map(p => (
                     <Project
                         key={p.id}
                         name={p.name}
@@ -72,12 +74,13 @@ const Projects = (props) => {
                 ))}
             </section>
 
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.oscs.osc) */}
             <section className={styles.oscs}>
                 <div className={styles.osc_head}>
                     <h1>Open Source Contributions</h1>
                     <h2>In real open source, you have the right to control your own destiny.</h2>
                 </div>
-                {props.osc.map((o) => (
+                {props.osc.map(o => (
                     <OSC
                         key={o.id}
                         name={o.name}
@@ -89,6 +92,7 @@ const Projects = (props) => {
                 ))}
             </section>
 
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.repos.repos_body.repo) */}
             <section className={styles.repos}>
                 <div className={styles.repos_head}>
                     <h1>Github Repositories</h1>
