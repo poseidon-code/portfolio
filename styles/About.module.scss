@@ -34,6 +34,107 @@
     }
 }
 
+.clock {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 1rem;
+
+    @media (max-width: 800px) {
+        width: 100%;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .day,
+    .time,
+    .date {
+        @include utils.padding;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-family: utils.$font-mono;
+        font-size: 2rem;
+        font-weight: bold;
+
+        $hue: 42;
+        color: hsl($hue, 100%, 10%);
+        background-color: hsl($hue, 100%, 70%);
+        transition: color var(--time) ease-out, background-color var(--time) ease-out;
+
+        @media (max-width: 800px) {
+            font-size: 1.4rem;
+        }
+
+        &:hover {
+            color: hsl($hue, 100%, 70%);
+            background-color: hsl($hue, 100%, 10%);
+
+            ::selection {
+                background: hsl($hue, 100%, 70%);
+                color: hsl($hue, 100%, 10%);
+            }
+        }
+
+        ::selection {
+            background: hsl($hue, 100%, 10%);
+            color: hsl($hue, 100%, 70%);
+        }
+
+        svg {
+            --size: 1.4rem;
+            width: var(--size);
+            height: var(--size);
+            margin-bottom: 0.6rem;
+        }
+    }
+
+    .time {
+        grid-column: span 2;
+    }
+}
+
+.about {
+    display: flex;
+    background-color: hsl(189, 100%, 70%);
+    ::selection {
+        background: hsl(189, 100%, 10%);
+        color: hsl(189, 100%, 70%);
+    }
+
+    p {
+        @include utils.padding;
+        max-width: 60ch;
+
+        a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                --size: 1.5rem;
+                width: var(--size);
+                height: var(--size);
+            }
+        }
+    }
+
+    img {
+        width: 50%;
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: column-reverse;
+
+        img {
+            width: 100%;
+        }
+    }
+}
+
 .footer {
     @include utils.section(325);
     @include utils.padding;
