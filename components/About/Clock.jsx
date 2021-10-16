@@ -27,7 +27,6 @@ const DateMonth = ({ today }) => (
 const Day = ({ today }) => (
     <div className={styles.day}>
         <CalendarDay />
-
         {today.toLocaleDateString('en-US', { weekday: 'long' })}
     </div>
 );

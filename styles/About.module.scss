@@ -38,16 +38,26 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 1rem;
+    grid-template-areas: 'date clock clock day';
+    gap: 1rem;
 
     @media (max-width: 800px) {
-        width: 100%;
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas: 'day date' 'clock clock';
     }
 
-    .day,
-    .time,
+    .time {
+        grid-area: clock;
+    }
     .date {
+        grid-area: date;
+    }
+    .day {
+        grid-area: day;
+    }
+
+    & > * {
         @include utils.padding;
         display: flex;
         flex-direction: column;
@@ -69,13 +79,13 @@
             color: hsl($hue, 100%, 70%);
             background-color: hsl($hue, 100%, 10%);
 
-            ::selection {
+            &::selection {
                 background: hsl($hue, 100%, 70%);
                 color: hsl($hue, 100%, 10%);
             }
         }
 
-        ::selection {
+        &::selection {
             background: hsl($hue, 100%, 10%);
             color: hsl($hue, 100%, 70%);
         }
@@ -86,10 +96,6 @@
             height: var(--size);
             margin-bottom: 0.6rem;
         }
-    }
-
-    .time {
-        grid-column: span 2;
     }
 }
 
