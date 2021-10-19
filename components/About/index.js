@@ -1,3 +1,4 @@
 import ClockTime from './Clock';
+import Stats from './Stats';
 
-export { ClockTime };
+export { ClockTime, Stats };

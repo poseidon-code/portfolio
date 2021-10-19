@@ -1,14 +1,22 @@
 import { useEffect } from 'react';
 import axios from 'axios';
+import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
 import { Download, CV, Resume } from '../components/UI/Icons';
 
-import { ClockTime } from '../components/About';
+import { ClockTime, Stats } from '../components/About';
 
-// export const getServerSideProps = async () => {};
+export const getStaticProps = async () => {
+    const { stats } = await aboutData();
+    return {
+        props: {
+            stats,
+        },
+    };
+};
 
-const About = () => {
+const About = props => {
     useEffect(() => {
         axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
     }, []);
@@ -49,7 +57,9 @@ const About = () => {
                 <ClockTime />
             </section>
 
-            <section className={styles.wakatime_stats}></section>
+            <section className={styles.stats}>
+                <Stats stats={props.stats} />
+            </section>
 
             <section className={styles.fact}></section>
 
