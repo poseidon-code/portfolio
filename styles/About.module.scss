@@ -233,6 +233,35 @@
     }
 }
 
+.joke {
+    $hue: 55;
+    @include utils.padding();
+    @include utils.section($hue);
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    font-size: 1.2rem;
+    text-align: center;
+
+    &::selection {
+        background-color: hsl($hue, 100%, 10%);
+        color: hsl($hue, 100%, 70%);
+    }
+
+    svg {
+        --size: 3rem;
+        width: var(--size);
+        height: var(--size);
+    }
+
+    @media (max-width: 800px) {
+        font-size: 1rem;
+        svg {
+            --size: 2rem;
+        }
+    }
+}
+
 .footer {
     @include utils.section(325);
     @include utils.padding;

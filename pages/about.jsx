@@ -3,12 +3,13 @@ import axios from 'axios';
 import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
-import { Download, CV, Resume, Fact } from '../components/UI/Icons';
+import { Download, CV, Resume, Fact, Joke } from '../components/UI/Icons';
 
 import { ClockTime, Stats } from '../components/About';
 
 export const getStaticProps = async () => {
     const { stats } = await aboutData();
+
     return {
         props: {
             stats,
@@ -18,11 +19,16 @@ export const getStaticProps = async () => {
 
 const About = props => {
     const [fact, setFact] = useState('');
+    const [joke, setJoke] = useState('');
 
     useEffect(async () => {
         await axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
-        const fact = await axios.get('https://uselessfacts.jsph.pl/random.json?language=en').then(res => res.data.text);
-        setFact(fact);
+        setFact(await axios.get('https://uselessfacts.jsph.pl/random.json?language=en').then(res => res.data.text));
+        setJoke(
+            await axios
+                .get('https://icanhazdadjoke.com/', { headers: { Accept: 'application/json' } })
+                .then(res => res.data.joke)
+        );
     }, []);
 
     return (
@@ -109,7 +115,10 @@ const About = props => {
 
             <section className={styles.achievements}></section>
 
-            <section className={styles.joke}></section>
+            <section className={styles.joke}>
+                <Joke />
+                {joke}
+            </section>
 
             <section className={styles.footer}>
                 <p>Made with ❤ using NextJs by yours truly.</p>
