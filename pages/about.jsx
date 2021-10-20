@@ -77,9 +77,15 @@ const About = props => {
             </section>
 
             <section className={styles.about}>
+                <h1>命</h1>
                 <p>
                     Hello ! I am Pritam Halder, a graduate student of Computer Science (Honors), living with my parents
                     and my younger brother in Debpukur.
+                    <br />
+                    <br />
+                    I'm a Kolkata based aspiring software engineer who specializes in building and designing fullstack
+                    products leading projects from research to implementation. I combine empathy, business strategy and
+                    design to create exceptional user experiences.
                     <br />
                     <br />
                     I love drawing, digital painting, graphics designing, reading, coding, programming, photoshoping,
@@ -87,9 +93,17 @@ const About = props => {
                     and lots more.
                     <br />
                     <br />
+                    What's going on, you ask ? I’m currently learning Strapi, GraphQL, Jest, Selenium Automation and had
+                    a hands-on with Go. Really loving the Go programing language and currently implementing in web
+                    backend stacks. You can ask me about Go, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, JavaScript,
+                    TypeScript, Graphics Designing, Motion Graphics, GraphQL, Linux Customizations (Ricing) and just
+                    about life ;)
+                    <br />
+                    <br />
                     My true goal in my life is to do the job I love, that is programming, coding & designing; because in
                     that moment I would be at my best, always :)
-                    <br /> <br />
+                    <br />
+                    <br />
                     <a href='/Resume - Pritam Halder.pdf' download>
                         <Download />
                         &nbsp;Resume&nbsp;
