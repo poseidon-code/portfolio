@@ -256,6 +256,34 @@
     }
 }
 
+.social_skills {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .social_skills_head {
+        @include utils.head(0, '../public/backgrounds/bg-1.jpg');
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        li {
+            max-width: calc(50% - 0.5rem);
+            @include utils.padding;
+            @include utils.section(0);
+            font-size: 1.2rem;
+
+            @media (max-width: 800px) {
+                max-width: unset;
+                width: 100%;
+            }
+        }
+    }
+}
+
 .joke {
     $hue: 55;
     @include utils.padding();
