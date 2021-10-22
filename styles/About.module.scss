@@ -100,70 +100,6 @@
     }
 }
 
-.about {
-    display: flex;
-    background-color: hsl(189, 100%, 70%);
-    position: relative;
-    overflow: hidden;
-
-    ::selection {
-        background: hsl(189, 100%, 10%);
-        color: hsl(189, 100%, 70%);
-    }
-
-    & > * {
-        z-index: 10;
-    }
-
-    h1:first-of-type {
-        position: absolute;
-        z-index: 1;
-        left: 40%;
-        bottom: -6rem;
-        transform: translate(-50%, 0) rotate(-30deg);
-        font-size: 25rem;
-        opacity: 0.1;
-        user-select: none;
-        pointer-events: none;
-
-        @media (max-width: 800px) {
-            top: unset;
-            left: unset;
-            right: -3rem;
-            transform: translate(0, 0) rotate(-30deg);
-        }
-    }
-
-    p {
-        @include utils.padding;
-        width: 100%;
-
-        a {
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: inherit;
-            font-family: utils.$font-mono;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
-
-            svg {
-                --size: 1.5rem;
-                width: var(--size);
-                height: var(--size);
-            }
-        }
-    }
-
-    img {
-        width: 100%;
-    }
-
-    @media (max-width: 800px) {
-        flex-direction: column-reverse;
-    }
-}
-
 .stats {
     width: 100%;
     display: flex;
@@ -253,6 +189,70 @@
         svg {
             --size: 2rem;
         }
+    }
+}
+
+.about {
+    display: flex;
+    background-color: hsl(189, 100%, 70%);
+    position: relative;
+    overflow: hidden;
+
+    ::selection {
+        background: hsl(189, 100%, 10%);
+        color: hsl(189, 100%, 70%);
+    }
+
+    & > * {
+        z-index: 10;
+    }
+
+    h1:first-of-type {
+        position: absolute;
+        z-index: 1;
+        left: 40%;
+        bottom: -6rem;
+        transform: translate(-50%, 0) rotate(-30deg);
+        font-size: 25rem;
+        opacity: 0.1;
+        user-select: none;
+        pointer-events: none;
+
+        @media (max-width: 800px) {
+            top: unset;
+            left: unset;
+            right: -3rem;
+            transform: translate(0, 0) rotate(-30deg);
+        }
+    }
+
+    p {
+        @include utils.padding;
+        width: 100%;
+
+        a {
+            font-size: 1.2rem;
+            text-decoration: none;
+            color: inherit;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+
+            svg {
+                --size: 1.5rem;
+                width: var(--size);
+                height: var(--size);
+            }
+        }
+    }
+
+    img {
+        width: 100%;
+    }
+
+    @media (max-width: 800px) {
+        flex-direction: column-reverse;
     }
 }
 
