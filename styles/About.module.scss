@@ -266,20 +266,25 @@
     }
 
     ul {
-        display: flex;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
         gap: 0.5rem;
 
         li {
-            max-width: calc(50% - 0.5rem);
+            width: 100%;
             @include utils.padding;
             @include utils.section(0);
             font-size: 1.2rem;
+            gap: 1rem;
 
-            @media (max-width: 800px) {
-                max-width: unset;
-                width: 100%;
+            &::first-letter {
+                font-weight: bold;
+                font-size: 150%;
             }
+        }
+
+        @media (max-width: 800px) {
+            grid-template-columns: repeat(1, 1fr);
         }
     }
 }

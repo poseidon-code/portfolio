@@ -3,7 +3,7 @@ import axios from 'axios';
 import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
-import { Download, CV, Resume, Fact, Joke } from '../components/UI/Icons';
+import { Download, CV, Resume, Fact, Joke, ListBullet } from '../components/UI/Icons';
 
 import { ClockTime, Stats } from '../components/About';
 
