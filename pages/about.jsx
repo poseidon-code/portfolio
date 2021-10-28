@@ -143,7 +143,36 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.interests}></section>
+            {/* TODO : update @for-thorugh count in About.module.scss (.interests.ul.li) */}
+            <section className={styles.interests}>
+                <div className={styles.interests_head}>
+                    <h1>Interests</h1>
+                    <h2>"It's hard to escape when your hobby is your job."</h2>
+                </div>
+                <ul>
+                    <li>Sketching</li>
+                    <li>Painting</li>
+                    <li>Digital Painting</li>
+                    <li>Coding</li>
+                    <li>Web Surfing</li>
+                    <li>YouTuber</li>
+                    <li>Music</li>
+                    <li>Video Editing</li>
+                    <li>Photoshop</li>
+                    <li>Motion Graphics</li>
+                    <li>UI/UX Designing</li>
+                    <li>Vector Graphics</li>
+                    <li>Movies & Series Bingeing</li>
+                    <li>Linux Ricing</li>
+                    <li>Linux Distro Hopping</li>
+                    <li>Wallpapers Hoarder</li>
+                    <li>Home Server Geek</li>
+                    <li>Virtual Machines Nerd</li>
+                    <li>Gaming Enthusiast</li>
+                    <li>Reading</li>
+                    <li>JDM Cars</li>
+                </ul>
+            </section>
 
             <section className={styles.academics}></section>
 

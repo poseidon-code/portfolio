@@ -289,6 +289,55 @@
     }
 }
 
+.interests {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .interests_head {
+        @include utils.head(30, '../public/backgrounds/bg-3.jpg');
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        li {
+            padding: 1rem 2rem;
+            text-align: center;
+            flex-grow: 2;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
+
+            @for $i from 1 through 21 {
+                &:nth-of-type(#{$i}) {
+                    $hue: random(360);
+                    color: hsl($hue, 100%, 10%);
+                    background-color: hsl($hue, 100%, 70%);
+
+                    &:hover {
+                        color: hsl($hue, 100%, 70%);
+                        background-color: hsl($hue, 100%, 10%);
+
+                        &::selection {
+                            background: hsl($hue, 100%, 70%);
+                            color: hsl($hue, 100%, 10%);
+                        }
+                    }
+
+                    &::selection {
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
+                    }
+                }
+            }
+        }
+    }
+}
+
 .joke {
     $hue: 55;
     @include utils.padding();
