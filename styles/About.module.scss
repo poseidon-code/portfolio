@@ -193,14 +193,15 @@
 }
 
 .about {
+    $hue: 189;
     display: flex;
-    background-color: hsl(189, 100%, 70%);
+    background-color: hsl($hue, 100%, 70%);
     position: relative;
     overflow: hidden;
 
     ::selection {
-        background: hsl(189, 100%, 10%);
-        color: hsl(189, 100%, 70%);
+        background: hsl($hue, 100%, 10%);
+        color: hsl($hue, 100%, 70%);
     }
 
     & > * {
@@ -257,12 +258,13 @@
 }
 
 .social_skills {
+    $hue: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
     .social_skills_head {
-        @include utils.head(0, '../public/backgrounds/bg-1.jpg');
+        @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
     }
 
     ul {
@@ -273,7 +275,7 @@
         li {
             width: 100%;
             @include utils.padding;
-            @include utils.section(0);
+            @include utils.section($hue);
             font-size: 1.2rem;
             gap: 1rem;
 
@@ -283,8 +285,8 @@
             }
 
             &::selection {
-                background: hsl(0, 100%, 10%);
-                color: hsl(0, 100%, 70%);
+                background: hsl($hue, 100%, 10%);
+                color: hsl($hue, 100%, 70%);
             }
         }
 
@@ -344,23 +346,24 @@
 }
 
 .academics {
+    $hue: 257;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
     .academics_head {
-        @include utils.head(257, '../public/backgrounds/bg-2.jpg');
+        @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
     }
 
     .academics_body {
-        background-color: hsl(257, 100%, 70%);
+        background-color: hsl($hue, 100%, 70%);
         position: relative;
         overflow: hidden;
         @include utils.padding;
 
         *::selection {
-            background: hsl(257, 100%, 10%);
-            color: hsl(257, 100%, 70%);
+            background: hsl($hue, 100%, 10%);
+            color: hsl($hue, 100%, 70%);
         }
 
         & > * {
@@ -403,7 +406,7 @@
             li {
                 display: flex;
                 flex-direction: column;
-                border-left: 0.4rem solid hsl(257, 100%, 10%);
+                border-left: 0.4rem solid hsl($hue, 100%, 10%);
 
                 span {
                     margin-left: 1rem;
