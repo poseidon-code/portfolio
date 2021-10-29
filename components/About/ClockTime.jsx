@@ -36,9 +36,11 @@ const Time = () => {
     const [time, setTime] = useState('');
 
     useEffect(() => {
-        setTimeout(() => {
+        const time_update = setTimeout(() => {
             setTime(today.toLocaleTimeString());
         }, 1000);
+
+        return () => clearTimeout(time_update);
     }, [today]);
 
     return (
