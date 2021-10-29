@@ -338,6 +338,102 @@
     }
 }
 
+.academics {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .academics_head {
+        @include utils.head(257, '../public/backgrounds/bg-2.jpg');
+    }
+
+    .academics_body {
+        background-color: hsl(257, 100%, 70%);
+        position: relative;
+        overflow: hidden;
+        @include utils.padding;
+
+        & > * {
+            z-index: 10;
+        }
+
+        h1:first-of-type {
+            position: absolute;
+            z-index: 1;
+            right: -2rem;
+            top: 6rem;
+            transform: translate(0, -50%) rotate(-30deg);
+            font-size: 20rem;
+            opacity: 0.1;
+            user-select: none;
+            pointer-events: none;
+
+            @media (max-width: 800px) {
+                font-size: 15rem;
+            }
+        }
+
+        .title {
+            font-size: 2rem;
+        }
+        h3,
+        h4 {
+            font-family: utils.$font-mono;
+            font-size: 1rem;
+        }
+        h2 {
+            font-size: 3rem;
+        }
+        ul {
+            display: flex;
+            flex-direction: column;
+            margin-left: 1rem;
+            gap: 1rem;
+
+            li {
+                display: flex;
+                flex-direction: column;
+                border-left: 0.4rem solid hsl(257, 100%, 10%);
+
+                span {
+                    margin-left: 1rem;
+                }
+                span:first-of-type {
+                    font-size: 1rem;
+                    font-family: utils.$font-mono;
+                }
+                span:last-of-type {
+                    font-size: 1.5rem;
+                }
+            }
+        }
+
+        @media (max-width: 800px) {
+            .title {
+                font-size: 1.4rem;
+            }
+            h3,
+            h4 {
+                font-family: utils.$font-mono;
+                font-size: 0.8rem;
+            }
+            h2 {
+                font-size: 2rem;
+            }
+            ul {
+                li {
+                    span:first-of-type {
+                        font-size: 0.8rem;
+                    }
+                    span:last-of-type {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
 .joke {
     $hue: 55;
     @include utils.padding();
