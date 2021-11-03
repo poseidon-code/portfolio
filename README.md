@@ -140,7 +140,7 @@
 [![Portfolio](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=portfolio&theme=prussian)](https://github.com/poseidon-code/portfolio)
 [![Poseidon's Readme](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=poseidon-code&theme=prussian)](https://github.com/poseidon-code/poseidon-code)
 [![Supacons](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=supacons&theme=prussian)](https://github.com/poseidon-code/supacons)
-[![mp3 Download Script](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=mp3-download-script-v2&theme=prussian)](https://github.com/poseidon-code/mp3-download-script-v2)
+[![ytmp3-dl](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=ytmp3-dl&theme=prussian)](https://github.com/poseidon-code/mp3-download-script-v2)
 [![TailwindColors](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=tailwind-colors&theme=prussian)](https://github.com/poseidon-code/tailwind-colors)
 [![Stories.io](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=stories.io&theme=prussian)](https://github.com/poseidon-code/stories.io)
 [![Short Stories API](https://github-readme-stats.vercel.app/api/pin/?username=poseidon-code&repo=shortstories-api&theme=prussian)](https://github.com/poseidon-code/shortstories-api)
