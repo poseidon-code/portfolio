@@ -187,7 +187,7 @@ const Home = (props) => {
                 />
                 <Project
                     name='mp3 Downloader'
-                    github='https://github.com/poseidon-code/mp3-download-script-v2'
+                    github='https://github.com/poseidon-code/ytmp3-dl'
                     description='YouTube video to mp3 downloader. Made with Python using ffmpeg & youtube-dl.'
                     tech={['Python', 'YouTubeDL', 'FFmpeg']}
                 />
