@@ -3,16 +3,17 @@ import axios from 'axios';
 import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
-import { Download, CV, Resume, Fact, Joke, ListBullet } from '../components/UI/Icons';
+import { Download, CV, Resume, Fact, Joke } from '../components/UI/Icons';
 
 import { ClockTime, Stats } from '../components/About';
 
 export const getStaticProps = async () => {
-    const { stats } = await aboutData();
+    const { stats, works } = await aboutData();
 
     return {
         props: {
             stats,
+            works,
         },
     };
 };
@@ -240,7 +241,35 @@ const About = props => {
                 </div>
             </section>
 
-            <section className={styles.work_experience}></section>
+            <section className={styles.work_experiences}>
+                <div className={styles.work_experiences_head}>
+                    <h1>Work Experiences</h1>
+                    <h2>
+                        "Either you run the day or the day runs you."
+                        <br /> –Jim Rohn
+                    </h2>
+                </div>
+
+                <ul>
+                    {props.works.map(work => (
+                        <li>
+                            <h3>
+                                {work.type == 'internship'
+                                    ? 'Internship'
+                                    : work.type == 'freelancing'
+                                    ? 'Freelancing'
+                                    : work.type == 'competitive'
+                                    ? 'Competitive Programming'
+                                    : 'General Work'}
+                            </h3>
+                            <h1>{work.field}</h1>
+                            <h2>{work.company}</h2>
+                            <br />
+                            <p>{work.description}</p>
+                        </li>
+                    ))}
+                </ul>
+            </section>
 
             <section className={styles.achievements}></section>
 

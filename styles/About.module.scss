@@ -447,6 +447,55 @@
     }
 }
 
+.work_experiences {
+    $hue: 138;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .work_experiences_head {
+        @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+            @include utils.padding;
+            @include utils.section($hue);
+
+            h3 {
+                font-size: 1rem;
+                font-family: utils.$font-mono;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                font-weight: bold;
+                font-family: utils.$font-mono;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            @media (max-width: 800px) {
+                h3 {
+                    font-size: 0.9rem;
+                }
+                h2 {
+                    font-size: 1.1rem;
+                }
+                h1 {
+                    font-size: 1.6rem;
+                }
+            }
+        }
+    }
+}
+
 .joke {
     $hue: 55;
     @include utils.padding();

@@ -1,5 +1,17 @@
 import axios from 'axios';
 
+// GQL Query : "Work Experiences" from CMS
+const WORKEXPERIENCE = `
+    query GetData {
+        workExperiences {
+            field
+            type
+            description
+            company
+        }
+    }
+`;
+
 // GET (REST) "Hours Spent on every Language" from "wakatime.com" (in percent)
 // uses: Basic Authorization (with Wakatime API key converted to base64 string)
 // requires: Wakatime Personal API key
@@ -33,13 +45,24 @@ const get_wakatimestats = async () => {
     return data;
 };
 
+// GET (GQL) "Work Experiences" from CMS
+const get_workexperiences = async () => {
+    const data = await axios
+        .post(process.env.CMS, { query: WORKEXPERIENCE })
+        .then(res => res.data.data.workExperiences);
+
+    return data;
+};
+
 // EXPORTED function to get all the data/stats for the About page ('/about')
 // returns: object containing Wakatime Language stats
 export const aboutData = async () => {
     const wakatimestats = await get_wakatimestats(); //fetching Wakatime Language stats
+    const workexperiences = await get_workexperiences(); // fetching Work Experiences
 
-    // returns {stats}
+    // returns {stats, works}
     return {
         stats: wakatimestats,
+        works: workexperiences,
     };
 };
