@@ -1,7 +1,7 @@
 // EXPORTED function to convert a number to their respective nearby roundings & suffixing with acronyms
 // params: number (number)
 // returns: formated string with rounded & suffixed number
-export const formatCount = (number) => {
+export const formatCount = number => {
     let format;
 
     // formatting number >=1000 -> "1.0K" (Thousand)

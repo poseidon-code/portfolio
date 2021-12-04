@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { formatCount } from './formatCount';
+import { formatCount } from '.';
 
 // GET (REST) "Hours Spent" from "wakatime.com"
 // uses: Basic Authorization (with Wakatime API key converted to base64 string)
@@ -14,7 +14,7 @@ const get_hours = async () => {
             },
         })
         .then(
-            (res) =>
+            res =>
                 // only hours spent of all time is required (in seconds)
                 res.data.data.total_seconds
         );
@@ -44,9 +44,9 @@ const get_visitors = async () => {
     // getcount() gets the number of visits to a URL passed
     // params: URL (string)
     // returns: a resolved promise with number of visits for a URL passed
-    const getcount = (url) => {
+    const getcount = url => {
         return new Promise((resolve, reject) => {
-            axios.get(url).then((res) => {
+            axios.get(url).then(res => {
                 // "value" is the number of counts that URL was visited
                 resolve(res.data.value);
             });
@@ -59,8 +59,8 @@ const get_visitors = async () => {
      * looping over every possible endpoints for api.countapi.xyz/hit/{endpoints}
      * and appending Promises (after calling getcounts()) for every endpoints
      */
-    SITES.forEach((s) => {
-        ROUTES.forEach((r) => {
+    SITES.forEach(s => {
+        ROUTES.forEach(r => {
             // appends Promise for every URL endpoints to getcounts[]
             getcounts.push(getcount(`https://api.countapi.xyz/hit/${s}${r}`));
         });
@@ -72,7 +72,7 @@ const get_visitors = async () => {
      * then from the array of resolved Promises (here, counts), looping and adding all numbers to get final count
      * returns: summation of all counts
      */
-    const data = await Promise.all(getcounts).then((counts) => {
+    const data = await Promise.all(getcounts).then(counts => {
         // sum of every number in the counts[]
         return counts.reduce((a, b) => a + b, 0);
     });
@@ -89,7 +89,7 @@ const get_repos = async () => {
 
     // fetches the number of public github repositories for a Github user
     const data = await axios.get(`https://api.github.com/users/${USERNAME}`).then(
-        (res) =>
+        res =>
             // only count of public repositories for the user is required
             res.data.public_repos
     );
@@ -101,15 +101,15 @@ const get_repos = async () => {
 // returns: object containing counts for "Hours Spent", "Visitors", "Github Repos" and "Frameworks"
 // formatCount() is used for rounding values and suffixing their respective acronyms
 export const homeData = async () => {
-    const hours = await get_hours();            // fetching "Hours Spent"
-    const visitors = await get_visitors();      // fetching "Visitors"
-    const repos = await get_repos();            // fetching "Github Repos"
+    const hours = await get_hours(); // fetching "Hours Spent"
+    const visitors = await get_visitors(); // fetching "Visitors"
+    const repos = await get_repos(); // fetching "Github Repos"
 
     const data = {
-        hours: formatCount((hours / 3600).toFixed(1)),      // getting in Hours format
-        visitors: formatCount(visitors),                    // formatting number
-        repos: formatCount(repos),                          // formating number
-        frameworks: formatCount(16),                        // setting & formating "Frameworks"
+        hours: formatCount((hours / 3600).toFixed(1)), // getting in Hours format
+        visitors: formatCount(visitors), // formatting number
+        repos: formatCount(repos), // formating number
+        frameworks: formatCount(16), // setting & formating "Frameworks"
     };
 
     // returns: {hours, visitors, repos, frameworks}

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { formatCount } from './formatCount';
+import { formatCount } from '.';
 
 // GQL Query : "Projects" and "Open Source Contributions" from CMS
 const PROJECTDATA = `
@@ -74,7 +74,7 @@ const GITHUBLANGUAGES = `
 
 // GET (GQL) "Projects" and "Open Source Contributions" from CMS
 const get_projects = async () => {
-    const data = await axios.post(process.env.CMS, { query: PROJECTDATA }).then((res) => res.data.data);
+    const data = await axios.post(process.env.CMS, { query: PROJECTDATA }).then(res => res.data.data);
 
     return data;
 };
@@ -90,7 +90,7 @@ const get_githubrepos = async () => {
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
         .then(
-            (res) =>
+            res =>
                 // only array of all repositories is required
                 res.data.data.user.repositories.nodes
         );
@@ -108,11 +108,11 @@ const get_githubrepos = async () => {
 
     // repos ([{name, url, stars, forks}])
     // reformat every repository object with new property names
-    const repos = data.map((r) => ({
+    const repos = data.map(r => ({
         name: r.name,
         url: r.url,
-        stars: formatCount(r.stargazerCount),   // formatting total number of stars
-        forks: formatCount(r.forkCount),        // formatting total number of forkers
+        stars: formatCount(r.stargazerCount), // formatting total number of stars
+        forks: formatCount(r.forkCount), // formatting total number of forkers
     }));
 
     return repos;
@@ -129,7 +129,7 @@ const get_githubstats = async () => {
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
         .then(
-            (res) =>
+            res =>
                 // only repositories is required
                 res.data.data.user.repositories
         );
@@ -140,7 +140,7 @@ const get_githubstats = async () => {
     let total_stars = 0;
 
     // looping and counting total number of forkers and stars for every repository
-    data.nodes.forEach((r) => {
+    data.nodes.forEach(r => {
         total_forks += r.forkCount;
         total_stars += r.stargazerCount;
     });
@@ -148,9 +148,9 @@ const get_githubstats = async () => {
     // stats ({forks, size, stars, repos})
     const stats = {
         size: total_size,
-        forks: formatCount(total_forks),    // formatting total number of forkers
-        stars: formatCount(total_stars),    // formatting total number of stars
-        repos: formatCount(total_repos),    // formatting total number of repositories
+        forks: formatCount(total_forks), // formatting total number of forkers
+        stars: formatCount(total_stars), // formatting total number of stars
+        repos: formatCount(total_repos), // formatting total number of repositories
     };
 
     return stats;
@@ -167,7 +167,7 @@ const get_languages = async () => {
             { headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` } }
         )
         .then(
-            (res) =>
+            res =>
                 // only array of all repositories is required
                 res.data.data.user.repositories.nodes
         );
@@ -178,8 +178,8 @@ const get_languages = async () => {
      * appending "name" of that programming language to languages[]
      */
     let languages = [];
-    data.forEach((r) => {
-        r.languages.nodes.forEach((l) => {
+    data.forEach(r => {
+        r.languages.nodes.forEach(l => {
             languages.push(l.name);
         });
     });
@@ -238,10 +238,10 @@ export const SYMBOLS = [
 // EXPORTED function to get all the data/stats for the Projects page ('/projects')
 // returns: object containing Projects & Open Source Contributions data & Github repositories stats
 export const projectData = async () => {
-    const projects = await get_projects();          // fetching Projects & Open Source Contributions
-    const githubrepos = await get_githubrepos();    // fetching Publicly Owned Github Repositories
-    const githubstats = await get_githubstats();    // fetching Github Repositories stats
-    const languages = await get_languages();        // fetching Programming Languages used throughout Github repositories
+    const projects = await get_projects(); // fetching Projects & Open Source Contributions
+    const githubrepos = await get_githubrepos(); // fetching Publicly Owned Github Repositories
+    const githubstats = await get_githubstats(); // fetching Github Repositories stats
+    const languages = await get_languages(); // fetching Programming Languages used throughout Github repositories
 
     // returns: {projects, osc, repos, stats, languages}
     return {
