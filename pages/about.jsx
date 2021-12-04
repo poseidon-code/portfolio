@@ -4,16 +4,18 @@ import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
 import { Download, CV, Resume, Fact, Joke } from '../components/UI/Icons';
+import { SectionButton } from '../components/UI';
 
 import { ClockTime, Stats } from '../components/About';
 
 export const getStaticProps = async () => {
-    const { stats, works } = await aboutData();
+    const { stats, works, events } = await aboutData();
 
     return {
         props: {
             stats,
             works,
+            events,
         },
     };
 };
@@ -21,6 +23,8 @@ export const getStaticProps = async () => {
 const About = props => {
     const [fact, setFact] = useState('');
     const [joke, setJoke] = useState('');
+    const [count, setCount] = useState(5);
+    const [load, setLoad] = useState(true);
 
     useEffect(async () => {
         await axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
@@ -31,6 +35,10 @@ const About = props => {
                 .then(res => res.data.joke)
         );
     }, []);
+
+    useEffect(() => {
+        if (count > Object.keys(props.events).length) setLoad(false);
+    }, [count]);
 
     return (
         <>
@@ -251,8 +259,8 @@ const About = props => {
                 </div>
 
                 <ul>
-                    {props.works.map(work => (
-                        <li>
+                    {props.works.map((work, i) => (
+                        <li key={i}>
                             <h3>
                                 {work.type == 'internship'
                                     ? 'Internship'
@@ -271,7 +279,38 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.achievements}></section>
+            <section className={styles.events}>
+                <div className={styles.events_head}>
+                    <h1>Life Events</h1>
+                    <h2>
+                        "The purpose of our lives is to be happy."
+                        <br /> –Dalai Lama
+                    </h2>
+                </div>
+
+                <ul>
+                    {Object.keys(props.events)
+                        .sort((a, b) => b - a)
+                        .slice(0, count)
+                        .map((period, i) => (
+                            <li key={i}>
+                                <h3>{`${period.split('-')[2]} ${period.split('-')[0]}`}</h3>
+                                {props.events[period].map((event, j) => (
+                                    <p key={j}> - {event}</p>
+                                ))}
+                            </li>
+                        ))}
+                    {load && (
+                        <SectionButton
+                            text='Wanna see 2 years of notable events of my developer journey ?'
+                            onClick={() => {
+                                setCount(p => p + 5);
+                            }}>
+                            More Notable Events
+                        </SectionButton>
+                    )}
+                </ul>
+            </section>
 
             <section className={styles.joke}>
                 <Joke />

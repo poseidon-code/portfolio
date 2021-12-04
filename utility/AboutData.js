@@ -12,6 +12,16 @@ const WORKEXPERIENCE = `
     }
 `;
 
+// GQL Query : "Achievements" from CMS
+const EVENTS = `
+    query GetData {
+        achievements {
+            achievement,
+            period
+        }
+    }
+`;
+
 // GET (REST) "Hours Spent on every Language" from "wakatime.com" (in percent)
 // uses: Basic Authorization (with Wakatime API key converted to base64 string)
 // requires: Wakatime Personal API key
@@ -54,15 +64,40 @@ const get_workexperiences = async () => {
     return data;
 };
 
+// GET (GQL) "Achievements" from CMS
+const get_events = async () => {
+    const data = await axios.post(process.env.CMS, { query: EVENTS }).then(res => res.data.data.achievements);
+
+    let periodic_data = {};
+    data.forEach(d => {
+        const period = new Date(d.period);
+        let M = period.getMonth();
+        let MM = period.toLocaleString('default', { month: 'long' });
+        let Y = period.getFullYear();
+        let key = `${Y}-${M}-${MM}`;
+
+        if (periodic_data[key] === undefined) {
+            periodic_data[key] = new Array();
+            periodic_data[key].push(d.achievement);
+        } else {
+            periodic_data[key].push(d.achievement);
+        }
+    });
+
+    return periodic_data;
+};
+
 // EXPORTED function to get all the data/stats for the About page ('/about')
 // returns: object containing Wakatime Language stats
 export const aboutData = async () => {
     const wakatimestats = await get_wakatimestats(); //fetching Wakatime Language stats
     const workexperiences = await get_workexperiences(); // fetching Work Experiences
+    const events = await get_events(); // fetching Events
 
-    // returns {stats, works}
+    // returns {stats, works, events}
     return {
         stats: wakatimestats,
         works: workexperiences,
+        events: events,
     };
 };

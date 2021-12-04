@@ -496,6 +496,36 @@
     }
 }
 
+.events {
+    $hue: 235;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .events_head {
+        @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        li {
+            @include utils.padding;
+            @include utils.section($hue);
+
+            h3 {
+                font-family: utils.$font-mono;
+                font-weight: bold;
+                font-size: 1.4rem;
+            }
+        }
+
+        @include utils.section-button($hue, '../public/backgrounds/bg-3.jpg');
+    }
+}
+
 .joke {
     $hue: 55;
     @include utils.padding();
