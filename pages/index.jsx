@@ -42,7 +42,7 @@ export const getStaticProps = async () => {
     };
 };
 
-const Home = (props) => {
+const Home = props => {
     const {
         stats: { hours, visitors, repos, frameworks },
     } = props;
@@ -65,7 +65,7 @@ const Home = (props) => {
         subjectRef.current.value = null;
     };
 
-    const submitHandler = (e) => {
+    const submitHandler = e => {
         e.preventDefault();
         setSending(true);
 
@@ -76,7 +76,7 @@ const Home = (props) => {
             message: messageRef.current.value,
         };
 
-        axios.post('/api/contact', data).then((res) => {
+        axios.post('/api/contact', data).then(res => {
             if (res.status == 200) {
                 resetForm();
             }
@@ -188,8 +188,8 @@ const Home = (props) => {
                 <Project
                     name='mp3 Downloader'
                     github='https://github.com/poseidon-code/ytmp3-dl'
-                    description='YouTube video to mp3 downloader. Made with Python using ffmpeg & youtube-dl.'
-                    tech={['Python', 'YouTubeDL', 'FFmpeg']}
+                    description='YouTube video to mp3 downloader. Made with Python using ffmpeg &amp; yt-dlp.'
+                    tech={['Python', 'yt-dlp', 'FFmpeg']}
                 />
 
                 <SectionButton text='Many more projects awaits you :)' link href='/projects'>
@@ -248,12 +248,12 @@ const Home = (props) => {
                     <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
                     <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
                     <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
-                    <Technology technology='MongoDB' text='No-Sequel Database' icon={<Database />} />
-                    <Technology technology='Postgres SQL' text='Sequel Database' icon={<Database />} />
+                    <Technology technology='MongoDB' text='NoSQL Database' icon={<Database />} />
+                    {/* <Technology technology='Postgres SQL' text='SQL Database' icon={<Database />} /> */}
                     <Technology technology='Firebase' text='Cloud Service Provider' icon={<Firebase />} />
-                    <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} />
-                    <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} />
-                    <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} />
+                    {/* <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
+                    {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
+                    {/* <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} /> */}
                     <Technology technology='Adobe After Effects' text='Motion Graphics Software' icon={<Ae />} />
                     <Technology technology='Adobe Photoshop' text='Image Manipulation Software' icon={<Ps />} />
                     <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />
