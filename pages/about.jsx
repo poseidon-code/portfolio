@@ -102,7 +102,7 @@ const About = props => {
                     and lots more.
                     <br />
                     <br />
-                    What's going on, you ask ? I’m currently learning Strapi, GraphQL, Jest, Selenium Automation and had
+                    What's going on, you ask ? I'm currently learning Strapi, GraphQL, Jest, Selenium Automation and had
                     a hands-on with Go. Really loving the Go programing language and currently implementing in web
                     backend stacks. You can ask me about Go, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, JavaScript,
                     TypeScript, Graphics Designing, Motion Graphics, GraphQL, Linux Customizations (Ricing) and just
@@ -191,7 +191,7 @@ const About = props => {
                     <h1>Academics</h1>
                     <h2>
                         "Live as if you were to die tomorrow. Learn as if you were to live forever."
-                        <br /> –Mahatma Gandhi
+                        <br /> -Mahatma Gandhi
                     </h2>
                 </div>
 
@@ -254,7 +254,7 @@ const About = props => {
                     <h1>Work Experiences</h1>
                     <h2>
                         "Either you run the day or the day runs you."
-                        <br /> –Jim Rohn
+                        <br /> -Jim Rohn
                     </h2>
                 </div>
 
@@ -284,7 +284,7 @@ const About = props => {
                     <h1>Life Events</h1>
                     <h2>
                         "The purpose of our lives is to be happy."
-                        <br /> –Dalai Lama
+                        <br /> -Dalai Lama
                     </h2>
                 </div>
 
