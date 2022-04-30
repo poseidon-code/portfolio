@@ -28,7 +28,8 @@
 
 <h1 align="center">🍔 What's going on, you ask ?</h1>
 
--   🌱 I’m currently learning **Go and its image libraries with a multi-million dollar idea 😁**.
+-   🌱 I’m currently learning **Go and its backend implementations for gRPC, GraphQL, Sockets and systems design**.
+-   🎯 Technologies on my radar : **WebRTC, gRPC, web3, smart contracts & blockchain**
 -   👨‍💻 All of my projects are available at my **[Portfolio](https://pritamh.netlify.app)**.
 -   💬 Ask me about : **Python, Go, JavaScript, TypeScript, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, Linux Customizations (Ricing) and just about life 🤗**.
 -   📫 How to reach me ? **pritamhalder.portfolio@gmail.com**.
