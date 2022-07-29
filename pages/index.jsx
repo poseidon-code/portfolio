@@ -24,7 +24,6 @@ import {
     Facebook,
     Instagram,
     Linkedin,
-    CV,
     Resume,
     Firebase,
 } from '../components/UI/Icons';
@@ -80,7 +79,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
     return (
         <>
             <section className={styles.header}>
-                <img src='/images/p4.png' alt='home' title='🌊 A wild squirtle found !' aria-hidden='true' />
+                <img src='/images/p4.png' alt='home' title='🌊 A wild Squirtle found !' aria-hidden='true' />
                 <h2>Hi, I am</h2>
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
@@ -89,9 +88,10 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             <div className={styles.introduction}>
                 <section className={styles.cta}>
                     <p>
-                        I'm a Kolkata based software engineer who specializes in building and designing full stack
-                        products leading projects from research to implementation. I combine empathy, business strategy
-                        and design to create exceptional user experiences.
+                        I am an aspiring software developer specialising in frontend and backend web technologies. I
+                        love to dabble with new and upcoming web technologies and provide solutions to real world
+                        problems. Currently, I am learning Go and its design principles with gRPC framework and GraphQL
+                        technologies.
                     </p>
                     <div>
                         <Button href='#projects' style={{ '--hue': 332 }}>
@@ -124,34 +124,34 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     name='Portfolio'
                     github='https://github.com/poseidon-code/portfolio'
                     deploy='https://pritamh.netlify.app'
-                    description='You are viewing it currently designed by yours sincerely. Made with NextJs JavaScript framework.'
-                    tech={['NextJs', 'SASS']}
+                    description='Personal portfolio website designed from scratch using Next and Strapi CMS to showcase my skills and projects for potential clients.'
+                    tech={['NextJs', 'Strapi', 'SASS']}
                 />
                 <Project
                     name='Supacons'
                     github='https://github.com/poseidon-code/supacons'
                     deploy='https://supacons.netlify.app'
-                    description='Vanilla SVG Icons ripped from popular FontAwesome Icon pack. Made with NextJs JavaScript framework.'
+                    description='Font Icons ripped from popular Font Awesome 6 icon pack including all Pro icons.'
                     tech={['NextJs', 'CSS3']}
                 />
                 <Project
-                    name='TailwindColors'
-                    github='https://github.com/poseidon-code/tailwind-colors'
-                    deploy='https://tailwindcolors.netlify.app'
-                    description='TailwindCSS color palette copier. Made with ReactJs JavaScript framework.'
-                    tech={['ReactJs', 'CSS3']}
+                    name='Identicon'
+                    github='https://github.com/poseidon-code/identicon'
+                    deploy='https://pkg.go.dev/github.com/poseidon-code/godenticon'
+                    description='Cross-platform CLI program to generate identicons based on some string passed as argument and save as a PNG image. Basically, an unique image generator for identicons.'
+                    tech={['Go']}
                 />
                 <Project
                     name='Sories.io'
                     github='https://github.com/poseidon-code/stories.io'
                     deploy='https://storiesio.netlify.app'
-                    description='A short sotry telling app using WebAudio voices from the browser. Made with ReactJs JavaScript framework.'
-                    tech={['ReactJs', 'SASS', 'WebAudioAPI', 'REST API']}
+                    description='A short sotry telling app using WebSpeech API voices from the browser.'
+                    tech={['ReactJs', 'SASS', 'WebSpeechAPI']}
                 />
                 <Project
-                    name='mp3 Downloader'
+                    name='ytmp3-dl'
                     github='https://github.com/poseidon-code/ytmp3-dl'
-                    description='YouTube video to mp3 downloader. Made with Python using ffmpeg &amp; yt-dlp.'
+                    description='A python script that uses yt-dlp to download the audio from any YouTube video/audio link concurrently and converts it to .mp3 format of high quality.'
                     tech={['Python', 'yt-dlp', 'FFmpeg']}
                 />
 
@@ -251,12 +251,6 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                             <Download />
                             &nbsp;Resume&nbsp;
                             <Resume />
-                        </a>
-                        <br />
-                        <a href='/CV - Pritam Halder.pdf' download>
-                            <Download />
-                            &nbsp;CV&nbsp;
-                            <CV />
                         </a>
                     </p>
                 </article>
