@@ -1,7 +1,9 @@
 import { useRef, useState, useEffect } from 'react';
 import axios from 'axios';
-import { homeData } from '../utility/HomeData';
+
 import styles from '../styles/Home.module.scss';
+import { homeData } from '../utility/HomeData';
+import { Project, Skill, Stat, Technology } from '../components/Home';
 
 import { Button, SectionButton } from '../components/UI';
 import {
@@ -12,9 +14,6 @@ import {
     ReactJs,
     NodeJs,
     Bootstrap,
-    Aws,
-    Azure,
-    GCP,
     Ae,
     Ps,
     Figma,
@@ -30,8 +29,6 @@ import {
     Firebase,
 } from '../components/UI/Icons';
 
-import { Project, Skill, Stat, Technology } from '../components/Home';
-
 export const getStaticProps = async () => {
     const { hours, visitors, repos, frameworks } = await homeData();
 
@@ -42,11 +39,7 @@ export const getStaticProps = async () => {
     };
 };
 
-const Home = props => {
-    const {
-        stats: { hours, visitors, repos, frameworks },
-    } = props;
-
+const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
     const nameRef = useRef();
     const emailRef = useRef();
     const messageRef = useRef();
@@ -87,36 +80,7 @@ const Home = props => {
     return (
         <>
             <section className={styles.header}>
-                <pre style={{ fontSize: '.2rem', fontFamily: 'monospace' }}>
-                    {`
-              ███████  ███████
-          ████▓▓▓▓▓▓████░░░░░██
-        ██▓▓▓▓▓▓▓▓▓▓▓▓██░░░░░░██
-      ██▓▓▓▓▓▓████████████░░░░██
-    ██▓▓▓▓▓▓████████████████░██
-    ██▓▓████░░░░░░░░░░░░██████
-  ████████░░░░░░██░░██░░██▓▓▓▓██
-  ██░░████░░░░░░██░░██░░██▓▓▓▓██
-██░░░░██████░░░░░░░░░░░░░░██▓▓██
-██░░░░░░██░░░░██░░░░░░░░░░██▓▓██
-  ██░░░░░░░░░███████░░░░██████
-    ████░░░░░░░███████████▓▓██
-      ██████░░░░░░░░░░██▓▓▓▓██
-    ██▓▓▓▓██████████████▓▓██
-  ██▓▓▓▓▓▓▓▓████░░░░░░████
-████▓▓▓▓▓▓▓▓██░░░░░░░░░░██
-████▓▓▓▓▓▓▓▓██░░░░░░░░░░██
-██████▓▓▓▓▓▓▓▓██░░░░░░████████
-  ██████▓▓▓▓▓▓████████████████
-    ██████████████████████▓▓▓▓██
-  ██▓▓▓▓████████████████▓▓▓▓▓▓██
-████▓▓██████████████████▓▓▓▓▓▓██
-██▓▓▓▓██████████████████▓▓▓▓▓▓██
-██▓▓▓▓██████████      ██▓▓▓▓████
-██▓▓▓▓████              ██████
-  ████
-`}
-                </pre>
+                <img src='/images/p4.png' alt='home' title='🌊 A wild squirtle found !' aria-hidden='true' />
                 <h2>Hi, I am</h2>
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
@@ -151,9 +115,8 @@ const Home = props => {
                 <div className={styles.projects_head}>
                     <h1>Featured Projects</h1>
                     <h2>
-                        My creative mindset and my passion for designning yeilded these fine results. With a core
-                        background of computer programming and a creative hobby made me look always forwards to
-                        perfection.
+                        My creative mindset and my passion for designning with a core background of computer science and
+                        a creative hobby yeilded these fine results.
                     </h2>
                 </div>
 
@@ -206,18 +169,18 @@ const Home = props => {
                     </h2>
                 </div>
                 <ul className={styles.skills_body}>
+                    <Skill skill='Golang' />
+                    <Skill skill='NextJS' />
+                    <Skill skill='ReactJS' />
+                    <Skill skill='NodeJS' />
+                    <Skill skill='Python' />
+                    <Skill skill='NextJS Fullstack' />
                     <Skill skill='JavaScript' />
                     <Skill skill='TypeScript' />
-                    <Skill skill='ReactJS' />
-                    <Skill skill='NextJS' />
-                    <Skill skill='NextJS Fullstack' />
-                    <Skill skill='NodeJS' />
-                    <Skill skill='GraphQL' />
-                    <Skill skill='Golang' />
-                    <Skill skill='C/C++' />
                     <Skill skill='Algorithms' />
                     <Skill skill='Data Structures' />
-                    <Skill skill='Python' />
+                    <Skill skill='GraphQL' />
+                    <Skill skill='C/C++' />
                     <Skill skill='Core JAVA' />
                     <Skill skill='Fullstack Web Development' />
                     <Skill skill='MERN Stack' />
