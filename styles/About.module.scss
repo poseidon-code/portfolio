@@ -7,6 +7,14 @@
     flex-direction: column;
     justify-content: flex-end;
     @include utils.section-bg('../public/backgrounds/bg-4.jpg', 325, cover);
+    user-select: none;
+
+    img {
+        width: clamp(6rem, 10vw, 10rem);
+        height: clamp(6rem, 10vw, 10rem);
+        filter: grayscale(100%) sepia(60%) hue-rotate(290deg) saturate(482%);
+        margin-bottom: 1rem;
+    }
 
     h1 {
         font-size: 5rem;
