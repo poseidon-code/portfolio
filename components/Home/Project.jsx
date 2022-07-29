@@ -1,7 +1,7 @@
 import styles from '../../styles/Home.module.scss';
 import { Github, ExternalLink } from '../UI/Icons';
 
-const Project = (props) => (
+const Project = props => (
     <section className={styles.project}>
         <div>
             <h1>{props.name}</h1>

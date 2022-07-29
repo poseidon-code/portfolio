@@ -4,7 +4,7 @@ import Head from 'next/head';
 
 import Navbar from '../Navbar/Navbar';
 
-const Layout = (props) => {
+const Layout = props => {
     const { pathname } = useRouter();
     const [color, setColor] = useState();
 
