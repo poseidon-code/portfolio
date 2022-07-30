@@ -162,31 +162,38 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
 
             <section className={styles.skills}>
                 <div className={styles.skills_head}>
-                    <h1>Skill Sets</h1>
+                    <h1>Technical Skills</h1>
                     <h2>
                         Modern technologies helped me to upgrade from traditional methods to new ways. Implementing
                         logics helped me with my programming confidence.
                     </h2>
                 </div>
+                {/* TODO : update @for-thorugh count in Home.module.scss (.skills.skill-body.skill) */}
                 <ul className={styles.skills_body}>
-                    <Skill skill='Golang' />
-                    <Skill skill='NextJS' />
-                    <Skill skill='ReactJS' />
-                    <Skill skill='NodeJS' />
                     <Skill skill='Python' />
-                    <Skill skill='NextJS Fullstack' />
+                    <Skill skill='Golang' />
                     <Skill skill='JavaScript' />
-                    <Skill skill='TypeScript' />
-                    <Skill skill='Algorithms' />
-                    <Skill skill='Data Structures' />
-                    <Skill skill='GraphQL' />
                     <Skill skill='C/C++' />
-                    <Skill skill='Core JAVA' />
-                    <Skill skill='Fullstack Web Development' />
-                    <Skill skill='MERN Stack' />
-                    <Skill skill='Git & Github' />
+                    <Skill skill='JAVA' />
+                    <Skill skill='Next' />
+                    <Skill skill='React' />
+                    <Skill skill='Node' />
                     <Skill skill='MongoDB' />
-                    <Skill skill='REST API' />
+                    <Skill skill='MySQL' />
+                    <Skill skill='Tensorflow' />
+                    <Skill skill='Keras' />
+                    <Skill skill='TypeScript' />
+                    <Skill skill='Data Structures' />
+                    <Skill skill='Algorithms' />
+                    <Skill skill='GraphQL' />
+                    <Skill skill='Express' />
+                    <Skill skill='Selenium' />
+                    <Skill skill='Redux' />
+                    <Skill skill='Fullstack Web Development' />
+                    <Skill skill='MERN Web Stack' />
+                    <Skill skill='Git & Github' />
+                    <Skill skill='NGINX' />
+                    <Skill skill='Docker' />
                     <Skill skill='HTML5' />
                     <Skill skill='CSS3' />
                     <Skill skill='SASS' />
@@ -200,25 +207,33 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <div className={styles.technologies_head}>
                     <h1>Technologies Tackled</h1>
                     <h2>
-                        I have experience with most of the important UI designing / coding frameworks, proficient with
-                        with both javascript based backend and frontend development. I am also skilled with various
-                        designing softwares.
+                        Gathered experience with most of the important UI designing / coding frameworks, proficient with
+                        with both javascript based backend and frontend development.
                     </h2>
                 </div>
+                {/* TODO : update @for-thorugh count in Home.module.scss (.technologies.technologies-body.technology) */}
                 <ul className={styles.technologies_body}>
-                    <Technology technology='ReactJs' text='JavaScript Library' icon={<ReactJs />} />
-                    <Technology technology='NextJs' text='Framework of ReactJs' icon={<ReactJs />} />
-                    <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
-                    <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
+                    {/* TODO : Icons Required : NGINX, Docker, MySQL, MongoDB, Tensorflow, Keras, Selenium, Redux */}
+                    {/* TODO : Removable Icons : <Database/> */}
+                    <Technology technology='React' text='JavaScript Library' icon={<ReactJs />} />
+                    <Technology technology='Next' text='Framework of ReactJs' icon={<ReactJs />} />
+                    <Technology technology='Node' text='JavaScript Runtime' icon={<NodeJs />} />
+                    <Technology technology='NGINX' text='JavaScript Web Server' icon={<NodeJs />} />
+                    <Technology technology='Docker' text='Containerization Platform' icon={<NodeJs />} />
                     <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
                     <Technology technology='MongoDB' text='NoSQL Database' icon={<Database />} />
-                    {/* <Technology technology='Postgres SQL' text='SQL Database' icon={<Database />} /> */}
+                    <Technology technology='MySQL' text='SQL Database' icon={<Database />} />
+                    {/* <Technology technology='Tensorflow' text='ML Framework' icon={<Database />} /> */}
+                    {/* <Technology technology='Keras' text='ML Framework' icon={<Database />} /> */}
+                    <Technology technology='Selenium' text='Automation Framework' icon={<Database />} />
+                    <Technology technology='Redux' text='JavaScript State Manager' icon={<Database />} />
                     <Technology technology='Firebase' text='Cloud Service Provider' icon={<Firebase />} />
                     {/* <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
                     {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
                     {/* <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} /> */}
                     <Technology technology='Adobe After Effects' text='Motion Graphics Software' icon={<Ae />} />
                     <Technology technology='Adobe Photoshop' text='Image Manipulation Software' icon={<Ps />} />
+                    <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
                     <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />
                     <Technology technology='Git & Github' text='Version Control' icon={<Git />} />
                 </ul>
