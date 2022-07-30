@@ -132,15 +132,8 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     name='Portfolio'
                     github='https://github.com/poseidon-code/portfolio'
                     deploy='https://pritamh.netlify.app'
-                    description='Personal portfolio website designed from scratch using Next and Strapi CMS to showcase my skills and projects for potential clients.'
+                    description='Personal portfolio website designed from scratch using Next and Strapi headless CMS to showcase my skills and projects for potential clients.'
                     tech={['NextJs', 'Strapi', 'SASS']}
-                />
-                <Project
-                    name='Supacons'
-                    github='https://github.com/poseidon-code/supacons'
-                    deploy='https://supacons.netlify.app'
-                    description='Font Icons ripped from popular Font Awesome 6 icon pack including all Pro icons.'
-                    tech={['NextJs', 'CSS3']}
                 />
                 <Project
                     name='Identicon'
@@ -150,17 +143,24 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     tech={['Go']}
                 />
                 <Project
-                    name='Sories.io'
-                    github='https://github.com/poseidon-code/stories.io'
-                    deploy='https://storiesio.netlify.app'
-                    description='A short sotry telling app using WebSpeech API voices from the browser.'
-                    tech={['ReactJs', 'SASS', 'WebSpeechAPI']}
-                />
-                <Project
                     name='ytmp3-dl'
                     github='https://github.com/poseidon-code/ytmp3-dl'
                     description='A python script that uses yt-dlp to download the audio from any YouTube video/audio link concurrently and converts it to .mp3 format of high quality.'
                     tech={['Python', 'yt-dlp', 'FFmpeg']}
+                />
+                <Project
+                    name='Supacons'
+                    github='https://github.com/poseidon-code/supacons'
+                    deploy='https://supacons.netlify.app'
+                    description='Font Icons ripped from popular Font Awesome 6 icon pack including all Pro icons.'
+                    tech={['NextJs', 'CSS3']}
+                />
+                <Project
+                    name='Stories.io'
+                    github='https://github.com/poseidon-code/stories.io'
+                    deploy='https://storiesio.netlify.app'
+                    description='A short sotry telling app using WebSpeechAPI narration voices from the browser.'
+                    tech={['ReactJs', 'SASS', 'WebSpeechAPI']}
                 />
 
                 <SectionButton text='Many more projects awaits you :)' link href='/projects'>
@@ -183,9 +183,9 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     <Skill skill='JavaScript' />
                     <Skill skill='C/C++' />
                     <Skill skill='JAVA' />
-                    <Skill skill='Next' />
-                    <Skill skill='React' />
-                    <Skill skill='Node' />
+                    <Skill skill='NextJs' />
+                    <Skill skill='ReactJs' />
+                    <Skill skill='NodeJs' />
                     <Skill skill='MongoDB' />
                     <Skill skill='MySQL' />
                     <Skill skill='Tensorflow' />
@@ -221,9 +221,9 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </div>
                 {/* TODO : update @for-thorugh count in Home.module.scss (.technologies.technologies-body.technology) */}
                 <ul className={styles.technologies_body}>
-                    <Technology technology='React' text='JavaScript Library' icon={<ReactJs />} />
-                    <Technology technology='Next' text='ReactJs Framework' icon={<NextJs />} />
-                    <Technology technology='Node' text='JavaScript Runtime' icon={<NodeJs />} />
+                    <Technology technology='ReactJs' text='Frontend JavaScript Library' icon={<ReactJs />} />
+                    <Technology technology='NextJs' text='ReactJs Framework' icon={<NextJs />} />
+                    <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
                     <Technology technology='NGINX' text='JavaScript Web Server' icon={<Nginx />} />
                     <Technology technology='Docker' text='Containerization Platform' icon={<Docker />} />
                     <Technology technology='GraphQL' text='Data Query Language' icon={<GraphQL />} />
