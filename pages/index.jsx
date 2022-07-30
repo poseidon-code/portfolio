@@ -18,7 +18,6 @@ import {
     Ps,
     Figma,
     Git,
-    Database,
     GraphQL,
     Download,
     Facebook,
@@ -26,6 +25,15 @@ import {
     Linkedin,
     Resume,
     Firebase,
+    Nginx,
+    Docker,
+    MySQL,
+    MongoDB,
+    Tensorflow,
+    Keras,
+    Selenium,
+    Redux,
+    NextJs,
 } from '../components/UI/Icons';
 
 export const getStaticProps = async () => {
@@ -213,20 +221,18 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </div>
                 {/* TODO : update @for-thorugh count in Home.module.scss (.technologies.technologies-body.technology) */}
                 <ul className={styles.technologies_body}>
-                    {/* TODO : Icons Required : NGINX, Docker, MySQL, MongoDB, Tensorflow, Keras, Selenium, Redux */}
-                    {/* TODO : Removable Icons : <Database/> */}
                     <Technology technology='React' text='JavaScript Library' icon={<ReactJs />} />
-                    <Technology technology='Next' text='Framework of ReactJs' icon={<ReactJs />} />
+                    <Technology technology='Next' text='ReactJs Framework' icon={<NextJs />} />
                     <Technology technology='Node' text='JavaScript Runtime' icon={<NodeJs />} />
-                    <Technology technology='NGINX' text='JavaScript Web Server' icon={<NodeJs />} />
-                    <Technology technology='Docker' text='Containerization Platform' icon={<NodeJs />} />
-                    <Technology technology='GraphQL' text='Query Language for APIs' icon={<GraphQL />} />
-                    <Technology technology='MongoDB' text='NoSQL Database' icon={<Database />} />
-                    <Technology technology='MySQL' text='SQL Database' icon={<Database />} />
-                    {/* <Technology technology='Tensorflow' text='ML Framework' icon={<Database />} /> */}
-                    {/* <Technology technology='Keras' text='ML Framework' icon={<Database />} /> */}
-                    <Technology technology='Selenium' text='Automation Framework' icon={<Database />} />
-                    <Technology technology='Redux' text='JavaScript State Manager' icon={<Database />} />
+                    <Technology technology='NGINX' text='JavaScript Web Server' icon={<Nginx />} />
+                    <Technology technology='Docker' text='Containerization Platform' icon={<Docker />} />
+                    <Technology technology='GraphQL' text='Data Query Language' icon={<GraphQL />} />
+                    <Technology technology='MongoDB' text='NoSQL Database' icon={<MongoDB />} />
+                    <Technology technology='MySQL' text='SQL Database' icon={<MySQL />} />
+                    <Technology technology='Tensorflow' text='ML Framework' icon={<Tensorflow />} />
+                    <Technology technology='Keras' text='ML Framework' icon={<Keras />} />
+                    <Technology technology='Selenium' text='Automation Framework' icon={<Selenium />} />
+                    <Technology technology='Redux' text='JavaScript State Manager' icon={<Redux />} />
                     <Technology technology='Firebase' text='Cloud Service Provider' icon={<Firebase />} />
                     {/* <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
                     {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
