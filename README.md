@@ -4,17 +4,17 @@
 
 # Hi 👋, I am Pritam Halder
 
-### "Success is not final, failure is not fatal, it is the courage to continue that counts"
+### **"Success is not final, failure is not fatal, it is the courage to continue that counts"**
 
 ### &bull; &bull; &bull;
 
-#### I'm a Kolkata based software engineer who specializes in building and designing full stack products leading projects from research to implementation. I combine empathy, business strategy and design to create exceptional user experiences.
+#### I am an aspiring software developer specialising in frontend and backend web technologies. I love to dabble with new and upcoming web technologies and provide solutions to real world problems. Currently, I am learning Go and its design principles with gRPC framework and GraphQL technologies.
 
 ### &bull; &bull; &bull;
 
-#### **[Resume](./assets/Resume%20-%20Pritam%20Halder.pdf) &bull; [CV](./assets/CV%20-%20Pritam%20Halder.pdf)**
+#### **📃 [Resume](./assets/resume/Resume%20-%20Pritam%20Halder.pdf)**
 
-### ✨ **[Portfolio](https://pritamh.netlify.app)** ✨
+### ✨ **[pritamh.dev](https://pritamh.netlify.app)** ✨
 
 <img src="./assets/current.gif" alt='current' width="80%">
 
@@ -33,8 +33,7 @@
 -   👨‍💻 All of my projects are available at my **[Portfolio](https://pritamh.netlify.app)**.
 -   💬 Ask me about : **Python, Go, JavaScript, TypeScript, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, Linux Customizations (Ricing) and just about life 🤗**.
 -   📫 How to reach me ? **pritamhalder.portfolio@gmail.com**.
--   📄 Get to know about my professional field of work : **[My Resume](./assets/Resume%20-%20Pritam%20Halder.pdf)**.
--   📄 Get to know about my academic experiences : **[My CV](./assets/CV%20-%20Pritam%20Halder.pdf)**.
+-   📄 Get to know about my academic experiences : **[My Resume](./assets/resume/Resume%20-%20Pritam%20Halder.pdf)**.
 
 <!--  -->
 <!--  -->
@@ -113,37 +112,11 @@
 
 # 🌟 My Github Stats
 
-![Poseidon's GitHub stats](https://github-readme-stats.vercel.app/api?username=poseidon-code&theme=prussian&show_icons=true)
+![Poseidon's GitHub stats](https://github-readme-stats.vercel.app/api?username=poseidon-code&theme=algolia&show_icons=true&hide_border=true&count_private=true)
 
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=poseidon-code&layout=compact&theme=prussian)
+![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=poseidon-code&layout=compact&theme=algolia&hide_border=true)
 
-![Poseidon's Wakatime](https://github-readme-stats.vercel.app/api/wakatime?username=poseidoncode&layout=compact&theme=prussian)
-
-</div>
-
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-<!--  -->
-
-<div align="center">
-
-<img src="./assets/social.gif" alt="social" width="30%">
-
-# 🤠 About Myself
-
-### Hello ! So now that you have gone through my skills, projects and my interests, how about I tell you about my passion :) ? I am an University student, persuing Masters in Computer Science in 1st year, living with my parents and my younger brother in Kolkata.
-
-### I love drawing, digital painting, graphics designing, reading, coding, programming, photoshoping, making illustrations, making videos, running a youtube channel and many more.
-
-### My true goal in my life is to do the job I love, that is programming, coding & designing; because in that moment I would be at my best, always :)
-
-### &bull; &bull; &bull;
-
-#### **[Resume](./assets/Resume%20-%20Pritam%20Halder.pdf) &bull; [CV](./assets/CV%20-%20Pritam%20Halder.pdf)**
-
-### ✨ **[Porfolio](https://pritamh.netlify.app)** ✨
+![Poseidon's Wakatime](https://github-readme-stats.vercel.app/api/wakatime?username=poseidoncode&layout=compact&theme=algolia&hide_border=true)
 
 </div>
 
@@ -171,8 +144,8 @@
 
 ### **(｡◕‿◕｡)**
 
-### Created with ❤ by yours sincerely.
+### Created with 💙 by yours sincerely.
 
-#### &copy;Pritam Halder 2021
+#### &copy; Pritam Halder 2021
 
 </div>

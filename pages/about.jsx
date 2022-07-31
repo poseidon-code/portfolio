@@ -3,7 +3,7 @@ import axios from 'axios';
 import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
-import { Download, CV, Resume, Fact, Joke } from '../components/UI/Icons';
+import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
 import { SectionButton } from '../components/UI';
 
 import { ClockTime, Stats } from '../components/About';
@@ -94,12 +94,6 @@ const About = props => {
                         <Download />
                         &nbsp;Resume&nbsp;
                         <Resume />
-                    </a>
-                    <br />
-                    <a href='/CV - Pritam Halder.pdf' download>
-                        <Download />
-                        &nbsp;CV&nbsp;
-                        <CV />
                     </a>
                 </p>
                 <img src='/backgrounds/bg-5.jpg' alt='profile picture' />
