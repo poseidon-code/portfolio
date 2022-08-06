@@ -1,8 +1,8 @@
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, Fragment } from 'react';
 import axios from 'axios';
 
 import styles from '../styles/Home.module.scss';
-import { homeData } from '../utility/HomeData';
+import { homeData, homeDataStore } from '../utility/HomeData';
 import { Project, Skill, Stat, Technology } from '../components/Home';
 
 import { Button, SectionButton } from '../components/UI';
@@ -11,29 +11,11 @@ import {
     Visitors,
     Github,
     Frameworks,
-    ReactJs,
-    NodeJs,
-    Bootstrap,
-    Ae,
-    Ps,
-    Figma,
-    Git,
-    GraphQL,
     Download,
     Facebook,
     Instagram,
     Linkedin,
     Resume,
-    Firebase,
-    Nginx,
-    Docker,
-    MySQL,
-    MongoDB,
-    Tensorflow,
-    Keras,
-    Selenium,
-    Redux,
-    NextJs,
 } from '../components/UI/Icons';
 
 export const getStaticProps = async () => {
@@ -95,12 +77,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
 
             <div className={styles.introduction}>
                 <section className={styles.cta}>
-                    <p>
-                        I am an aspiring software developer specialising in frontend and backend web technologies. I
-                        love to dabble with new and upcoming web technologies and provide solutions to real world
-                        problems. Currently, I am learning Go and its design principles with gRPC framework and GraphQL
-                        technologies.
-                    </p>
+                    <p>{homeDataStore.introduction}</p>
                     <div>
                         <Button href='#projects' style={{ '--hue': 332 }}>
                             My Projects
@@ -122,47 +99,11 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             <section id='projects' className={styles.projects}>
                 <div className={styles.projects_head}>
                     <h1>Featured Projects</h1>
-                    <h2>
-                        My creative mindset and my passion for designning with a core background of computer science and
-                        a creative hobby yeilded these fine results.
-                    </h2>
+                    <h2>My creative mindset with a core background of computer science yeilded these fine results.</h2>
                 </div>
-
-                <Project
-                    name='Portfolio'
-                    github='https://github.com/poseidon-code/portfolio'
-                    deploy='https://pritamh.netlify.app'
-                    description='Personal portfolio website designed from scratch using Next and Strapi headless CMS to showcase my skills and projects for potential clients.'
-                    tech={['NextJs', 'Strapi', 'SASS']}
-                />
-                <Project
-                    name='Identicon'
-                    github='https://github.com/poseidon-code/identicon'
-                    deploy='https://pkg.go.dev/github.com/poseidon-code/godenticon'
-                    description='Cross-platform CLI program to generate identicons based on some string passed as argument and save as a PNG image. Basically, an unique image generator for identicons.'
-                    tech={['Go']}
-                />
-                <Project
-                    name='ytmp3-dl'
-                    github='https://github.com/poseidon-code/ytmp3-dl'
-                    description='A python script that uses yt-dlp to download the audio from any YouTube video/audio link concurrently and converts it to .mp3 format of high quality.'
-                    tech={['Python', 'yt-dlp', 'FFmpeg']}
-                />
-                <Project
-                    name='Supacons'
-                    github='https://github.com/poseidon-code/supacons'
-                    deploy='https://supacons.netlify.app'
-                    description='Font Icons ripped from popular Font Awesome 6 icon pack including all Pro icons.'
-                    tech={['NextJs', 'CSS3']}
-                />
-                <Project
-                    name='Stories.io'
-                    github='https://github.com/poseidon-code/stories.io'
-                    deploy='https://storiesio.netlify.app'
-                    description='A short sotry telling app using WebSpeechAPI narration voices from the browser.'
-                    tech={['ReactJs', 'SASS', 'WebSpeechAPI']}
-                />
-
+                {homeDataStore.projects.map((project, i) => (
+                    <Project key={`project-${i + 1}`} {...project} />
+                ))}
                 <SectionButton text='Many more projects awaits you :)' link href='/projects'>
                     Check Out
                 </SectionButton>
@@ -172,39 +113,15 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <div className={styles.skills_head}>
                     <h1>Technical Skills</h1>
                     <h2>
-                        Modern technologies helped me to upgrade from traditional methods to new ways. Implementing
-                        logics helped me with my programming confidence.
+                        Modern technologies & abundant freely accessible resources helped me to upgrade from traditional
+                        methods to new approaches along with my programming confidence.
                     </h2>
                 </div>
                 {/* TODO : update @for-thorugh count in Home.module.scss (.skills.skill-body.skill) */}
                 <ul className={styles.skills_body}>
-                    <Skill skill='Python' />
-                    <Skill skill='Golang' />
-                    <Skill skill='JavaScript' />
-                    <Skill skill='C/C++' />
-                    <Skill skill='JAVA' />
-                    <Skill skill='NextJs' />
-                    <Skill skill='ReactJs' />
-                    <Skill skill='NodeJs' />
-                    <Skill skill='MongoDB' />
-                    <Skill skill='MySQL' />
-                    <Skill skill='Tensorflow' />
-                    <Skill skill='Keras' />
-                    <Skill skill='TypeScript' />
-                    <Skill skill='Data Structures' />
-                    <Skill skill='Algorithms' />
-                    <Skill skill='GraphQL' />
-                    <Skill skill='Express' />
-                    <Skill skill='Selenium' />
-                    <Skill skill='Redux' />
-                    <Skill skill='Fullstack Web Development' />
-                    <Skill skill='MERN Web Stack' />
-                    <Skill skill='Git & Github' />
-                    <Skill skill='NGINX' />
-                    <Skill skill='Docker' />
-                    <Skill skill='HTML5' />
-                    <Skill skill='CSS3' />
-                    <Skill skill='SASS' />
+                    {homeDataStore.skills.map((skill, i) => (
+                        <Skill key={`skill-${i + 1}`} skill={skill} />
+                    ))}
                 </ul>
                 <SectionButton text='Want my skill sets for your project ?' href='#contact'>
                     Hire Me
@@ -215,33 +132,15 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <div className={styles.technologies_head}>
                     <h1>Technologies Tackled</h1>
                     <h2>
-                        Gathered experience with most of the important UI designing / coding frameworks, proficient with
-                        with both javascript based backend and frontend development.
+                        Experienced with most of the important coding frameworks and proficient with with both
+                        javascript based backend & frontend development.
                     </h2>
                 </div>
                 {/* TODO : update @for-thorugh count in Home.module.scss (.technologies.technologies-body.technology) */}
                 <ul className={styles.technologies_body}>
-                    <Technology technology='ReactJs' text='Frontend JavaScript Library' icon={<ReactJs />} />
-                    <Technology technology='NextJs' text='ReactJs Framework' icon={<NextJs />} />
-                    <Technology technology='NodeJs' text='JavaScript Runtime' icon={<NodeJs />} />
-                    <Technology technology='NGINX' text='JavaScript Web Server' icon={<Nginx />} />
-                    <Technology technology='Docker' text='Containerization Platform' icon={<Docker />} />
-                    <Technology technology='GraphQL' text='Data Query Language' icon={<GraphQL />} />
-                    <Technology technology='MongoDB' text='NoSQL Database' icon={<MongoDB />} />
-                    <Technology technology='MySQL' text='SQL Database' icon={<MySQL />} />
-                    <Technology technology='Tensorflow' text='ML Framework' icon={<Tensorflow />} />
-                    <Technology technology='Keras' text='ML Framework' icon={<Keras />} />
-                    <Technology technology='Selenium' text='Automation Framework' icon={<Selenium />} />
-                    <Technology technology='Redux' text='JavaScript State Manager' icon={<Redux />} />
-                    <Technology technology='Firebase' text='Cloud Service Provider' icon={<Firebase />} />
-                    {/* <Technology technology='AWS' text='Cloud Service Provider' icon={<Aws />} /> */}
-                    {/* <Technology technology='Azure' text='Cloud Service Provider' icon={<Azure />} /> */}
-                    {/* <Technology technology='Google Cloud Platform' text='Cloud Service Provider' icon={<GCP />} /> */}
-                    <Technology technology='Adobe After Effects' text='Motion Graphics Software' icon={<Ae />} />
-                    <Technology technology='Adobe Photoshop' text='Image Manipulation Software' icon={<Ps />} />
-                    <Technology technology='Bootstrap 5' text='CSS Framework' icon={<Bootstrap />} />
-                    <Technology technology='Figma' text='UI/UX Prototyping Platform' icon={<Figma />} />
-                    <Technology technology='Git & Github' text='Version Control' icon={<Git />} />
+                    {homeDataStore.technologies.map((technology, i) => (
+                        <Technology key={`technology-${i + 1}`} {...technology} />
+                    ))}
                 </ul>
                 <SectionButton text='Do you want to implement these technologies in your product ?' href='#contact'>
                     Let's Talk
@@ -250,32 +149,26 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
 
             <section className={styles.about}>
                 <div className={styles.about_head}>
-                    <h1>About Me</h1>
+                    <h1>About Myself</h1>
                     <h2>Success is not final, failure is not fatal, it is the courage to continue that counts.</h2>
                 </div>
                 <article className={styles.about_body}>
                     <p>
-                        Hello ! So now that you have gone through my skills, projects and my interests, how about I tell
-                        you about my passion :) ? I am a college student of Computer Science (Honors) in 3rd year,
-                        living with my parents and my younger brother in Debpukur.
-                        <br />
-                        <br />
-                        I love drawing, digital painting, graphics designing, reading, coding, programming,
-                        photoshoping, making illustrations, making videos, running a youtube channel, managing
-                        businesses' / brands' pages and lots more.
-                        <br />
-                        <br />
-                        My true goal in my life is to do the job I love, that is programming, coding & designing;
-                        because in that moment I would be at my best, always :)
-                        <br /> <br />
+                        {homeDataStore.about.map((line, i) => (
+                            <Fragment key={`about-line-${i + 1}`}>
+                                {line}
+                                <br />
+                                <br />
+                            </Fragment>
+                        ))}
                         <a href='/Resume - Pritam Halder.pdf' download>
-                            <Download />
-                            &nbsp;Resume&nbsp;
                             <Resume />
+                            &nbsp;Resume&nbsp;
+                            <Download />
                         </a>
                     </p>
                 </article>
-                <SectionButton text='Wanna know more about my experiences till now ?' link href='/about'>
+                <SectionButton text='Wanna know more about my academic experiences ?' link href='/about'>
                     More About Me
                 </SectionButton>
             </section>
