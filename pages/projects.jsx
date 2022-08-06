@@ -25,7 +25,7 @@ const Projects = props => {
         <>
             <section className={styles.header}>
                 <img src='/images/p3.png' alt='home' title='👻 A spooky Gengar found !' aria-hidden='true' />
-                <h2>"You’re purrfect"</h2>
+                <h2>"You're purrfect"</h2>
                 <h1>Projects</h1>
                 <h2>Imagination is more important than knowledge.</h2>
             </section>
