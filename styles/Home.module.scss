@@ -145,7 +145,7 @@
         display: flex;
         height: 400px;
 
-        $color: 0, 62, 157, 279, 192;
+        $color: 0, 157, 192, 62, 279;
         $bg: '../public/backgrounds/bg-1.jpg', '../public/backgrounds/bg-2.jpg', '../public/backgrounds/bg-3.jpg',
             '../public/backgrounds/bg-4.jpg', '../public/backgrounds/bg-5.jpg';
         @for $i from 1 through 5 {
