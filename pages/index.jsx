@@ -43,7 +43,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
             </section>
-            <div className={styles.introduction}>
+            <div className={styles.introduction} tabIndex={1}>
                 <section className={styles.cta}>
                     <p>{homeDataStore.introduction}</p>
                     <div>
@@ -64,7 +64,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </section>
             </div>
 
-            <section id='projects' className={styles.projects}>
+            <section id='projects' className={styles.projects} tabIndex={2}>
                 <div className={styles.projects_head}>
                     <h1>Featured Projects</h1>
                     <h2>My creative mindset with a core background of computer science yeilded these fine results.</h2>
@@ -77,7 +77,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.skills}>
+            <section className={styles.skills} tabIndex={3}>
                 <div className={styles.skills_head}>
                     <h1>Technical Skills</h1>
                     <h2>
@@ -96,7 +96,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.technologies}>
+            <section className={styles.technologies} tabIndex={4}>
                 <div className={styles.technologies_head}>
                     <h1>Technologies Tackled</h1>
                     <h2>
@@ -115,7 +115,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.about}>
+            <section className={styles.about} tabIndex={5}>
                 <div className={styles.about_head}>
                     <h1>About Myself</h1>
                     <h2>Success is not final, failure is not fatal, it is the courage to continue that counts.</h2>
@@ -123,7 +123,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <article className={styles.about_body}>
                     <p>
                         {homeDataStore.about.map((line, i) => (
-                            <Fragment key={`about-line-${i + 1}`}>
+                            <Fragment key={`about-ine-${i + 1}`}>
                                 {line}
                                 <br />
                                 <br />
@@ -141,7 +141,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section id='contact' className={styles.contact}>
+            <section id='contact' className={styles.contact} tabIndex={6}>
                 <div className={styles.contact_head}>
                     <h1>Contact Me</h1>
                     <h2>Sometimes later becomes never...</h2>
