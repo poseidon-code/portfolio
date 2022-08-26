@@ -6,6 +6,7 @@ const PROJECTDATA = `
     query GetData {
         projects {
             id
+            aid
             name
             description
             technologies
@@ -75,6 +76,7 @@ const GITHUBLANGUAGES = `
 // GET (GQL) "Projects" and "Open Source Contributions" from CMS
 const get_projects = async () => {
     const data = await axios.post(process.env.CMS, { query: PROJECTDATA }).then(res => res.data.data);
+    data.projects.sort((a, b) => a.aid - b.aid);
 
     return data;
 };
