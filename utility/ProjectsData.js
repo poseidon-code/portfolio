@@ -28,7 +28,7 @@ const GITHUBREPOS = `
             repositories(privacy: PUBLIC, first: 100, ownerAffiliations: OWNER) {
                 nodes {
                     name
-                    updatedAt
+                    pushedAt
                     url
                     forkCount
                     stargazerCount
@@ -96,11 +96,11 @@ const get_githubrepos = async () => {
         );
 
     // sort repositories according to the time it was last updated in descending order
-    // using "updatedAt" property of every repository object
+    // using "pushedAt" property of every repository object
     // i.e.: shows recently updated first
     data.sort((a, b) => {
-        let ta = new Date(a.updatedAt).getTime();
-        let tb = new Date(b.updatedAt).getTime();
+        let ta = new Date(a.pushedAt).getTime();
+        let tb = new Date(b.pushedAt).getTime();
         if (ta < tb) return 1;
         if (ta > tb) return -1;
         return 0;
