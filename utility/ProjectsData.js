@@ -103,9 +103,7 @@ const get_githubrepos = async () => {
     data.sort((a, b) => {
         let ta = new Date(a.pushedAt).getTime();
         let tb = new Date(b.pushedAt).getTime();
-        if (ta < tb) return 1;
-        if (ta > tb) return -1;
-        return 0;
+        return tb - ta;
     });
 
     // repos ([{name, url, stars, forks}])
@@ -179,7 +177,7 @@ const get_languages = async () => {
      * looping over all languages used in a single repository for every repositories and
      * appending "name" of that programming language to languages[]
      */
-    let languages = [];
+    let languages = new Array();
     data.forEach(r => {
         r.languages.nodes.forEach(l => {
             languages.push(l.name);
@@ -205,11 +203,17 @@ const get_languages = async () => {
         languages_map.set(l, p);
     }
 
-    // stats ({name: percentage, ...})
-    // creates a Javascript Object from the Javascript Map
-    const stats = Object.fromEntries(languages_map.entries());
+    // sorted_languages ([{language, percentage}])
+    // sorted according to percentage of languages used
+    // sliced to top 10 languages used
+    let sorted_languages = new Array();
+    languages_map.forEach((value, key) => {
+        sorted_languages.push({ language: key, percentage: value });
+    });
+    sorted_languages.sort((a, b) => b.percentage - a.percentage);
+    sorted_languages.splice(10);
 
-    return stats;
+    return sorted_languages;
 };
 
 // EXPORTED variable SYMBOLS ([character])
