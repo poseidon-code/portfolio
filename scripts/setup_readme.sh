@@ -3,10 +3,10 @@
 
 git clone https://github.com/poseidon-code/poseidon-code
 
-cp ./poseidon-code/README.md ../
+cp -f ./poseidon-code/README.md ../
 
-cp -R ./poseidon-code/assets/ ../
+cp -Rf ./poseidon-code/assets/ ../
 
-cp "./poseidon-code/assets/resume/Resume - Pritam Halder.pdf" ../public/
+cp -f "./poseidon-code/assets/resume/Resume - Pritam Halder.pdf" ../public/
 
 rm -rf ./poseidon-code
