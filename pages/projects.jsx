@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
 import axios from 'axios';
-import { projectData } from '../utility/ProjectsData';
+
 import styles from '../styles/Projects.module.scss';
+import { projectData } from '../utility/ProjectsData';
+import { Languages, OSC, Project, Repo, Stat } from '../components/Projects';
 
 import { SectionButton } from '../components/UI/Button';
 import { Star, Folder, Fork, Database } from '../components/UI/Icons';
-
-import { Languages, OSC, Project, Repo, Stat } from '../components/Projects';
 
 export const getStaticProps = async () => {
     const { projects, osc, repos, stats, languages } = await projectData();
