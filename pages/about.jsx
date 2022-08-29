@@ -4,7 +4,7 @@ import { aboutData } from '../utility/AboutData';
 import styles from '../styles/About.module.scss';
 
 import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
-import { SectionButton } from '../components/UI';
+import { SectionButton } from '../components/UI/Button';
 
 import { ClockTime, Stats } from '../components/About';
 

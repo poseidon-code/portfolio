@@ -3,7 +3,7 @@ import axios from 'axios';
 import { projectData } from '../utility/ProjectsData';
 import styles from '../styles/Projects.module.scss';
 
-import { SectionButton } from '../components/UI';
+import { SectionButton } from '../components/UI/Button';
 import { Star, Folder, Fork, Database } from '../components/UI/Icons';
 
 import { Languages, OSC, Project, Repo, Stat } from '../components/Projects';

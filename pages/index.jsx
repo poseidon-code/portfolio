@@ -5,7 +5,7 @@ import styles from '../styles/Home.module.scss';
 import { homeData, homeDataStore } from '../utility/HomeData';
 import { Project, Skill, Stat, Technology } from '../components/Home';
 
-import { Button, SectionButton } from '../components/UI';
+import { Button, SectionButton } from '../components/UI/Button';
 import {
     Clock,
     Visitors,
