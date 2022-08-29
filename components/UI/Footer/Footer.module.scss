@@ -1,0 +1,23 @@
+@use '../../../styles/utils';
+
+.footer {
+    @include utils.section(var(--hue));
+    @include utils.padding;
+    margin: 0 auto 1rem auto;
+    max-width: calc(1100px - 2rem);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    text-align: center;
+
+    p {
+        font-family: utils.$font-mono;
+        font-weight: bold;
+    }
+    span {
+        margin-top: 0.5rem;
+        font-size: 0.8rem;
+    }
+}

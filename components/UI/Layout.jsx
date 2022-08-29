@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 
 import Navbar from '../Navbar/Navbar';
+import Footer from './Footer/Footer';
 
 const Layout = props => {
     const { pathname } = useRouter();
@@ -53,6 +54,7 @@ const Layout = props => {
 
             <Navbar color={color} />
             <main className='container'>{props.children}</main>
+            <Footer color={color} />
         </>
     );
 };

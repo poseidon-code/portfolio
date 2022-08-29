@@ -287,11 +287,6 @@ const About = props => {
                 <Joke />
                 {joke}
             </section>
-
-            <section className={styles.footer}>
-                <p>Made with ❤ using NextJs by yours truly.</p>
-                <span>&copy; Pritam Halder 2021</span>
-            </section>
         </>
     );
 };

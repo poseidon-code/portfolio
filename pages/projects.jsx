@@ -93,11 +93,6 @@ const Projects = props => {
                     Check Github
                 </SectionButton>
             </section>
-
-            <section className={styles.footer}>
-                <p>Made with ❤ using NextJs by yours truly.</p>
-                <span>&copy; Pritam Halder 2021</span>
-            </section>
         </>
     );
 };

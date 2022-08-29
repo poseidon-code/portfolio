@@ -431,22 +431,3 @@
 
     @include utils.section-button(74, '../public/backgrounds/bg-1.jpg');
 }
-
-.footer {
-    @include utils.section(238);
-    @include utils.padding;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    text-align: center;
-
-    p {
-        font-family: utils.$font-mono;
-        font-weight: bold;
-    }
-    span {
-        margin-top: 0.5rem;
-        font-size: 0.8rem;
-    }
-}
