@@ -1,8 +1,8 @@
 import styles from './Navbar.module.scss';
 import Link from 'next/link';
-import { About, Blog, Contact, Projects, Logo } from '../UI/Icons';
+import { About, Blog, Contact, Projects, Logo } from '../Icons';
 
-const Navbar = (props) => {
+const Navbar = props => {
     return (
         <nav className={styles.navbar} style={{ '--hue': props.color }}>
             <div className={styles.links}>
