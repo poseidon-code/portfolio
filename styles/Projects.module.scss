@@ -143,7 +143,7 @@
         }
     }
 
-    @for $i from 1 through 20 {
+    @for $i from 1 through 10 {
         $hue: random(360);
 
         .language:nth-of-type(#{$i}) {
@@ -182,7 +182,7 @@
         overflow: hidden;
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        @for $i from 1 through 20 {
+        @for $i from 1 through 10 {
             &:nth-of-type(#{$i}) {
                 $hue: random(360);
                 color: hsl($hue, 100%, 10%);
@@ -275,7 +275,7 @@
         overflow: hidden;
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        @for $i from 1 through 10 {
+        @for $i from 1 through 2 {
             &:nth-of-type(#{$i}) {
                 $hue: random(360);
                 color: hsl($hue, 100%, 10%);

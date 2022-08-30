@@ -37,7 +37,6 @@ const Projects = props => {
                 <Stat icon={<Database />} number={props.stats.size} text='Total Size' />
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.languages) */}
             <section className={styles.languages}>
                 <Languages stats={props.languages} />
             </section>
