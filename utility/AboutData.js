@@ -35,21 +35,31 @@ const get_wakatimestats = async () => {
             },
         })
         .then(
-            // only hours spent on every language of last year is required (in percent)
-            res => res.data.data.languages
+            /**
+             * temp ([{name, percent}])
+             * only hours spent on every language of last year is required (in percent)
+             * only languages ahaving time spent percentage greaer than 0.5 is chosen
+             */
+            res => {
+                let temp = new Array();
+                res.data.data.languages.forEach(l => {
+                    if (l.percent > 0.5) {
+                        temp.push({ name: l.name, percent: l.percent });
+                    }
+                });
+                return temp;
+            }
         );
+    data.sort((a, b) => b.percent - a.percent);
+    data.splice(10);
 
-    // filter those languages whose percentage of time spent is over 0.5%
-    data = data.filter(l => l.percent > 0.5);
-
-    // map to get only the language name (l.name) and percentage of time spent on that language (l.percent)
-    data = data.map(l => ({ name: l.name, percent: l.percent }));
-
-    // sort language stats in descending order of percentage of time spent
-    data.sort((a, b) => {
-        if (a.percent < b.percent) return 1;
-        if (a.percent > b.percent) return -1;
-        return 0;
+    /**
+     * since percentage of time spent on top 10 languages will not add up to 100%
+     * hence the percentages of time spent on each language should be adjusted like wise
+     */
+    const tp = data.reduce((p, c) => p + c.percent, 0);
+    data.forEach(l => {
+        l.percent = parseFloat(((l.percent / tp) * 100).toFixed(2));
     });
 
     return data;
