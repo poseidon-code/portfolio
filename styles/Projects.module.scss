@@ -275,7 +275,7 @@
         overflow: hidden;
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        @for $i from 1 through 2 {
+        @for $i from 1 through 3 {
             &:nth-of-type(#{$i}) {
                 $hue: random(360);
                 color: hsl($hue, 100%, 10%);
