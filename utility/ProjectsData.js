@@ -193,27 +193,28 @@ const get_languages = async () => {
     const languages_used_count = languages.reduce((p, c) => (p[c] ? ++p[c] : (p[c] = 1), p), {});
 
     /**
-     * languages_map ({name => percentage, ...})
+     * languages_array ([{language, percentage}])
      * counts the percentage of a unique language being used
      * to the overall languages used (languages.length) throughout all repositories
      */
-    let languages_map = new Map();
+    let languages_array = new Array();
     for (let l in languages_used_count) {
         const p = parseFloat(((languages_used_count[l] / languages.length) * 100).toFixed(2));
-        languages_map.set(l, p);
+        languages_array.push({ language: l, percentage: p });
     }
+    languages_array.sort((a, b) => b.percentage - a.percentage);
+    languages_array.splice(10);
 
-    // sorted_languages ([{language, percentage}])
-    // sorted according to percentage of languages used
-    // sliced to top 10 languages used
-    let sorted_languages = new Array();
-    languages_map.forEach((value, key) => {
-        sorted_languages.push({ language: key, percentage: value });
+    /**
+     * since percentage of top 10 languages will not add up to 100%
+     * hence the percentages of each language should be adjusted like wise
+     */
+    const tp = languages_array.reduce((p, c) => p + c.percentage, 0);
+    languages_array.forEach(l => {
+        l.percentage = parseFloat(((l.percentage / tp) * 100).toFixed(2));
     });
-    sorted_languages.sort((a, b) => b.percentage - a.percentage);
-    sorted_languages.splice(10);
 
-    return sorted_languages;
+    return languages_array;
 };
 
 // EXPORTED variable SYMBOLS ([character])
