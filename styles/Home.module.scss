@@ -374,31 +374,31 @@
         p {
             @include utils.padding;
             max-width: 60ch;
-        }
 
-        a {
-            font-size: 1.2rem;
-            text-decoration: none;
-            color: inherit;
-            font-family: utils.$font-mono;
-            font-weight: bold;
-            display: inline-flex;
-            align-items: center;
+            a {
+                font-size: 1.2rem;
+                text-decoration: none;
+                color: inherit;
+                font-family: utils.$font-mono;
+                font-weight: bold;
+                display: inline-flex;
+                align-items: center;
 
-            svg {
-                --size: 1.5rem;
-                width: var(--size);
-                height: var(--size);
+                svg {
+                    --size: 1.5rem;
+                    width: var(--size);
+                    height: var(--size);
 
-                &:last-of-type {
-                    opacity: 0;
-                    transition: var(--time) ease;
+                    &:last-of-type {
+                        opacity: 0;
+                        transition: var(--time) ease;
+                    }
                 }
-            }
 
-            &:hover {
-                svg:last-of-type {
-                    opacity: 1;
+                &:hover {
+                    svg:last-of-type {
+                        opacity: 1;
+                    }
                 }
             }
         }

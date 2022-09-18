@@ -123,7 +123,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <article className={styles.about_body}>
                     <p>
                         {homeDataStore.about.map((line, i) => (
-                            <Fragment key={`about-ine-${i + 1}`}>
+                            <Fragment key={`about-line-${i + 1}`}>
                                 {line}
                                 <br />
                                 <br />

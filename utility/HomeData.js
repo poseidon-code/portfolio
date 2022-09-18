@@ -217,9 +217,15 @@ export const homeDataStore = {
     ],
 
     about: [
-        'I am a self taught developer. I have started my developer journey during early pandemic (2019), learning JavaScript, ReactJs and Python from online courses. I am glad that I did that because it taught me programming that really affects and makes the real world of the internet.',
-        'I am currently a University student under Masters of Science in Computer Science in 2nd year. I am passionate about all the modern web technologies and aspiring to be a software developer and a software designer.',
-        'Outside my field of study, I have interests in drawing, digital painting, reading, coding, programming, illustrations, linux ricing, virtual machines, cars, gaming and lots more. These little things keeps me motivated in my life.',
-        'Goal of my life is to do the job I love, which is programming, coding & designing softwares; because in that moment I would be at my best, always :)',
+        `I am a self taught developer. I have started my developer journey during early pandemic (2019), learning JavaScript, ReactJs and Python from online courses. 
+        I am glad that I did that because it taught me programming that really affects and makes the real world of the internet.`,
+
+        `I am currently a University student under Masters of Science in Computer Science in final year.
+        I am passionate about all the modern web technologies and aspiring to be a software developer and a software designer.`,
+
+        `Outside my field of study, I have interests in drawing, digital painting, reading, coding, programming, illustrations, linux ricing, virtual machines, cars, gaming and lots more.
+        These little things keeps me motivated in my life.`,
+
+        `Goal of my life is to do the job I love, which is programming, coding & designing softwares; because in that moment I would be at my best, always :)`,
     ],
 };
