@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { formatCount } from '.';
+import { formatCount, formatCountIntl } from '.';
 
 import * as Icon from '../components/UI/Icons';
 
@@ -119,8 +119,9 @@ export const homeData = async () => {
 };
 
 export const homeDataStore = {
-    introduction:
-        'I am an aspiring software developer specialising in frontend and backend web technologies. I love to dabble with new and upcoming web technologies and provide solutions to real world problems. Currently, I am learning Go and its design principles with gRPC framework and GraphQL technologies.',
+    introduction: `I am an aspiring software developer specialising in frontend and backend web technologies.
+        I love to dabble with new and upcoming web technologies and provide solutions to real world problems.
+        Currently, I am learning Go and its design principles with gRPC framework and GraphQL technologies.`,
 
     projects: [
         {
