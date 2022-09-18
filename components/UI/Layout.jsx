@@ -54,7 +54,11 @@ const Layout = props => {
 
             <Navbar color={color} />
             <main className='container'>{props.children}</main>
-            {pathname !== '/blog' && <Footer color={color} />}
+            {pathname !== '/blog' && (
+                <div className='container'>
+                    <Footer color={color} />
+                </div>
+            )}
         </>
     );
 };

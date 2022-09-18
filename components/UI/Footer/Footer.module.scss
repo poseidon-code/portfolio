@@ -3,7 +3,7 @@
 .footer {
     @include utils.section(var(--hue));
     @include utils.padding;
-    margin: 0 auto 1rem auto;
+    margin-top: -1rem;
     max-width: calc(1100px - 2rem);
 
     display: flex;
