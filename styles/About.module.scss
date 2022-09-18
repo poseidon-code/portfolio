@@ -201,43 +201,23 @@
 }
 
 .about {
-    $hue: 189;
+    $hue: 0;
     display: flex;
-    background-color: hsl($hue, 100%, 70%);
+    background: url('../public/images/pp.jpg') no-repeat;
+    background-color: hsl($hue, 100%, 100%);
+    background-size: cover;
+    background-position: center center;
     position: relative;
     overflow: hidden;
 
     ::selection {
-        background: hsl($hue, 100%, 10%);
-        color: hsl($hue, 100%, 70%);
-    }
-
-    & > * {
-        z-index: 10;
-    }
-
-    h1:first-of-type {
-        position: absolute;
-        z-index: 1;
-        left: 40%;
-        bottom: -6rem;
-        transform: translate(-50%, 0) rotate(-30deg);
-        font-size: 25rem;
-        opacity: 0.1;
-        user-select: none;
-        pointer-events: none;
-
-        @media (max-width: 800px) {
-            top: unset;
-            left: unset;
-            right: -3rem;
-            transform: translate(0, 0) rotate(-30deg);
-        }
+        background: hsl($hue, 100%, 0%);
+        color: hsl($hue, 100%, 100%);
     }
 
     p {
         @include utils.padding;
-        width: 100%;
+        width: 50%;
 
         a {
             font-size: 1.2rem;
@@ -252,12 +232,19 @@
                 --size: 1.5rem;
                 width: var(--size);
                 height: var(--size);
+
+                &:last-of-type {
+                    opacity: 0;
+                    transition: var(--time) ease;
+                }
+            }
+
+            &:hover {
+                svg:last-of-type {
+                    opacity: 1;
+                }
             }
         }
-    }
-
-    img {
-        width: 100%;
     }
 
     @media (max-width: 800px) {
