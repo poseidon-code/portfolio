@@ -125,4 +125,13 @@ export const aboutDataStore = {
         `Outside my field of study, I have interests in drawing, digital painting, reading, coding, programming, illustrations, linux ricing, virtual machines, cars, gaming and lots more.
         These little things keeps me motivated in my life.`,
     ],
+
+    softSkills: [
+        `Efficient in working and adapting to new locations and with new teams.`,
+        `Love for teaching and helping new teammates makes me confident with my skills.`,
+        `Try to provide a good work culture helping in mutual understanding in a colaborative environment.`,
+        `Posses open-mindedness and respect everyones opinion so as to it doesn't harms anyone.`,
+        `Believe in consistency over bursts of inspirations and motivations.`,
+        `Love to have a growth mindset and keep upgrading & adapting myself to new technologies.`,
+    ],
 };

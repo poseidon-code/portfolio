@@ -260,13 +260,13 @@
     }
 }
 
-.social_skills {
+.soft_skills {
     $hue: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .social_skills_head {
+    .soft_skills_head {
         @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
     }
 

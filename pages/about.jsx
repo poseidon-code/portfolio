@@ -79,27 +79,18 @@ const About = props => {
                 </p>
             </section>
 
-            <section className={styles.social_skills}>
-                <div className={styles.social_skills_head}>
-                    <h1>Social Skills</h1>
+            <section className={styles.soft_skills}>
+                <div className={styles.soft_skills_head}>
+                    <h1>Soft Skills</h1>
                     <h2>
                         "In order to write about life first you must live it."
                         <br /> -Ernest Hemingway
                     </h2>
                 </div>
                 <ul>
-                    <li>Efficient in working and adapting to new locations and with new teams.</li>
-                    <li>
-                        Better technical skills, with love to teach and help new teammates made me confident with my
-                        skills.
-                    </li>
-                    <li>Good and skilled seniors helped me gain a huge part of my knowledge base.</li>
-                    <li>Everyday practice and many tutorials helped me gain more experience.</li>
-                    <li>Good work culture and trying my best to provide it, is my everyday goal.</li>
-                    <li>
-                        Technical leadership and dedication to my work is what I am always looking forward to in my
-                        journey.
-                    </li>
+                    {aboutDataStore.softSkills.map((ss, i) => (
+                        <li key={`softSkill-${i}`}>{ss}</li>
+                    ))}
                 </ul>
             </section>
 
