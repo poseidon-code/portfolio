@@ -88,8 +88,8 @@ const About = props => {
                     </h2>
                 </div>
                 <ul>
-                    {aboutDataStore.softSkills.map((ss, i) => (
-                        <li key={`softSkill-${i}`}>{ss}</li>
+                    {aboutDataStore.softSkills.map((softSkill, i) => (
+                        <li key={`softSkill-${i}`}>{softSkill}</li>
                     ))}
                 </ul>
             </section>
@@ -104,27 +104,9 @@ const About = props => {
                     </h2>
                 </div>
                 <ul>
-                    <li>Sketching</li>
-                    <li>Painting</li>
-                    <li>Digital Painting</li>
-                    <li>Coding</li>
-                    <li>Web Surfing</li>
-                    <li>YouTuber</li>
-                    <li>Music</li>
-                    <li>Video Editing</li>
-                    <li>Photoshop</li>
-                    <li>Motion Graphics</li>
-                    <li>UI/UX Designing</li>
-                    <li>Vector Graphics</li>
-                    <li>Movies & Series Bingeing</li>
-                    <li>Linux Ricing</li>
-                    <li>Linux Distro Hopping</li>
-                    <li>Wallpapers Hoarder</li>
-                    <li>Home Server Geek</li>
-                    <li>Virtual Machines Nerd</li>
-                    <li>Gaming Enthusiast</li>
-                    <li>Reading</li>
-                    <li>JDM Cars</li>
+                    {aboutDataStore.interests.map((interest, i) => (
+                        <li key={`interest-${i}`}>{interest}</li>
+                    ))}
                 </ul>
             </section>
 

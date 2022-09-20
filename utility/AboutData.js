@@ -134,4 +134,21 @@ export const aboutDataStore = {
         `Believe in consistency over bursts of inspirations and motivations.`,
         `Love to have a growth mindset and keep upgrading & adapting myself to new technologies.`,
     ],
+
+    interests: [
+        'Painting',
+        'Digital Painting',
+        'Programming',
+        'Gaming Enthusiast',
+        'Music',
+        'Cars',
+        'Linux Ricing',
+        'Reading Novels',
+        'Reading Research Papers',
+        'Hackathons',
+        'Server Geek',
+        'Virtual Machines',
+        'Wallpapers Hoarder',
+        'Video Editing',
+    ],
 };
