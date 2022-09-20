@@ -219,6 +219,10 @@
         @include utils.padding;
         width: 50%;
 
+        @media (max-width: 800px) {
+            width: 100%;
+        }
+
         a {
             font-size: 1.2rem;
             text-decoration: none;
@@ -249,6 +253,10 @@
 
     @media (max-width: 800px) {
         flex-direction: column-reverse;
+        background-color: hsla($hue, 100%, 0%, 0.25);
+        background-blend-mode: multiply;
+        background-position: center right;
+        color: hsl($hue, 100%, 100%);
     }
 }
 
