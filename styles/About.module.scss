@@ -348,21 +348,21 @@
     }
 }
 
-.academics {
+.Education {
     $hue: 257;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .academics_head {
+    .EducationHead {
         @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
     }
 
-    .academics_body {
-        background-color: hsl($hue, 100%, 70%);
+    .EducationBody {
+        @include utils.padding;
         position: relative;
         overflow: hidden;
-        @include utils.padding;
+        background-color: hsl($hue, 100%, 70%);
 
         *::selection {
             background: hsl($hue, 100%, 10%);
@@ -373,7 +373,7 @@
             z-index: 10;
         }
 
-        h1:first-of-type {
+        h6 {
             position: absolute;
             z-index: 1;
             right: -2rem;
@@ -389,17 +389,22 @@
             }
         }
 
-        .title {
+        h1 {
+            font-size: 3rem;
+        }
+        h2 {
             font-size: 2rem;
         }
-        h3,
         h4 {
             font-family: utils.$font-mono;
             font-size: 1rem;
         }
-        h2 {
-            font-size: 3rem;
+        & > span {
+            font-family: utils.$font-mono;
+            font-weight: bolder;
+            font-size: 1.2rem;
         }
+
         ul {
             display: flex;
             flex-direction: column;
@@ -413,36 +418,37 @@
 
                 span {
                     margin-left: 1rem;
-                }
-                span:first-of-type {
-                    font-size: 1rem;
-                    font-family: utils.$font-mono;
-                }
-                span:last-of-type {
-                    font-size: 1.5rem;
+                    &:first-of-type {
+                        font-size: 1rem;
+                        font-family: utils.$font-mono;
+                    }
+                    &:last-of-type {
+                        font-size: 1.5rem;
+                    }
                 }
             }
         }
 
         @media (max-width: 800px) {
-            .title {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
                 font-size: 1.4rem;
             }
-            h3,
             h4 {
                 font-family: utils.$font-mono;
                 font-size: 0.8rem;
             }
-            h2 {
-                font-size: 2rem;
-            }
             ul {
                 li {
-                    span:first-of-type {
-                        font-size: 0.8rem;
-                    }
-                    span:last-of-type {
-                        font-size: 1.2rem;
+                    span {
+                        &:first-of-type {
+                            font-size: 0.8rem;
+                        }
+                        &:last-of-type {
+                            font-size: 1.2rem;
+                        }
                     }
                 }
             }

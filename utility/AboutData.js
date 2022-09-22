@@ -151,4 +151,46 @@ export const aboutDataStore = {
         'Wallpapers Hoarder',
         'Video Editing',
     ],
+
+    education: [
+        {
+            symbol: '森',
+            type: 'Post Graduation',
+            domain: 'Master of Science - Computer Science',
+            name: 'WEST BENGAL STATE UNIVERSITY',
+            board: 'West Bengal State University (WBSU)',
+            periods: [{ time: 'September 2021 - Ongoing', location: 'WBSU, Barasat, West Bengal' }],
+            graduation: 'August 2023',
+            subject: 'Computer Science',
+            score: 'TBD',
+        },
+
+        {
+            symbol: '海',
+            type: 'Graduation',
+            domain: 'Bachelor of Science - Computer Science (Honors)',
+            name: 'ACHARYA PRAFULLA CHANDRA COLLEGE',
+            board: 'West Bengal State University (WBSU)',
+            periods: [{ time: 'August 2018 - August 2021', location: 'APC College, Madhyamgram, West Bengal' }],
+            graduation: 'August 2021',
+            subject: 'Computer Science (Honors)',
+            score: '8.83 CGPA',
+        },
+
+        {
+            symbol: '定',
+            type: 'School',
+            domain: 'Primary, Secondary & Senior Secondary',
+            name: 'KENDRIYA VIDYALAYA',
+            board: 'Central Board of Secondary Education (CBSE)',
+            periods: [
+                { time: 'April 2005 - March 2008', location: 'KV Mathura Cantonment, UP' },
+                { time: 'April 2008 - March 2010', location: 'KV (Air Force Station) Naliya, Gujarat' },
+                { time: 'April 2010 - March 2018', location: 'KV (Air Force Station) Barrackpore, West Bengal' },
+            ],
+            graduation: 'May 2018',
+            subject: 'Physics - Chemistry - Mathematics - Computer Science',
+            score: '72.3%',
+        },
+    ],
 };

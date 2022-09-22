@@ -110,67 +110,38 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.academics}>
-                <div className={styles.academics_head}>
-                    <h1>Academics</h1>
+            <section className={styles.Education}>
+                <div className={styles.EducationHead}>
+                    <h1>Education</h1>
                     <h2>
                         "Live as if you were to die tomorrow. Learn as if you were to live forever."
                         <br /> -Mahatma Gandhi
                     </h2>
                 </div>
 
-                <div className={styles.academics_body}>
-                    <h1>定</h1>
-                    <h1 className={styles.title}>School</h1>
-                    <h4>(Primary, Secondary & Senior Secondary)</h4>
-                    <h2>KENDRIYA VIDYALAYA</h2>
-                    <h3>Central Board of Secondary Education (CBSE)</h3>
-                    <br />
-                    <ul>
-                        <li>
-                            <span>April 2005 - March 2008</span>
-                            <span>KV Mathura Cantonment, UP</span>
-                        </li>
-                        <li>
-                            <span>April 2008 - March 2010</span>
-                            <span>KV (Air Force Station) Naliya, Gujarat</span>
-                        </li>
-                        <li>
-                            <span>April 2010 - March 2018</span>
-                            <span>KV (Air Force Station) Barrackpore, West Bengal</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className={styles.academics_body}>
-                    <h1>海</h1>
-                    <h1 className={styles.title}>Graduation</h1>
-                    <h4>Bachelor of Science - Computer Science (Honors)</h4>
-                    <h2>ACHARYA PRAFULLA CHANDRA COLLEGE</h2>
-                    <h3>West Bengal State University (WBSU)</h3>
-                    <br />
-                    <ul>
-                        <li>
-                            <span>August 2018 - August 2021</span>
-                            <span>APC College, Madhyamgram, West Bengal</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div className={styles.academics_body}>
-                    <h1>森</h1>
-                    <h1 className={styles.title}>Post Graduation</h1>
-                    <h4>Master of Science - Computer Science</h4>
-                    <h2>WEST BENGAL STATE UNIVERSITY</h2>
-                    <h3>West Bengal State University (WBSU)</h3>
-                    <br />
-                    <ul>
-                        <li>
-                            <span>September 2021 - Ongoing</span>
-                            <span>WBSU, Barasat, West Bengal</span>
-                        </li>
-                    </ul>
-                </div>
+                {aboutDataStore.education.map((academic, i) => (
+                    <div key={`education-${i}`} className={styles.EducationBody}>
+                        <h6 aria-hidden={true}>{academic.symbol}</h6>
+                        <h2>{academic.type}</h2>
+                        <h4 title='Subject Course'>{academic.domain}</h4>
+                        <h1 title='Institute Name'>{academic.name}</h1>
+                        <h4 title='Education Board'>{academic.board}</h4>
+                        <br />
+                        <ul>
+                            {academic.periods.map((period, pi) => (
+                                <li key={`education-${i}-period-${pi}`}>
+                                    <span>{period.time}</span>
+                                    <span>{period.location}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <br />
+                        <h2 title='Graduation Time'>{academic.graduation}</h2>
+                        <span title='Subject Score'>
+                            {academic.subject} | {academic.score}
+                        </span>
+                    </div>
+                ))}
             </section>
 
             <section className={styles.work_experiences}>
