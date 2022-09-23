@@ -53,7 +53,7 @@ const About = props => {
                 <ClockTime />
             </section>
 
-            <section className={styles.stats}>
+            <section className={styles.Stats}>
                 <Stats stats={props.stats} />
             </section>
 

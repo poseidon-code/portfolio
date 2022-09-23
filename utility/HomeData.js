@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { formatCount, formatCountIntl } from '.';
+import { formatCount } from '.';
 
 import * as Icon from '../components/UI/Icons';
 
