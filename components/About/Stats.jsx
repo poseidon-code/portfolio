@@ -4,11 +4,7 @@ const Stats = ({ stats }) => (
     <>
         <div className={styles.bars}>
             {stats.map((l, i) => (
-                <div
-                    key={i}
-                    title={`%age of time spent on ${l.name}`}
-                    className={styles.language}
-                    style={{ '--percent': `${l.percent}%` }}></div>
+                <span key={i} title={`%age of time spent on ${l.name}`} style={{ '--percent': `${l.percent}%` }}></span>
             ))}
         </div>
         <div className={styles.legends}>

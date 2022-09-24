@@ -110,7 +110,7 @@
         display: flex;
         gap: 0.3rem;
 
-        .language {
+        span {
             width: var(--percent);
             height: 2rem;
         }
@@ -143,9 +143,11 @@
 
     @for $i from 1 through 10 {
         $hue: random(360);
-        .language:nth-of-type(#{$i}) {
-            background-color: hsl($hue, 100%, 70%);
-            color: hsl($hue, 100%, 10%);
+        .bars {
+            span:nth-of-type(#{$i}) {
+                background-color: hsl($hue, 100%, 70%);
+                color: hsl($hue, 100%, 10%);
+            }
         }
         .legends {
             span:nth-of-type(#{$i}) {
