@@ -62,8 +62,8 @@ const About = props => {
                 {fact}
             </section>
 
-            <section className={styles.about}>
-                <p>
+            <section className={styles.About}>
+                <article>
                     {aboutDataStore.about.map((line, i) => (
                         <Fragment key={`about-line-${i + 1}`}>
                             {line}
@@ -76,7 +76,7 @@ const About = props => {
                         &nbsp;Resume&nbsp;
                         <Download />
                     </a>
-                </p>
+                </article>
             </section>
 
             <section className={styles.soft_skills}>

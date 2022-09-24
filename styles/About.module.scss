@@ -191,7 +191,7 @@
     }
 }
 
-.about {
+.About {
     $hue: 0;
     display: flex;
     background: url('../public/images/pp.jpg') no-repeat;
@@ -206,7 +206,7 @@
         color: hsl($hue, 100%, 100%);
     }
 
-    p {
+    article {
         @include utils.padding;
         width: 50%;
 
@@ -224,9 +224,9 @@
             align-items: center;
 
             svg {
-                --size: 1.5rem;
-                width: var(--size);
-                height: var(--size);
+                $size: 1.5rem;
+                width: $size;
+                height: $size;
 
                 &:last-of-type {
                     opacity: 0;
@@ -243,11 +243,10 @@
     }
 
     @media (max-width: 800px) {
-        flex-direction: column-reverse;
+        color: hsl($hue, 100%, 100%);
         background-color: hsla($hue, 100%, 0%, 0.25);
         background-blend-mode: multiply;
         background-position: center right;
-        color: hsl($hue, 100%, 100%);
     }
 }
 
