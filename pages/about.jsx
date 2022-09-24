@@ -57,7 +57,7 @@ const About = props => {
                 <Stats stats={props.stats} />
             </section>
 
-            <section className={styles.fact}>
+            <section className={styles.Fact}>
                 <Fact />
                 {fact}
             </section>

@@ -162,7 +162,7 @@
     }
 }
 
-.fact {
+.Fact {
     $hue: 115;
     @include utils.padding();
     @include utils.section($hue);
