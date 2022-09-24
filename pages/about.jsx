@@ -3,7 +3,7 @@ import axios from 'axios';
 
 import styles from '../styles/About.module.scss';
 import { aboutData, aboutDataStore } from '../utility/AboutData';
-import { ClockTime, Stats } from '../components/About';
+import { Clock, Stats } from '../components/About';
 
 import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
 import { SectionButton } from '../components/UI/Button';
@@ -49,8 +49,8 @@ const About = props => {
                 <h2>It's going to be hard, but hard does not mean impossible.</h2>
             </section>
 
-            <section className={styles.clock}>
-                <ClockTime />
+            <section className={styles.Clock}>
+                <Clock />
             </section>
 
             <section className={styles.Stats}>

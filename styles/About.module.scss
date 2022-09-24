@@ -42,27 +42,17 @@
     }
 }
 
-.clock {
+.Clock {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: 'date clock clock day';
+    grid-template-areas: 'date time time day';
     gap: 0.5rem;
 
     @media (max-width: 800px) {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: auto;
-        grid-template-areas: 'day date' 'clock clock';
-    }
-
-    .time {
-        grid-area: clock;
-    }
-    .date {
-        grid-area: date;
-    }
-    .day {
-        grid-area: day;
+        grid-template-areas: 'day date' 'time time';
     }
 
     & > * {
@@ -78,6 +68,12 @@
         $hue: 42;
         color: hsl($hue, 100%, 10%);
         background-color: hsl($hue, 100%, 70%);
+
+        &::selection {
+            background: hsl($hue, 100%, 10%);
+            color: hsl($hue, 100%, 70%);
+        }
+
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
         @media (max-width: 800px) {
@@ -94,15 +90,10 @@
             }
         }
 
-        &::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
-        }
-
         svg {
-            --size: 1.4rem;
-            width: var(--size);
-            height: var(--size);
+            $size: 1.4rem;
+            width: $size;
+            height: $size;
             margin-bottom: 0.6rem;
         }
     }

@@ -1,9 +1,8 @@
 import { useEffect, useState } from 'react';
-import styles from '../../styles/About.module.scss';
 
-import { Clock, CalendarDate, CalendarDay } from '../UI/Icons';
+import * as Icon from '../UI/Icons';
 
-const ClockTime = () => {
+const Clock = () => {
     const TODAY = new Date();
 
     return (
@@ -15,18 +14,18 @@ const ClockTime = () => {
     );
 };
 
-export default ClockTime;
+export default Clock;
 
 const DateMonth = ({ today }) => (
-    <div className={styles.date}>
-        <CalendarDate />
+    <div style={{ gridArea: 'date' }}>
+        <Icon.CalendarDate />
         {today.toLocaleDateString('en-US', { day: '2-digit', month: 'short' })}
     </div>
 );
 
 const Day = ({ today }) => (
-    <div className={styles.day}>
-        <CalendarDay />
+    <div style={{ gridArea: 'day' }}>
+        <Icon.CalendarDay />
         {today.toLocaleDateString('en-US', { weekday: 'long' })}
     </div>
 );
@@ -44,8 +43,8 @@ const Time = () => {
     }, [today]);
 
     return (
-        <div className={styles.time}>
-            <Clock />
+        <div style={{ gridArea: 'time' }}>
+            <Icon.Clock />
             {time}
         </div>
     );
