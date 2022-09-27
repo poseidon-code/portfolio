@@ -79,39 +79,6 @@ const About = props => {
                 </article>
             </section>
 
-            <section className={styles.SoftSkills}>
-                <div className={styles.SoftSkillsHead}>
-                    <h1>Soft Skills</h1>
-                    <h2>
-                        "In order to write about life first you must live it."
-                        <br /> -Ernest Hemingway
-                    </h2>
-                </div>
-
-                <ul>
-                    {aboutDataStore.softSkills.map((softSkill, i) => (
-                        <li key={`softSkill-${i}`}>{softSkill}</li>
-                    ))}
-                </ul>
-            </section>
-
-            {/* TODO : update @for-thorugh count in About.module.scss (.Interests.ul.li) */}
-            <section className={styles.Interests}>
-                <div className={styles.InterestsHead}>
-                    <h1>Interests</h1>
-                    <h2>
-                        "It's hard to escape when your hobby is your job."
-                        <br /> -Anonymous
-                    </h2>
-                </div>
-
-                <ul>
-                    {aboutDataStore.interests.map((interest, i) => (
-                        <li key={`interest-${i}`}>{interest}</li>
-                    ))}
-                </ul>
-            </section>
-
             <section className={styles.Education}>
                 <div className={styles.EducationHead}>
                     <h1>Education</h1>
@@ -206,6 +173,39 @@ const About = props => {
                             More Notable Events
                         </SectionButton>
                     )}
+                </ul>
+            </section>
+
+            <section className={styles.SoftSkills}>
+                <div className={styles.SoftSkillsHead}>
+                    <h1>Soft Skills</h1>
+                    <h2>
+                        "In order to write about life first you must live it."
+                        <br /> -Ernest Hemingway
+                    </h2>
+                </div>
+
+                <ul>
+                    {aboutDataStore.softSkills.map((softSkill, i) => (
+                        <li key={`softSkill-${i}`}>{softSkill}</li>
+                    ))}
+                </ul>
+            </section>
+
+            {/* TODO : update @for-thorugh count in About.module.scss (.Interests.ul.li) */}
+            <section className={styles.Interests}>
+                <div className={styles.InterestsHead}>
+                    <h1>Interests</h1>
+                    <h2>
+                        "It's hard to escape when your hobby is your job."
+                        <br /> -Anonymous
+                    </h2>
+                </div>
+
+                <ul>
+                    {aboutDataStore.interests.map((interest, i) => (
+                        <li key={`interest-${i}`}>{interest}</li>
+                    ))}
                 </ul>
             </section>
 

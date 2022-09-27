@@ -250,94 +250,6 @@
     }
 }
 
-.SoftSkills {
-    $hue: 0;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    .SoftSkillsHead {
-        @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
-    }
-
-    ul {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 0.5rem;
-
-        li {
-            width: 100%;
-            @include utils.padding;
-            @include utils.section($hue);
-            font-size: 1.2rem;
-            gap: 1rem;
-
-            &::first-letter {
-                font-weight: bold;
-                font-size: 150%;
-            }
-
-            &::selection {
-                background: hsl($hue, 100%, 10%);
-                color: hsl($hue, 100%, 70%);
-            }
-        }
-
-        @media (max-width: 800px) {
-            grid-template-columns: repeat(1, 1fr);
-        }
-    }
-}
-
-.Interests {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-
-    .InterestsHead {
-        @include utils.head(30, '../public/backgrounds/bg-3.jpg');
-    }
-
-    ul {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0.5rem;
-
-        li {
-            padding: 1rem 2rem;
-            text-align: center;
-            flex-grow: 2;
-            font-family: utils.$font-mono;
-            font-weight: bold;
-            font-size: 1.4rem;
-            transition: color var(--time) ease-out, background-color var(--time) ease-out;
-
-            @for $i from 1 through 14 {
-                &:nth-of-type(#{$i}) {
-                    $hue: random(360);
-                    color: hsl($hue, 100%, 10%);
-                    background-color: hsl($hue, 100%, 70%);
-
-                    &::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
-                    }
-
-                    &:hover {
-                        color: hsl($hue, 100%, 70%);
-                        background-color: hsl($hue, 100%, 10%);
-
-                        &::selection {
-                            background: hsl($hue, 100%, 70%);
-                            color: hsl($hue, 100%, 10%);
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
-
 .Education {
     $hue: 257;
     display: flex;
@@ -522,6 +434,94 @@
         }
 
         @include utils.section-button($hue, '../public/backgrounds/bg-3.jpg');
+    }
+}
+
+.SoftSkills {
+    $hue: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .SoftSkillsHead {
+        @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+
+        li {
+            width: 100%;
+            @include utils.padding;
+            @include utils.section($hue);
+            font-size: 1.2rem;
+            gap: 1rem;
+
+            &::first-letter {
+                font-weight: bold;
+                font-size: 150%;
+            }
+
+            &::selection {
+                background: hsl($hue, 100%, 10%);
+                color: hsl($hue, 100%, 70%);
+            }
+        }
+
+        @media (max-width: 800px) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+    }
+}
+
+.Interests {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    .InterestsHead {
+        @include utils.head(30, '../public/backgrounds/bg-3.jpg');
+    }
+
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        li {
+            padding: 1rem 2rem;
+            text-align: center;
+            flex-grow: 2;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
+
+            @for $i from 1 through 14 {
+                &:nth-of-type(#{$i}) {
+                    $hue: random(360);
+                    color: hsl($hue, 100%, 10%);
+                    background-color: hsl($hue, 100%, 70%);
+
+                    &::selection {
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
+                    }
+
+                    &:hover {
+                        color: hsl($hue, 100%, 70%);
+                        background-color: hsl($hue, 100%, 10%);
+
+                        &::selection {
+                            background: hsl($hue, 100%, 70%);
+                            color: hsl($hue, 100%, 10%);
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
