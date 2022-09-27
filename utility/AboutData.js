@@ -126,32 +126,6 @@ export const aboutDataStore = {
         These little things keeps me motivated in my life.`,
     ],
 
-    softSkills: [
-        `Efficient in working and adapting to new locations and with new teams.`,
-        `Love for teaching and helping new teammates makes me confident with my skills.`,
-        `Try to provide a good work culture helping in mutual understanding in a colaborative environment.`,
-        `Posses open-mindedness and respect everyones opinion so as to it doesn't harms anyone.`,
-        `Believe in consistency over bursts of inspirations and motivations.`,
-        `Love to have a growth mindset and keep upgrading & adapting myself to new technologies.`,
-    ],
-
-    interests: [
-        'Painting',
-        'Digital Painting',
-        'Programming',
-        'Gaming Enthusiast',
-        'Music',
-        'Cars',
-        'Linux Ricing',
-        'Reading Novels',
-        'Reading Research Papers',
-        'Hackathons',
-        'Server Geek',
-        'Virtual Machines',
-        'Wallpapers Hoarder',
-        'Video Editing',
-    ],
-
     education: [
         {
             symbol: '森',
@@ -192,5 +166,85 @@ export const aboutDataStore = {
             subject: 'Physics - Chemistry - Mathematics - Computer Science',
             score: '72.3%',
         },
+    ],
+
+    experiences: [
+        {
+            symbol: '明',
+            name: 'HackCOVID 2.0',
+            type: 'Hackathon',
+            duration: 'May 2021 - July 2021',
+            organisation: {
+                name: 'HackerEarth',
+                type: 'Remote',
+            },
+            link: {
+                text: 'hackerearth.com/hackcovid2',
+                url: 'https://www.hackerearth.com/challenges/hackathon/hackerearth-hackcovid-2/',
+            },
+            description:
+                'An application that allows COVID19 affected individuals/families and their caregivers to easily avail themselves of multiple services/offerings by volunteers in their vicinity or across the country.',
+            backend: {
+                stack: ['JavaScript', 'NodeJs', 'Express', 'MongoDB', 'JWT', 'RazorPay'],
+                work: [
+                    'Designed the entire authentication system using JWT.',
+                    'Implemented simple continuous deployment design which eased the team from deployment complexities, using Netlify and Heroku.',
+                ],
+            },
+            frontend: {
+                stack: ['JavaScript', 'ReactJs', 'SASS'],
+                work: [
+                    'Laid out the initial design of page routing and data flow through components making the team prepared for implementation.',
+                    'Designed, fixed & ported website styles using SASS, providing a structured view helping with better readability.',
+                ],
+            },
+        },
+
+        {
+            symbol: '命',
+            name: 'cppsecrets.com',
+            type: 'Internship',
+            duration: 'October 2019 - December 2019',
+            designation: {
+                name: 'C++ Developer',
+                type: 'Remote',
+            },
+            link: {
+                text: 'cppsecrets.com/pritamhalder',
+                url: 'https://cppsecrets.com/user/index.php?id=articles&uid=1377',
+            },
+            description:
+                'Internship as a C++ developer, documenting and testing C++ Boost libraries. Organised and priortised work to complete assignments in a timely and efficient manner.',
+            work: [
+                'Documented & implemented C++ Boost libraries, more specifically Core libraries, adding to the largest documentation of C++ libraries.',
+                'Accumulating over 4000+ views on all the articles present on the site authored by myself.',
+            ],
+        },
+    ],
+
+    softSkills: [
+        `Efficient in working and adapting to new locations and with new teams.`,
+        `Love for teaching and helping new teammates makes me confident with my skills.`,
+        `Try to provide a good work culture helping in mutual understanding in a colaborative environment.`,
+        `Posses open-mindedness and respect everyones opinion so as to it doesn't harms anyone.`,
+        `Believe in consistency over bursts of inspirations and motivations.`,
+        `Love to have a growth mindset and keep upgrading & adapting myself to new technologies.`,
+    ],
+
+    interests: [
+        'Painting',
+        'Digital Painting',
+        'Programming',
+        'Gaming Enthusiast',
+        'Music',
+        'Cars',
+        'Linux Ricing',
+        'Reading Novels',
+        'Reading Research Papers',
+        'Hackathons',
+        'Server Geek',
+        'Virtual Machines',
+        'Wallpapers Hoarder',
+        'Video Editing',
     ],
 };

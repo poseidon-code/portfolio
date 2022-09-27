@@ -5,7 +5,7 @@ import styles from '../styles/About.module.scss';
 import { aboutData, aboutDataStore } from '../utility/AboutData';
 import { Clock, Stats } from '../components/About';
 
-import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
+import { Download, Resume, Fact, Joke, ExternalLink } from '../components/UI/Icons';
 import { SectionButton } from '../components/UI/Button';
 
 export const getStaticProps = async () => {
@@ -43,7 +43,7 @@ const About = props => {
     return (
         <>
             <section className={styles.header}>
-                <img src='/images/p1.png' alt='home' title='🐱 A cute Mew found !' aria-hidden='true' />
+                <img src='/images/p1.png' alt='about' title='🐱 A cute Mew found !' aria-hidden='true' />
                 <h2>"Land Ahoy!"</h2>
                 <h1>Me Corner</h1>
                 <h2>It's going to be hard, but hard does not mean impossible.</h2>
@@ -121,26 +121,76 @@ const About = props => {
                         <br /> -Jim Rohn
                     </h2>
                 </div>
-
-                <ul>
-                    {props.works.map((work, i) => (
-                        <li key={i}>
-                            <h3>
-                                {work.type == 'internship'
-                                    ? 'Internship'
-                                    : work.type == 'freelancing'
-                                    ? 'Freelancing'
-                                    : work.type == 'competitive'
-                                    ? 'Competitive Programming'
-                                    : 'General Work'}
-                            </h3>
-                            <h1>{work.field}</h1>
-                            <h2>{work.company}</h2>
-                            <br />
-                            <p>{work.description}</p>
-                        </li>
-                    ))}
-                </ul>
+                {aboutDataStore.experiences.map((experience, i) => (
+                    <div key={`experience-${i}`} className={styles.ExperiencesBody}>
+                        <h6 aria-hidden={true}>{experience.symbol}</h6>
+                        <h2>{experience.type}</h2>
+                        <h4 title='Duration'>{experience.duration}</h4>
+                        <h1 title='Experience'>{experience.name}</h1>
+                        {experience.organisation ? (
+                            <h4 title='Organisation'>
+                                Organisation - {experience.organisation.name} | {experience.organisation.type}
+                            </h4>
+                        ) : experience.designation ? (
+                            <h4 title='Designation'>
+                                Designation - {experience.designation.name} | {experience.designation.type}
+                            </h4>
+                        ) : null}
+                        <a href={experience.link.url} target='_blank' rel='noopener noreferrer'>
+                            <ExternalLink /> {experience.link.text}
+                        </a>
+                        <br /> <br />
+                        <p title='Description'>{experience.description}</p>
+                        {experience.work && (
+                            <>
+                                <br />
+                                <ul className={styles.work}>
+                                    {experience.work.map((w, wi) => (
+                                        <li key={`experience-${i}-work-${wi}`}>{w}</li>
+                                    ))}
+                                </ul>
+                            </>
+                        )}
+                        {!experience.work && experience.backend && (
+                            <>
+                                <br />
+                                <div className={styles.stack}>
+                                    <h3>BACKEND</h3>
+                                    <span>
+                                        &nbsp;|&nbsp;
+                                        {experience.backend.stack.map(
+                                            (s, si) => `${s}${si + 1 != experience.backend.stack.length ? ' - ' : ''}`
+                                        )}
+                                    </span>
+                                    <ul className={styles.work}>
+                                        {experience.backend.work.map((w, wi) => (
+                                            <li key={`experience-${i}-backend-work-${wi}`}>{w}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </>
+                        )}
+                        {!experience.work && experience.frontend && (
+                            <>
+                                <br />
+                                <div className={styles.stack}>
+                                    <h3>FRONTEND</h3>
+                                    <span>
+                                        &nbsp;|&nbsp;
+                                        {experience.frontend.stack.map(
+                                            (s, si) => `${s}${si + 1 != experience.frontend.stack.length ? ' - ' : ''}`
+                                        )}
+                                    </span>
+                                    <ul className={styles.work}>
+                                        {experience.frontend.work.map((w, wi) => (
+                                            <li key={`experience-${i}-frontend-work-${wi}`}>{w}</li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </>
+                        )}
+                    </div>
+                ))}
             </section>
 
             <section className={styles.Events}>
