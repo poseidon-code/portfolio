@@ -256,11 +256,11 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    .EducationHead {
+    &Head {
         @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
     }
 
-    .EducationBody {
+    &Body {
         @include utils.padding;
         position: relative;
         overflow: hidden;
@@ -364,11 +364,11 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    .ExperiencesHead {
+    &Head {
         @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
     }
 
-    .ExperiencesBody {
+    &Body {
         @include utils.padding;
         position: relative;
         overflow: hidden;
@@ -515,7 +515,7 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    .SoftSkillsHead {
+    &Head {
         @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
     }
 
@@ -553,7 +553,7 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    .InterestsHead {
+    &Head {
         @include utils.head(30, '../public/backgrounds/bg-3.jpg');
     }
 

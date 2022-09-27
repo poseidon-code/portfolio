@@ -14,7 +14,6 @@ export const getStaticProps = async () => {
     return {
         props: {
             stats,
-            works,
             events,
         },
     };
@@ -58,23 +57,18 @@ const About = props => {
             </section>
 
             <section className={styles.Fact}>
-                <Fact />
-                {fact}
+                <Fact /> {fact}
             </section>
 
             <section className={styles.About}>
                 <article>
                     {aboutDataStore.about.map((line, i) => (
                         <Fragment key={`about-line-${i + 1}`}>
-                            {line}
-                            <br />
-                            <br />
+                            {line} <br /> <br />
                         </Fragment>
                     ))}
                     <a href='/Resume - Pritam Halder.pdf' download>
-                        <Resume />
-                        &nbsp;Resume&nbsp;
-                        <Download />
+                        <Resume /> &nbsp;Resume&nbsp; <Download />
                     </a>
                 </article>
             </section>
