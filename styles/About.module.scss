@@ -250,13 +250,13 @@
     }
 }
 
-.soft_skills {
+.SoftSkills {
     $hue: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .soft_skills_head {
+    .SoftSkillsHead {
         @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
     }
 
@@ -289,12 +289,12 @@
     }
 }
 
-.interests {
+.Interests {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .interests_head {
+    .InterestsHead {
         @include utils.head(30, '../public/backgrounds/bg-3.jpg');
     }
 
@@ -318,6 +318,11 @@
                     color: hsl($hue, 100%, 10%);
                     background-color: hsl($hue, 100%, 70%);
 
+                    &::selection {
+                        background: hsl($hue, 100%, 10%);
+                        color: hsl($hue, 100%, 70%);
+                    }
+
                     &:hover {
                         color: hsl($hue, 100%, 70%);
                         background-color: hsl($hue, 100%, 10%);
@@ -326,11 +331,6 @@
                             background: hsl($hue, 100%, 70%);
                             color: hsl($hue, 100%, 10%);
                         }
-                    }
-
-                    &::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
                     }
                 }
             }
@@ -446,13 +446,13 @@
     }
 }
 
-.work_experiences {
+.Experiences {
     $hue: 138;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .work_experiences_head {
+    .ExperiencesHead {
         @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
     }
 
@@ -495,13 +495,13 @@
     }
 }
 
-.events {
+.Events {
     $hue: 235;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .events_head {
+    .EventsHead {
         @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
     }
 
@@ -525,7 +525,7 @@
     }
 }
 
-.joke {
+.Joke {
     $hue: 55;
     @include utils.padding();
     @include utils.section($hue);

@@ -79,14 +79,15 @@ const About = props => {
                 </article>
             </section>
 
-            <section className={styles.soft_skills}>
-                <div className={styles.soft_skills_head}>
+            <section className={styles.SoftSkills}>
+                <div className={styles.SoftSkillsHead}>
                     <h1>Soft Skills</h1>
                     <h2>
                         "In order to write about life first you must live it."
                         <br /> -Ernest Hemingway
                     </h2>
                 </div>
+
                 <ul>
                     {aboutDataStore.softSkills.map((softSkill, i) => (
                         <li key={`softSkill-${i}`}>{softSkill}</li>
@@ -94,15 +95,16 @@ const About = props => {
                 </ul>
             </section>
 
-            {/* TODO : update @for-thorugh count in About.module.scss (.interests.ul.li) */}
-            <section className={styles.interests}>
-                <div className={styles.interests_head}>
+            {/* TODO : update @for-thorugh count in About.module.scss (.Interests.ul.li) */}
+            <section className={styles.Interests}>
+                <div className={styles.InterestsHead}>
                     <h1>Interests</h1>
                     <h2>
                         "It's hard to escape when your hobby is your job."
                         <br /> -Anonymous
                     </h2>
                 </div>
+
                 <ul>
                     {aboutDataStore.interests.map((interest, i) => (
                         <li key={`interest-${i}`}>{interest}</li>
@@ -144,9 +146,9 @@ const About = props => {
                 ))}
             </section>
 
-            <section className={styles.work_experiences}>
-                <div className={styles.work_experiences_head}>
-                    <h1>Work Experiences</h1>
+            <section className={styles.Experiences}>
+                <div className={styles.ExperiencesHead}>
+                    <h1>Experiences</h1>
                     <h2>
                         "Either you run the day or the day runs you."
                         <br /> -Jim Rohn
@@ -174,8 +176,8 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.events}>
-                <div className={styles.events_head}>
+            <section className={styles.Events}>
+                <div className={styles.EventsHead}>
                     <h1>Life Events</h1>
                     <h2>
                         "The purpose of our lives is to be happy."
@@ -207,7 +209,7 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.joke}>
+            <section className={styles.Joke}>
                 <Joke />
                 {joke}
             </section>
