@@ -3,9 +3,9 @@ import axios from 'axios';
 
 import styles from '../styles/About.module.scss';
 import { aboutData, aboutDataStore } from '../utility/AboutData';
-import { Clock, Stats } from '../components/About';
+import { Clock, Stats, Education, Experience } from '../components/About';
 
-import { Download, Resume, Fact, Joke, ExternalLink } from '../components/UI/Icons';
+import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
 import { SectionButton } from '../components/UI/Button';
 
 export const getStaticProps = async () => {
@@ -87,29 +87,8 @@ const About = props => {
                         <br /> -Mahatma Gandhi
                     </h2>
                 </div>
-
                 {aboutDataStore.education.map((academic, i) => (
-                    <div key={`education-${i}`} className={styles.EducationBody}>
-                        <h6 aria-hidden={true}>{academic.symbol}</h6>
-                        <h2>{academic.type}</h2>
-                        <h4 title='Subject Course'>{academic.domain}</h4>
-                        <h1 title='Institute Name'>{academic.name}</h1>
-                        <h4 title='Education Board'>{academic.board}</h4>
-                        <br />
-                        <ul>
-                            {academic.periods.map((period, pi) => (
-                                <li key={`education-${i}-period-${pi}`}>
-                                    <span>{period.time}</span>
-                                    <span>{period.location}</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <br />
-                        <h2 title='Graduation Time'>{academic.graduation}</h2>
-                        <span title='Subject Score'>
-                            {academic.subject} | {academic.score}
-                        </span>
-                    </div>
+                    <Education key={i} education={academic} />
                 ))}
             </section>
 
@@ -122,74 +101,7 @@ const About = props => {
                     </h2>
                 </div>
                 {aboutDataStore.experiences.map((experience, i) => (
-                    <div key={`experience-${i}`} className={styles.ExperiencesBody}>
-                        <h6 aria-hidden={true}>{experience.symbol}</h6>
-                        <h2>{experience.type}</h2>
-                        <h4 title='Duration'>{experience.duration}</h4>
-                        <h1 title='Experience'>{experience.name}</h1>
-                        {experience.organisation ? (
-                            <h4 title='Organisation'>
-                                Organisation - {experience.organisation.name} | {experience.organisation.type}
-                            </h4>
-                        ) : experience.designation ? (
-                            <h4 title='Designation'>
-                                Designation - {experience.designation.name} | {experience.designation.type}
-                            </h4>
-                        ) : null}
-                        <a href={experience.link.url} target='_blank' rel='noopener noreferrer'>
-                            <ExternalLink /> {experience.link.text}
-                        </a>
-                        <br /> <br />
-                        <p title='Description'>{experience.description}</p>
-                        {experience.work && (
-                            <>
-                                <br />
-                                <ul className={styles.work}>
-                                    {experience.work.map((w, wi) => (
-                                        <li key={`experience-${i}-work-${wi}`}>{w}</li>
-                                    ))}
-                                </ul>
-                            </>
-                        )}
-                        {!experience.work && experience.backend && (
-                            <>
-                                <br />
-                                <div className={styles.stack}>
-                                    <h3>BACKEND</h3>
-                                    <span>
-                                        &nbsp;|&nbsp;
-                                        {experience.backend.stack.map(
-                                            (s, si) => `${s}${si + 1 != experience.backend.stack.length ? ' - ' : ''}`
-                                        )}
-                                    </span>
-                                    <ul className={styles.work}>
-                                        {experience.backend.work.map((w, wi) => (
-                                            <li key={`experience-${i}-backend-work-${wi}`}>{w}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </>
-                        )}
-                        {!experience.work && experience.frontend && (
-                            <>
-                                <br />
-                                <div className={styles.stack}>
-                                    <h3>FRONTEND</h3>
-                                    <span>
-                                        &nbsp;|&nbsp;
-                                        {experience.frontend.stack.map(
-                                            (s, si) => `${s}${si + 1 != experience.frontend.stack.length ? ' - ' : ''}`
-                                        )}
-                                    </span>
-                                    <ul className={styles.work}>
-                                        {experience.frontend.work.map((w, wi) => (
-                                            <li key={`experience-${i}-frontend-work-${wi}`}>{w}</li>
-                                        ))}
-                                    </ul>
-                                </div>
-                            </>
-                        )}
-                    </div>
+                    <Experience key={i} experience={experience} />
                 ))}
             </section>
 

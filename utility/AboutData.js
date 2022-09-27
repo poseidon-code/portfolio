@@ -1,17 +1,5 @@
 import axios from 'axios';
 
-// GQL Query : "Work Experiences" from CMS
-const WORKEXPERIENCE = `
-    query GetData {
-        workExperiences {
-            field
-            type
-            description
-            company
-        }
-    }
-`;
-
 // GQL Query : "Achievements" from CMS
 const EVENTS = `
     query GetData {
@@ -65,15 +53,6 @@ const get_wakatimestats = async () => {
     return data;
 };
 
-// GET (GQL) "Work Experiences" from CMS
-const get_workexperiences = async () => {
-    const data = await axios
-        .post(process.env.CMS, { query: WORKEXPERIENCE })
-        .then(res => res.data.data.workExperiences);
-
-    return data;
-};
-
 // GET (GQL) "Achievements" from CMS
 const get_events = async () => {
     const data = await axios.post(process.env.CMS, { query: EVENTS }).then(res => res.data.data.achievements);
@@ -101,13 +80,11 @@ const get_events = async () => {
 // returns: object containing Wakatime Language stats
 export const aboutData = async () => {
     const wakatimestats = await get_wakatimestats(); //fetching Wakatime Language stats
-    const workexperiences = await get_workexperiences(); // fetching Work Experiences
     const events = await get_events(); // fetching Events
 
     // returns {stats, works, events}
     return {
         stats: wakatimestats,
-        works: workexperiences,
         events: events,
     };
 };
