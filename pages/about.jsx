@@ -3,13 +3,13 @@ import axios from 'axios';
 
 import styles from '../styles/About.module.scss';
 import { aboutData, aboutDataStore } from '../utility/AboutData';
-import { Clock, Stats, Education, Experience } from '../components/About';
+import { Clock, Languages, Education, Experience } from '../components/About';
 
 import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
 import { SectionButton } from '../components/UI/Button';
 
 export const getStaticProps = async () => {
-    const { stats, works, events } = await aboutData();
+    const { stats, events } = await aboutData();
 
     return {
         props: {
@@ -52,8 +52,8 @@ const About = props => {
                 <Clock />
             </section>
 
-            <section className={styles.Stats}>
-                <Stats stats={props.stats} />
+            <section className={styles.Languages}>
+                <Languages stats={props.stats} />
             </section>
 
             <section className={styles.Fact}>

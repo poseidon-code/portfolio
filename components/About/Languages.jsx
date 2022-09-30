@@ -1,6 +1,6 @@
 import styles from '../../styles/About.module.scss';
 
-const Stats = ({ stats }) => (
+const Languages = ({ stats }) => (
     <>
         <div className={styles.bars}>
             {stats.map((l, i) => (
@@ -17,4 +17,4 @@ const Stats = ({ stats }) => (
     </>
 );
 
-export default Stats;
+export default Languages;

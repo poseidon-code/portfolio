@@ -1,6 +1,6 @@
 import Clock from './Clock';
-import Stats from './Stats';
+import Languages from './Languages';
 import Education from './Education';
 import Experience from './Experience';
 
-export { Clock, Stats, Education, Experience };
+export { Clock, Languages, Education, Experience };

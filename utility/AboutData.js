@@ -82,7 +82,7 @@ export const aboutData = async () => {
     const wakatimestats = await get_wakatimestats(); //fetching Wakatime Language stats
     const events = await get_events(); // fetching Events
 
-    // returns {stats, works, events}
+    // returns {stats, events}
     return {
         stats: wakatimestats,
         events: events,
