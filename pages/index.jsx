@@ -43,7 +43,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <h1>Pritam Halder</h1>
                 <h2>I build things for the web.</h2>
             </section>
-            <div className={styles.introduction} tabIndex={1}>
+            <div className={styles.introduction} tabIndex={6}>
                 <section className={styles.cta}>
                     <p>{homeDataStore.introduction}</p>
                     <div>
@@ -64,7 +64,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </section>
             </div>
 
-            <section id='projects' className={styles.projects} tabIndex={2}>
+            <section id='projects' className={styles.projects} tabIndex={7}>
                 <div className={styles.projects_head}>
                     <h1>Featured Projects</h1>
                     <h2>My creative mindset with a core background of computer science yeilded these fine results.</h2>
@@ -77,7 +77,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.skills} tabIndex={3}>
+            <section className={styles.skills} tabIndex={8}>
                 <div className={styles.skills_head}>
                     <h1>Technical Skills</h1>
                     <h2>
@@ -96,7 +96,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.technologies} tabIndex={4}>
+            <section className={styles.technologies} tabIndex={9}>
                 <div className={styles.technologies_head}>
                     <h1>Technologies Tackled</h1>
                     <h2>
@@ -115,7 +115,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section className={styles.about} tabIndex={5}>
+            <section className={styles.about} tabIndex={10}>
                 <div className={styles.about_head}>
                     <h1>About Myself</h1>
                     <h2>Success is not final, failure is not fatal, it is the courage to continue that counts.</h2>
@@ -129,7 +129,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                                 <br />
                             </Fragment>
                         ))}
-                        <a href='/Resume - Pritam Halder.pdf' download>
+                        <a tabIndex={11} href='/Resume - Pritam Halder.pdf' download>
                             <Resume />
                             &nbsp;Resume&nbsp;
                             <Download />
@@ -141,28 +141,44 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 </SectionButton>
             </section>
 
-            <section id='contact' className={styles.contact} tabIndex={6}>
+            <section id='contact' className={styles.contact} tabIndex={12}>
                 <div className={styles.contact_head}>
                     <h1>Contact Me</h1>
                     <h2>Sometimes later becomes never...</h2>
                 </div>
                 <div className={styles.contact_links}>
-                    <a href='mailto:pritamhalder.portfolio@gmail.com' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        tabIndex={-1}
+                        href='mailto:pritamhalder.portfolio@gmail.com'
+                        target='_blank'
+                        rel='noopener noreferrer'>
                         <Email /> Drop a mail...
                     </a>
-                    <a href='t.me/pritam_poseidon' target='_blank' rel='noopener noreferrer'>
+                    <a tabIndex={-1} href='t.me/pritam_poseidon' target='_blank' rel='noopener noreferrer'>
                         <Telegram /> Let's have a chat...
                     </a>
-                    <a href='https://facebook.com/pritamhalder0506' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        tabIndex={-1}
+                        href='https://facebook.com/pritamhalder0506'
+                        target='_blank'
+                        rel='noopener noreferrer'>
                         <Facebook />
                     </a>
-                    <a href='https://instagram.com/pritam.poseidon' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        tabIndex={-1}
+                        href='https://instagram.com/pritam.poseidon'
+                        target='_blank'
+                        rel='noopener noreferrer'>
                         <Instagram />
                     </a>
-                    <a href='https://linkedin.com/in/pritamhalder0506' target='_blank' rel='noopener noreferrer'>
+                    <a
+                        tabIndex={-1}
+                        href='https://linkedin.com/in/pritamhalder0506'
+                        target='_blank'
+                        rel='noopener noreferrer'>
                         <Linkedin />
                     </a>
-                    <a href='https://github.com/poseidon-code' target='_blank' rel='noopener noreferrer'>
+                    <a tabIndex={-1} href='https://github.com/poseidon-code' target='_blank' rel='noopener noreferrer'>
                         <Github />
                     </a>
                 </div>

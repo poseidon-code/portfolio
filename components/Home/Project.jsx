@@ -14,12 +14,12 @@ const Project = props => (
 
             <div>
                 {props.github && (
-                    <a href={props.github} target='_blank' rel='noopener noreferrer'>
+                    <a tabIndex={-1} href={props.github} target='_blank' rel='noopener noreferrer'>
                         <Github />
                     </a>
                 )}
                 {props.deploy && (
-                    <a href={props.deploy} target='_blank' rel='noopener noreferrer'>
+                    <a tabIndex={-1} href={props.deploy} target='_blank' rel='noopener noreferrer'>
                         <ExternalLink />
                     </a>
                 )}
