@@ -1,9 +1,9 @@
 import styles from '../../styles/About.module.scss';
 import { ExternalLink } from '../UI/Icons';
 
-const Experience = ({ experience, key }) => {
+const Experience = ({ experience }) => {
     return (
-        <div key={`experience-${key}`} className={styles.ExperiencesBody}>
+        <div className={styles.ExperiencesBody}>
             <h6 aria-hidden={true}>{experience.symbol}</h6>
             <h2>{experience.type}</h2>
             <h4 title='Duration'>{experience.duration}</h4>
@@ -27,7 +27,7 @@ const Experience = ({ experience, key }) => {
                     <br />
                     <ul className={styles.work}>
                         {experience.work.map((w, wi) => (
-                            <li key={`experience-${key}-work-${wi}`}>{w}</li>
+                            <li key={`work-${wi}`}>{w}</li>
                         ))}
                     </ul>
                 </>
@@ -45,7 +45,7 @@ const Experience = ({ experience, key }) => {
                         </span>
                         <ul className={styles.work}>
                             {experience.backend.work.map((w, wi) => (
-                                <li key={`experience-${key}-backend-work-${wi}`}>{w}</li>
+                                <li key={`backend-work-${wi}`}>{w}</li>
                             ))}
                         </ul>
                     </div>
@@ -64,7 +64,7 @@ const Experience = ({ experience, key }) => {
                         </span>
                         <ul className={styles.work}>
                             {experience.frontend.work.map((w, wi) => (
-                                <li key={`experience-${key}-frontend-work-${wi}`}>{w}</li>
+                                <li key={`frontend-work-${wi}`}>{w}</li>
                             ))}
                         </ul>
                     </div>

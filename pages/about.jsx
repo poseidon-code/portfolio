@@ -82,7 +82,7 @@ const About = props => {
                     </h2>
                 </div>
                 {aboutDataStore.education.map((academic, i) => (
-                    <Education key={i} education={academic} />
+                    <Education key={`education-${i}`} education={academic} />
                 ))}
             </section>
 
@@ -95,40 +95,22 @@ const About = props => {
                     </h2>
                 </div>
                 {aboutDataStore.experiences.map((experience, i) => (
-                    <Experience key={i} experience={experience} />
+                    <Experience key={`experience-${i}`} experience={experience} />
                 ))}
             </section>
 
-            <section className={styles.Events}>
-                <div className={styles.EventsHead}>
-                    <h1>Life Events</h1>
+            <section className={styles.Achievements}>
+                <div className={styles.AchievementsHead}>
+                    <h1>Achievements</h1>
                     <h2>
                         "The purpose of our lives is to be happy."
                         <br /> -Dalai Lama
                     </h2>
                 </div>
-
                 <ul>
-                    {Object.keys(props.events)
-                        .sort((a, b) => b - a)
-                        .slice(0, count)
-                        .map((period, i) => (
-                            <li key={i}>
-                                <h3>{`${period.split('-')[2]} ${period.split('-')[0]}`}</h3>
-                                {props.events[period].map((event, j) => (
-                                    <p key={j}> - {event}</p>
-                                ))}
-                            </li>
-                        ))}
-                    {load && (
-                        <SectionButton
-                            text='Wanna see 2 years of notable events of my developer journey ?'
-                            onClick={() => {
-                                setCount(p => p + 5);
-                            }}>
-                            More Notable Events
-                        </SectionButton>
-                    )}
+                    {aboutDataStore.achievements.map((achievement, i) => (
+                        <li key={`achievement-${i}`}>{achievement}</li>
+                    ))}
                 </ul>
             </section>
 
@@ -140,7 +122,6 @@ const About = props => {
                         <br /> -Ernest Hemingway
                     </h2>
                 </div>
-
                 <ul>
                     {aboutDataStore.softSkills.map((softSkill, i) => (
                         <li key={`softSkill-${i}`}>{softSkill}</li>
@@ -157,7 +138,6 @@ const About = props => {
                         <br /> -Anonymous
                     </h2>
                 </div>
-
                 <ul>
                     {aboutDataStore.interests.map((interest, i) => (
                         <li key={`interest-${i}`}>{interest}</li>
@@ -166,8 +146,7 @@ const About = props => {
             </section>
 
             <section className={styles.Joke}>
-                <Joke />
-                {joke}
+                <Joke /> {joke}
             </section>
         </>
     );

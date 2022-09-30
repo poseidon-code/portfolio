@@ -1,8 +1,8 @@
 import styles from '../../styles/About.module.scss';
 
-const Education = ({ education, key }) => {
+const Education = ({ education }) => {
     return (
-        <div key={`education-${key}`} className={styles.EducationBody}>
+        <div className={styles.EducationBody}>
             <h6 aria-hidden={true}>{education.symbol}</h6>
             <h2>{education.type}</h2>
             <h4 title='Subject Course'>{education.domain}</h4>
@@ -11,7 +11,7 @@ const Education = ({ education, key }) => {
             <br />
             <ul>
                 {education.periods.map((period, pi) => (
-                    <li key={`education-${key}-period-${pi}`}>
+                    <li key={`period-${pi}`}>
                         <span>{period.time}</span>
                         <span>{period.location}</span>
                     </li>

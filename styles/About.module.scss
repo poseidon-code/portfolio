@@ -479,13 +479,13 @@
     }
 }
 
-.Events {
+.Achievements {
     $hue: 235;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .EventsHead {
+    &Head {
         @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
     }
 
@@ -495,17 +495,10 @@
         gap: 0.5rem;
 
         li {
+            font-size: 1.2rem;
             @include utils.padding;
             @include utils.section($hue);
-
-            h3 {
-                font-family: utils.$font-mono;
-                font-weight: bold;
-                font-size: 1.4rem;
-            }
         }
-
-        @include utils.section-button($hue, '../public/backgrounds/bg-3.jpg');
     }
 }
 
@@ -534,11 +527,6 @@
             &::first-letter {
                 font-weight: bold;
                 font-size: 150%;
-            }
-
-            &::selection {
-                background: hsl($hue, 100%, 10%);
-                color: hsl($hue, 100%, 70%);
             }
         }
 
