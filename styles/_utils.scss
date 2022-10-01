@@ -125,3 +125,10 @@ $font-regular: 'Overpass', sans-serif;
         }
     }
 }
+
+@mixin tabFocus($hue) {
+    &:focus {
+        outline: 0.6rem hsl($hue, 100%, 70%) dashed;
+        outline-offset: 0.5rem;
+    }
+}
