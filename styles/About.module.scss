@@ -56,6 +56,7 @@
     }
 
     & > * {
+        $hue: 42;
         @include utils.padding;
         display: flex;
         flex-direction: column;
@@ -64,37 +65,18 @@
         font-size: 2rem;
         font-weight: bold;
         white-space: nowrap;
-
-        $hue: 42;
-        color: hsl($hue, 100%, 10%);
-        background-color: hsl($hue, 100%, 70%);
-
-        &::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
-        }
-
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
-
-        @media (max-width: 800px) {
-            font-size: 1.4rem;
-        }
-
-        &:hover {
-            color: hsl($hue, 100%, 70%);
-            background-color: hsl($hue, 100%, 10%);
-
-            &::selection {
-                background: hsl($hue, 100%, 70%);
-                color: hsl($hue, 100%, 10%);
-            }
-        }
+        @include utils.section($hue, true);
 
         svg {
             $size: 1.4rem;
             width: $size;
             height: $size;
             margin-bottom: 0.6rem;
+        }
+
+        @media (max-width: 800px) {
+            font-size: 1.4rem;
         }
     }
 }
@@ -172,11 +154,6 @@
     font-size: 1.2rem;
     text-align: center;
 
-    &::selection {
-        background-color: hsl($hue, 100%, 10%);
-        color: hsl($hue, 100%, 70%);
-    }
-
     svg {
         --size: 3rem;
         width: var(--size);
@@ -201,14 +178,14 @@
     position: relative;
     overflow: hidden;
 
-    ::selection {
-        background: hsl($hue, 100%, 0%);
-        color: hsl($hue, 100%, 100%);
-    }
-
     article {
         @include utils.padding;
         width: 50%;
+
+        &::selection {
+            background: hsl($hue, 100%, 0%);
+            color: hsl($hue, 100%, 100%);
+        }
 
         @media (max-width: 800px) {
             width: 100%;
@@ -269,10 +246,6 @@
         *::selection {
             background: hsl($hue, 100%, 10%);
             color: hsl($hue, 100%, 70%);
-        }
-
-        & > * {
-            z-index: 10;
         }
 
         h6 {
@@ -377,10 +350,6 @@
         *::selection {
             background: hsl($hue, 100%, 10%);
             color: hsl($hue, 100%, 70%);
-        }
-
-        & > * {
-            z-index: 10;
         }
 
         h6 {
@@ -500,6 +469,14 @@
             @include utils.section($hue);
         }
     }
+
+    @media (max-width: 800px) {
+        ul {
+            li {
+                font-size: 1rem;
+            }
+        }
+    }
 }
 
 .SoftSkills {
@@ -532,6 +509,10 @@
 
         @media (max-width: 800px) {
             grid-template-columns: repeat(1, 1fr);
+
+            li {
+                font-size: 1rem;
+            }
         }
     }
 }
@@ -562,23 +543,7 @@
             @for $i from 1 through 14 {
                 &:nth-of-type(#{$i}) {
                     $hue: random(360);
-                    color: hsl($hue, 100%, 10%);
-                    background-color: hsl($hue, 100%, 70%);
-
-                    &::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
-                    }
-
-                    &:hover {
-                        color: hsl($hue, 100%, 70%);
-                        background-color: hsl($hue, 100%, 10%);
-
-                        &::selection {
-                            background: hsl($hue, 100%, 70%);
-                            color: hsl($hue, 100%, 10%);
-                        }
-                    }
+                    @include utils.section($hue, true);
                 }
             }
         }
@@ -594,11 +559,6 @@
     gap: 1rem;
     font-size: 1.2rem;
     text-align: center;
-
-    &::selection {
-        background-color: hsl($hue, 100%, 10%);
-        color: hsl($hue, 100%, 70%);
-    }
 
     svg {
         --size: 3rem;
