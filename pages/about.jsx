@@ -6,15 +6,13 @@ import { aboutData, aboutDataStore } from '../utility/AboutData';
 import { Clock, Languages, Education, Experience } from '../components/About';
 
 import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
-import { SectionButton } from '../components/UI/Button';
 
 export const getStaticProps = async () => {
-    const { stats, events } = await aboutData();
+    const { stats } = await aboutData();
 
     return {
         props: {
             stats,
-            events,
         },
     };
 };
@@ -22,8 +20,6 @@ export const getStaticProps = async () => {
 const About = props => {
     const [fact, setFact] = useState('');
     const [joke, setJoke] = useState('');
-    const [count, setCount] = useState(5);
-    const [load, setLoad] = useState(true);
 
     useEffect(async () => {
         await axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
@@ -34,10 +30,6 @@ const About = props => {
                 .then(res => res.data.joke)
         );
     }, []);
-
-    useEffect(() => {
-        if (count > Object.keys(props.events).length) setLoad(false);
-    }, [count]);
 
     return (
         <>
