@@ -8,13 +8,25 @@ $font-regular: 'Overpass', sans-serif;
     }
 }
 
-@mixin section($hue) {
+@mixin section($hue, $hover: false) {
     color: hsl($hue, 100%, 10%);
     background-color: hsl($hue, 100%, 70%);
 
-    ::selection {
+    &::selection {
         background: hsl($hue, 100%, 10%);
         color: hsl($hue, 100%, 70%);
+    }
+
+    @if $hover {
+        &:hover {
+            color: hsl($hue, 100%, 70%);
+            background-color: hsl($hue, 100%, 10%);
+
+            &::selection {
+                background: hsl($hue, 100%, 70%);
+                color: hsl($hue, 100%, 10%);
+            }
+        }
     }
 }
 
