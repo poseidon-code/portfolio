@@ -320,6 +320,9 @@
                 font-family: utils.$font-mono;
                 font-size: 0.8rem;
             }
+            & > span {
+                font-size: 1rem;
+            }
             ul {
                 li {
                     span {
@@ -555,6 +558,14 @@
                     $hue: random(360);
                     @include utils.section($hue, true);
                 }
+            }
+        }
+    }
+
+    @media (max-width: 800px) {
+        ul {
+            li {
+                font-size: 1rem;
             }
         }
     }

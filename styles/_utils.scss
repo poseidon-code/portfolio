@@ -52,10 +52,10 @@ $font-regular: 'Overpass', sans-serif;
         height: 60vh;
 
         h1 {
-            font-size: 2.4rem;
+            font-size: 2.6rem;
         }
         h2 {
-            font-size: 0.9rem;
+            font-size: 1rem;
         }
     }
 }
@@ -127,7 +127,7 @@ $font-regular: 'Overpass', sans-serif;
 }
 
 @mixin tabFocus($hue) {
-    &:focus {
+    &:focus-visible {
         outline: 0.6rem hsl($hue, 100%, 70%) dashed;
         outline-offset: 0.5rem;
     }

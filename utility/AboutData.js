@@ -61,8 +61,7 @@ export const aboutDataStore = {
         `I'm a Kolkata based aspiring software engineer who specializes in building and designing fullstack products leading projects from research to implementation.`,
 
         `What's going on, you ask ? I am learning Go and its design principles with gRPC framework and GraphQL technologies.
-        You can ask me about Go, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, JavaScript,
-        TypeScript, GraphQL, Linux Customizations (Ricing) and just about life.`,
+        You can ask me about Go, ReactJs, NextJs, NodeJs, ExpressJs, MongoDB, JavaScript, TypeScript, GraphQL, Linux Customizations (Ricing) and just about life.`,
 
         `Outside my field of study, I have interests in drawing, digital painting, reading, coding, programming, illustrations, linux ricing, virtual machines, cars, gaming and lots more.
         These little things keeps me motivated in my life.`,
