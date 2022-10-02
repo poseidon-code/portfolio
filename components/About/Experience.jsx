@@ -17,7 +17,7 @@ const Experience = ({ experience }) => {
                     Designation - {experience.designation.name} | {experience.designation.type}
                 </h4>
             ) : null}
-            <a href={experience.link.url} target='_blank' rel='noopener noreferrer'>
+            <a tabIndex={-1} href={experience.link.url} target='_blank' rel='noopener noreferrer'>
                 <ExternalLink /> {experience.link.text}
             </a>
             <br /> <br />

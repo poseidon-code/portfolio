@@ -40,32 +40,32 @@ const About = props => {
                 <h2>It's going to be hard, but hard does not mean impossible.</h2>
             </section>
 
-            <section className={styles.Clock}>
+            <section className={styles.Clock} tabIndex={6}>
                 <Clock />
             </section>
 
-            <section className={styles.Languages}>
+            <section className={styles.Languages} tabIndex={7}>
                 <Languages stats={props.stats} />
             </section>
 
-            <section className={styles.Fact}>
+            <section className={styles.Fact} tabIndex={8}>
                 <Fact /> {fact}
             </section>
 
-            <section className={styles.About}>
+            <section className={styles.About} tabIndex={9}>
                 <article>
                     {aboutDataStore.about.map((line, i) => (
                         <Fragment key={`about-line-${i + 1}`}>
                             {line} <br /> <br />
                         </Fragment>
                     ))}
-                    <a href='/Resume - Pritam Halder.pdf' download>
+                    <a tabIndex={-1} href='/Resume - Pritam Halder.pdf' download>
                         <Resume /> &nbsp;Resume&nbsp; <Download />
                     </a>
                 </article>
             </section>
 
-            <section className={styles.Education}>
+            <section className={styles.Education} tabIndex={10}>
                 <div className={styles.EducationHead}>
                     <h1>Education</h1>
                     <h2>
@@ -78,7 +78,7 @@ const About = props => {
                 ))}
             </section>
 
-            <section className={styles.Experiences}>
+            <section className={styles.Experiences} tabIndex={11}>
                 <div className={styles.ExperiencesHead}>
                     <h1>Experiences</h1>
                     <h2>
@@ -91,7 +91,7 @@ const About = props => {
                 ))}
             </section>
 
-            <section className={styles.Achievements}>
+            <section className={styles.Achievements} tabIndex={12}>
                 <div className={styles.AchievementsHead}>
                     <h1>Achievements</h1>
                     <h2>
@@ -106,7 +106,7 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.SoftSkills}>
+            <section className={styles.SoftSkills} tabIndex={13}>
                 <div className={styles.SoftSkillsHead}>
                     <h1>Soft Skills</h1>
                     <h2>
@@ -122,7 +122,7 @@ const About = props => {
             </section>
 
             {/* TODO : update @for-thorugh count in About.module.scss (.Interests.ul.li) */}
-            <section className={styles.Interests}>
+            <section className={styles.Interests} tabIndex={14}>
                 <div className={styles.InterestsHead}>
                     <h1>Interests</h1>
                     <h2>
@@ -137,7 +137,7 @@ const About = props => {
                 </ul>
             </section>
 
-            <section className={styles.Joke}>
+            <section className={styles.Joke} tabIndex={15}>
                 <Joke /> {joke}
             </section>
         </>
