@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { formatCount } from '.';
 
-import * as Icon from '../components/UI/Icons';
+import { formatCount } from '.';
+import * as Icon from '@icons';
 
 // GET (REST) "Hours Spent" from "wakatime.com"
 // uses: Basic Authorization (with Wakatime API key converted to base64 string)
