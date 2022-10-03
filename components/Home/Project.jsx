@@ -1,5 +1,5 @@
-import styles from '../../styles/Home.module.scss';
-import { Github, ExternalLink } from '../UI/Icons';
+import styles from 'styles/Home.module.scss';
+import { Github, ExternalLink } from '@icons';
 
 const Project = props => (
     <section className={styles.project}>

@@ -1,4 +1,4 @@
-import styles from '../../styles/Home.module.scss';
+import styles from 'styles/Home.module.scss';
 
 const Skill = props => (
     <li className={styles.skill}>

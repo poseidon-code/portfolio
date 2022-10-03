@@ -1,6 +1,6 @@
-import styles from '../../styles/Home.module.scss';
+import styles from 'styles/Home.module.scss';
 
-const Technology = (props) => (
+const Technology = props => (
     <li className={styles.technology}>
         {props.icon}
         <h2>{props.technology}</h2>

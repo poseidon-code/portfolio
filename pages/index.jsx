@@ -1,11 +1,7 @@
 import { useEffect, Fragment } from 'react';
 import axios from 'axios';
 
-import styles from '../styles/Home.module.scss';
-import { homeData, homeDataStore } from '../utility/HomeData';
-import { Project, Skill, Stat, Technology } from '../components/Home';
-
-import { Button, SectionButton } from '../components/UI/Button';
+import { Button, SectionButton } from 'components/UI/Button';
 import {
     Clock,
     Visitors,
@@ -18,7 +14,11 @@ import {
     Resume,
     Email,
     Telegram,
-} from '../components/UI/Icons';
+} from '@icons';
+
+import styles from 'styles/Home.module.scss';
+import { homeData, homeDataStore } from 'utility/HomeData';
+import { Project, Skill, Stat, Technology } from 'components/Home';
 
 export const getStaticProps = async () => {
     const { hours, visitors, repos, frameworks } = await homeData();
