@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import * as Icon from '../UI/Icons';
+import * as Icon from '@icons';
 
 const Clock = () => {
     const TODAY = new Date();

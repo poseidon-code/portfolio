@@ -1,5 +1,5 @@
-import styles from '../../styles/About.module.scss';
-import { ExternalLink } from '../UI/Icons';
+import styles from 'styles/About.module.scss';
+import { ExternalLink } from '@icons';
 
 const Experience = ({ experience }) => {
     return (

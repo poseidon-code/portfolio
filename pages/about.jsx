@@ -1,11 +1,11 @@
 import { useEffect, useState, Fragment } from 'react';
 import axios from 'axios';
 
-import styles from '../styles/About.module.scss';
-import { aboutData, aboutDataStore } from '../utility/AboutData';
-import { Clock, Languages, Education, Experience } from '../components/About';
+import { Download, Resume, Fact, Joke } from '@icons';
 
-import { Download, Resume, Fact, Joke } from '../components/UI/Icons';
+import styles from 'styles/About.module.scss';
+import { aboutData, aboutDataStore } from 'utility/AboutData';
+import { Clock, Languages, Education, Experience } from 'components/About';
 
 export const getStaticProps = async () => {
     const { stats } = await aboutData();
