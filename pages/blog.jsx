@@ -1,5 +1,6 @@
 import Link from 'next/link';
-import { Working } from '../components/UI/Icons';
+
+import { Working } from '@icons';
 
 const Construction = () => {
     return (
