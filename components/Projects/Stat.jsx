@@ -1,6 +1,6 @@
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
-const Stat = (props) => (
+const Stat = props => (
     <div className={styles.stat}>
         {props.icon}
         <h1>{props.number}</h1>

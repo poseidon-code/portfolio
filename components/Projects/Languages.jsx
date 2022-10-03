@@ -1,4 +1,4 @@
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
 const Languages = props => (
     <>

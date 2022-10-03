@@ -1,8 +1,8 @@
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
-import { Folder, Star, Fork } from '../UI/Icons';
+import { Folder, Star, Fork } from '@icons';
 
-const Repo = (props) => (
+const Repo = props => (
     <a href={props.url} target='_blank' rel='noopener noreferrer' className={styles.repo}>
         <Folder />
         <p>{props.name}</p>

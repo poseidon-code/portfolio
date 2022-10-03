@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
-import styles from '../../styles/Projects.module.scss';
+import styles from 'styles/Projects.module.scss';
 
-import { Github, ExternalLink } from '../UI/Icons';
-import { SYMBOLS } from '../../utility/ProjectsData';
+import { Github, ExternalLink } from '@icons';
+import { SYMBOLS } from 'utility/ProjectsData';
 
-const Project = (props) => {
+const Project = props => {
     const [symbol, setSymbol] = useState();
     useEffect(() => {
         setSymbol(Math.floor(Math.random() * SYMBOLS.length));
