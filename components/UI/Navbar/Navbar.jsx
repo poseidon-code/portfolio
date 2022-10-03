@@ -1,6 +1,7 @@
-import styles from './Navbar.module.scss';
 import Link from 'next/link';
-import { About, Blog, Contact, Projects, Logo } from '../Icons';
+
+import styles from './Navbar.module.scss';
+import { About, Blog, Contact, Projects, Logo } from '@icons';
 
 const Navbar = props => {
     return (
