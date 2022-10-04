@@ -1,6 +1,6 @@
 @use '../../../styles/utils';
 
-.footer {
+.Footer {
     @include utils.section(var(--hue));
     @include utils.padding;
     margin-top: -1rem;

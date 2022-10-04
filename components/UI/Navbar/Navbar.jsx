@@ -5,7 +5,7 @@ import { About, Blog, Contact, Projects, Logo } from '@icons';
 
 const Navbar = props => {
     return (
-        <nav className={styles.navbar} style={{ '--hue': props.color }}>
+        <nav className={styles.Navbar} style={{ '--hue': props.color }}>
             <div className={styles.links}>
                 <Link href='/projects'>
                     <a tabIndex={1}>
