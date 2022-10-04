@@ -3,10 +3,10 @@ import { Github, ExternalLink } from '@icons';
 
 const Project = props => (
     <section className={styles.project}>
-        <div>
+        <div className={styles.text}>
             <h1>{props.name}</h1>
             <span>{props.description}</span>
-            <ul>
+            <ul title='Technologies'>
                 {props.tech.map((t, i) => (
                     <li key={i}>{t}</li>
                 ))}
@@ -25,7 +25,7 @@ const Project = props => (
                 )}
             </div>
         </div>
-        <div></div>
+        <div className={styles.image}></div>
     </section>
 );
 

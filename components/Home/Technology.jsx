@@ -1,7 +1,5 @@
-import styles from 'styles/Home.module.scss';
-
 const Technology = props => (
-    <li className={styles.technology}>
+    <li>
         {props.icon}
         <h2>{props.technology}</h2>
         <span>{props.text}</span>

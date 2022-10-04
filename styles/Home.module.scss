@@ -44,23 +44,25 @@
     }
 }
 
-.introduction {
+.Introduction {
+    $hue: 189;
     display: flex;
     gap: 1rem;
+    @include utils.tabFocus($hue);
 
     @media (max-width: 800px) {
         flex-direction: column;
     }
 }
 
-.cta {
+.CTA {
     @include utils.section(332);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+
     p {
         @include utils.padding;
-        padding-bottom: 1rem;
         font-size: 1.2rem;
 
         @media (max-width: 800px) {
@@ -74,7 +76,7 @@
     }
 }
 
-.stats {
+.Stats {
     width: 200%;
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -85,7 +87,7 @@
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .stat {
+    div {
         @include utils.padding;
         display: flex;
         flex-direction: column;
@@ -94,27 +96,11 @@
         user-select: none;
 
         $hue: 42;
-        color: hsl($hue, 100%, 10%);
-        background-color: hsl($hue, 100%, 70%);
+        @include utils.section($hue, true);
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
         @media (max-width: 800px) {
             font-size: 1.4rem;
-        }
-
-        &:hover {
-            color: hsl($hue, 100%, 70%);
-            background-color: hsl($hue, 100%, 10%);
-
-            ::selection {
-                background: hsl($hue, 100%, 70%);
-                color: hsl($hue, 100%, 10%);
-            }
-        }
-
-        ::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
         }
 
         span {
@@ -124,45 +110,51 @@
         }
 
         svg {
-            --size: 1.4rem;
-            width: var(--size);
-            height: var(--size);
+            $size: 1.4rem;
+            width: $size;
+            height: $size;
             margin-bottom: 0.6rem;
         }
     }
 }
 
-.projects {
+.Projects {
+    $hue: 238;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include utils.tabFocus($hue);
 
-    .projects_head {
-        @include utils.head(238, '../public/backgrounds/bg-2.jpg');
+    &Head {
+        @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
     }
 
     .project {
         display: flex;
         height: 400px;
+        @media (max-width: 800px) {
+            height: 100%;
+            flex-direction: column-reverse;
+        }
 
         $color: 0, 157, 192, 62, 279;
         $bg: '../public/backgrounds/bg-1.jpg', '../public/backgrounds/bg-2.jpg', '../public/backgrounds/bg-3.jpg',
             '../public/backgrounds/bg-4.jpg', '../public/backgrounds/bg-5.jpg';
         @for $i from 1 through 5 {
             &:nth-of-type(#{$i}) {
-                & > div:nth-of-type(2) {
+                & > .image {
                     @include utils.section-bg(list.nth($bg, $i), list.nth($color, $i), 150%);
                     @media (max-width: 800px) {
                         background-size: 150%;
                     }
                 }
-                & > div:nth-of-type(1) {
+                & > .text {
                     @include utils.section(list.nth($color, $i));
                 }
             }
         }
 
-        & > div:nth-of-type(2) {
+        & > .image {
             width: 100%;
             height: 100%;
 
@@ -172,12 +164,15 @@
             }
         }
 
-        & > div:nth-of-type(1) {
+        & > .text {
             width: 60ch;
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
             @include utils.padding;
+            @media (max-width: 800px) {
+                width: 100%;
+            }
 
             h1 {
                 font-size: 2rem;
@@ -196,15 +191,15 @@
                 li {
                     font-family: utils.$font-mono;
                     font-weight: bold;
-                    font-size: 0.9rem;
+                    font-size: 0.8rem;
                     margin-right: 1rem;
                 }
             }
 
             svg {
-                --size: 1.4rem;
-                width: var(--size);
-                height: var(--size);
+                $size: 1.4rem;
+                width: $size;
+                height: $size;
             }
 
             a {
@@ -212,92 +207,68 @@
                 text-decoration: none;
                 margin-right: 1rem;
             }
-
-            @media (max-width: 800px) {
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 800px) {
-            height: 100%;
-            flex-direction: column-reverse;
         }
     }
 
-    @include utils.section-button(238, '../public/backgrounds/bg-2.jpg');
+    @include utils.section-button($hue, '../public/backgrounds/bg-2.jpg');
 }
 
-.skills {
+.Skills {
+    $hue: 299;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include utils.tabFocus($hue);
 
-    .skills_head {
-        @include utils.head(299, '../public/backgrounds/bg-3.jpg');
+    &Head {
+        @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
     }
 
-    .skills_body {
+    ul {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
 
-        .skill {
+        li {
             padding: 1rem 2rem;
             text-align: center;
             flex-grow: 2;
             transition: color var(--time) ease-out, background-color var(--time) ease-out;
+            font-family: utils.$font-mono;
+            font-size: 1.4rem;
+            @media (max-width: 800px) {
+                font-size: 1rem;
+            }
 
             @for $i from 1 through 27 {
                 &:nth-of-type(#{$i}) {
                     $hue: random(360);
-                    color: hsl($hue, 100%, 10%);
-                    background-color: hsl($hue, 100%, 70%);
-
-                    &:hover {
-                        color: hsl($hue, 100%, 70%);
-                        background-color: hsl($hue, 100%, 10%);
-
-                        ::selection {
-                            background: hsl($hue, 100%, 70%);
-                            color: hsl($hue, 100%, 10%);
-                        }
-                    }
-
-                    ::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
-                    }
-                }
-            }
-
-            h2 {
-                pointer-events: none;
-                font-family: utils.$font-mono;
-                @media (max-width: 800px) {
-                    font-size: 1.4rem;
+                    @include utils.section($hue, true);
                 }
             }
         }
     }
 
-    @include utils.section-button(299, '../public/backgrounds/bg-3.jpg');
+    @include utils.section-button($hue, '../public/backgrounds/bg-3.jpg');
 }
 
-.technologies {
+.Technologies {
+    $hue: 120;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include utils.tabFocus($hue);
 
-    .technologies_head {
-        @include utils.head(120, '../public/backgrounds/bg-4.jpg');
+    &Head {
+        @include utils.head($hue, '../public/backgrounds/bg-4.jpg');
     }
 
-    .technologies_body {
+    ul {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
 
-        .technology {
+        li {
             padding: 1rem 2rem;
             text-align: center;
             flex-grow: 2;
@@ -306,23 +277,7 @@
             @for $i from 1 through 18 {
                 &:nth-of-type(#{$i}) {
                     $hue: random(360);
-                    color: hsl($hue, 100%, 10%);
-                    background-color: hsl($hue, 100%, 70%);
-
-                    &:hover {
-                        color: hsl($hue, 100%, 70%);
-                        background-color: hsl($hue, 100%, 10%);
-
-                        ::selection {
-                            background: hsl($hue, 100%, 70%);
-                            color: hsl($hue, 100%, 10%);
-                        }
-                    }
-
-                    ::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
-                    }
+                    @include utils.section($hue, true);
                 }
             }
 
@@ -330,7 +285,7 @@
                 pointer-events: none;
                 font-family: utils.$font-mono;
                 @media (max-width: 800px) {
-                    font-size: 1.4rem;
+                    font-size: 1.2rem;
                 }
             }
 
@@ -339,31 +294,33 @@
             }
 
             svg {
-                --size: 3rem;
-                width: var(--size);
-                height: var(--size);
+                $size: 3rem;
+                width: $size;
+                height: $size;
             }
         }
     }
 
-    @include utils.section-button(120, '../public/backgrounds/bg-4.jpg');
+    @include utils.section-button($hue, '../public/backgrounds/bg-4.jpg');
 }
 
-.about {
+.About {
+    $hue: 189;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include utils.tabFocus($hue);
 
-    .about_head {
-        @include utils.head(189, '../public/backgrounds/bg-5.jpg');
+    &Head {
+        @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
     }
 
-    .about_body {
+    article {
         display: flex;
         color: hsl(0, 0, 100%);
         background-image: url('../public/backgrounds/bg-7.jpg');
         background-color: hsla(0, 0, 0, 0.2);
-        background-size: 100%;
+        background-size: cover;
         background-position: center 30%;
         background-blend-mode: overlay;
 
@@ -374,6 +331,10 @@
         p {
             @include utils.padding;
             max-width: 60ch;
+            font-size: 1.2rem;
+            @media (max-width: 800px) {
+                font-size: 1rem;
+            }
 
             a {
                 font-size: 1.2rem;
@@ -385,9 +346,9 @@
                 align-items: center;
 
                 svg {
-                    --size: 1.5rem;
-                    width: var(--size);
-                    height: var(--size);
+                    $size: 1.5rem;
+                    width: $size;
+                    height: $size;
 
                     &:last-of-type {
                         opacity: 0;
@@ -402,26 +363,20 @@
                 }
             }
         }
-
-        @media (max-width: 800px) {
-            flex-direction: column-reverse;
-
-            img {
-                width: 100%;
-            }
-        }
     }
 
-    @include utils.section-button(189, '../public/backgrounds/bg-5.jpg');
+    @include utils.section-button($hue, '../public/backgrounds/bg-5.jpg');
 }
 
-.contact {
+.Contact {
+    $hue: 0;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
+    @include utils.tabFocus($hue);
 
-    .contact_head {
-        @include utils.head(0, '../public/backgrounds/bg-6.jpg');
+    &Head {
+        @include utils.head($hue, '../public/backgrounds/bg-6.jpg');
     }
 
     .contact_links {
@@ -458,22 +413,17 @@
             $contact-hue: 0, 60, 201, 318, 150, 250;
             @for $i from 1 through 6 {
                 &:nth-of-type(#{$i}) {
-                    @include utils.section(list.nth($contact-hue, $i));
-
-                    &:hover {
-                        color: hsl(list.nth($contact-hue, $i), 100%, 70%);
-                        background-color: hsl(list.nth($contact-hue, $i), 100%, 10%);
-                    }
+                    @include utils.section(list.nth($contact-hue, $i), true);
                 }
             }
 
             svg {
-                $size: 3rem;
-                width: $size;
-                height: $size;
+                --size: 3rem;
+                width: var(--size);
+                height: var(--size);
 
                 @media (max-width: 800px) {
-                    $size: 2rem;
+                    --size: 2rem;
                 }
             }
 
@@ -491,25 +441,6 @@
                 @media (max-width: 800px) {
                     font-size: 1.2rem;
                 }
-            }
-
-            &:nth-of-type(1) {
-                grid-area: mail;
-            }
-            &:nth-of-type(2) {
-                grid-area: telegram;
-            }
-            &:nth-of-type(3) {
-                grid-area: link1;
-            }
-            &:nth-of-type(4) {
-                grid-area: link2;
-            }
-            &:nth-of-type(5) {
-                grid-area: link3;
-            }
-            &:nth-of-type(6) {
-                grid-area: link4;
             }
         }
     }
