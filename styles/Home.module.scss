@@ -236,6 +236,7 @@
             transition: color var(--time) ease-out, background-color var(--time) ease-out;
             font-family: utils.$font-mono;
             font-size: 1.4rem;
+            font-weight: bold;
             @media (max-width: 800px) {
                 font-size: 1rem;
             }

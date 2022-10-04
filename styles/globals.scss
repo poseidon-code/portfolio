@@ -21,15 +21,18 @@
     display: none;
 }
 
-html {
+html,
+body,
+#__next {
     scroll-behavior: smooth;
+    overflow: auto;
 }
 
-body {
+#__next {
     width: 100%;
     background-image: url('../public/backgrounds/bg-5.jpg');
     background-color: hsl(189, 100%, 8%);
-    background-size: 100%;
+    background-size: cover;
     background-blend-mode: overlay;
     background-attachment: fixed;
     content-visibility: auto;
