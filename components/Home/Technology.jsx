@@ -1,8 +1,8 @@
-const Technology = props => (
+const Technology = ({ technology }) => (
     <li>
-        {props.icon}
-        <h2>{props.technology}</h2>
-        <span>{props.text}</span>
+        {technology.icon}
+        <h2>{technology.technology}</h2>
+        <span>{technology.text}</span>
     </li>
 );
 

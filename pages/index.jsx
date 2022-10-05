@@ -71,7 +71,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     <h2>My creative mindset with a core background of computer science yeilded these fine results.</h2>
                 </div>
                 {homeDataStore.projects.map((project, i) => (
-                    <Project key={`project-${i}`} {...project} />
+                    <Project key={`project-${i}`} project={project} />
                 ))}
                 <SectionButton text='Many more projects awaits you :)' link href='/projects'>
                     Check Out
@@ -108,7 +108,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 {/* TODO : update @for-thorugh count in Home.module.scss (.Technologies.ul.technology) */}
                 <ul>
                     {homeDataStore.technologies.map((technology, i) => (
-                        <Technology key={`technology-${i}`} {...technology} />
+                        <Technology key={`technology-${i}`} technology={technology} />
                     ))}
                 </ul>
                 <SectionButton text='Do you want to implement these technologies in your product ?' href='#contact'>
