@@ -1,3 +1,2 @@
 import SectionButton from './SectionButton';
-
-export { SectionButton };
+export default SectionButton;

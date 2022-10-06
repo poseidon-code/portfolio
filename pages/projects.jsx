@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import axios from 'axios';
 
-import { SectionButton } from 'components/UI/Button';
+import SectionButton from 'components/UI/SectionButton';
 import { Star, Folder, Fork, Database } from '@icons';
 
 import styles from 'styles/Projects.module.scss';

@@ -1,7 +1,7 @@
 import { useEffect, Fragment } from 'react';
 import axios from 'axios';
 
-import { SectionButton } from 'components/UI/Button';
+import SectionButton from 'components/UI/SectionButton';
 import {
     Clock,
     Visitors,
