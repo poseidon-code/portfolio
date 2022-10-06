@@ -209,8 +209,6 @@
             }
         }
     }
-
-    @include utils.section-button($hue, '../public/backgrounds/bg-2.jpg');
 }
 
 .Skills {
@@ -249,8 +247,6 @@
             }
         }
     }
-
-    @include utils.section-button($hue, '../public/backgrounds/bg-3.jpg');
 }
 
 .Technologies {
@@ -301,8 +297,6 @@
             }
         }
     }
-
-    @include utils.section-button($hue, '../public/backgrounds/bg-4.jpg');
 }
 
 .About {
@@ -365,8 +359,6 @@
             }
         }
     }
-
-    @include utils.section-button($hue, '../public/backgrounds/bg-5.jpg');
 }
 
 .Contact {

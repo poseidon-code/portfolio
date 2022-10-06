@@ -85,6 +85,8 @@ const Projects = props => {
                     ))}
                 </div>
                 <SectionButton
+                    style={{ '--hue': 74 }}
+                    background='backgrounds/bg-1.jpg'
                     text='Would you like to visit my Github ?'
                     href='https://github.com/poseidon-code'
                     target='_blank'

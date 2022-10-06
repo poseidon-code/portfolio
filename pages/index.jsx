@@ -73,7 +73,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 {homeDataStore.projects.map((project, i) => (
                     <Project key={`project-${i}`} project={project} />
                 ))}
-                <SectionButton text='Many more projects awaits you :)' link href='/projects'>
+                <SectionButton
+                    style={{ '--hue': 238 }}
+                    background='backgrounds/bg-2.jpg'
+                    text='Many more projects awaits you :)'
+                    link
+                    href='/projects'>
                     Check Out
                 </SectionButton>
             </section>
@@ -92,7 +97,11 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                         <Skill key={`skill-${i}`} skill={skill} />
                     ))}
                 </ul>
-                <SectionButton text='Want my skill sets for your project ?' href='#contact'>
+                <SectionButton
+                    style={{ '--hue': 299 }}
+                    background='backgrounds/bg-3.jpg'
+                    text='Want my skill sets for your project ?'
+                    href='#contact'>
                     Hire Me
                 </SectionButton>
             </section>
@@ -111,7 +120,11 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                         <Technology key={`technology-${i}`} technology={technology} />
                     ))}
                 </ul>
-                <SectionButton text='Do you want to implement these technologies in your product ?' href='#contact'>
+                <SectionButton
+                    style={{ '--hue': 120 }}
+                    background='backgrounds/bg-4.jpg'
+                    text='Do you want to implement these technologies in your product ?'
+                    href='#contact'>
                     Let's Talk
                 </SectionButton>
             </section>
@@ -133,7 +146,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                         </a>
                     </p>
                 </article>
-                <SectionButton text='Wanna know more about my academic experiences ?' link href='/about'>
+                <SectionButton
+                    style={{ '--hue': 189 }}
+                    background='backgrounds/bg-5.jpg'
+                    text='Wanna know more about my academic experiences ?'
+                    link
+                    href='/about'>
                     More About Me
                 </SectionButton>
             </section>
