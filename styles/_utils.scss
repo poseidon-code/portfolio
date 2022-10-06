@@ -94,41 +94,6 @@ $font-regular: 'Overpass', sans-serif;
     }
 }
 
-@mixin section-button($hue, $bg) {
-    & > div:last-of-type {
-        ::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
-        }
-        display: flex;
-        h1 {
-            @include padding;
-            width: 100%;
-            font-size: 1.4rem;
-            display: inline-block;
-            @include section($hue);
-        }
-        button,
-        a {
-            width: stretch;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            span {
-                font-size: 1.4rem;
-            }
-            @include section-bg($bg, $hue, 150%);
-            @media (max-width: 800px) {
-                background-size: 200%;
-            }
-        }
-
-        @media (max-width: 800px) {
-            flex-direction: column;
-        }
-    }
-}
-
 @mixin tabFocus($hue) {
     &:focus-visible {
         outline: 0.6rem hsl($hue, 100%, 70%) dashed;

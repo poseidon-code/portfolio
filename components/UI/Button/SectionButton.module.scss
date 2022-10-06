@@ -1,0 +1,69 @@
+@use '../../../styles/utils';
+
+.SectionButton {
+    display: flex;
+    @media (max-width: 800px) {
+        flex-direction: column;
+    }
+
+    h1 {
+        @include utils.padding;
+        width: 100%;
+        font-size: 1.4rem;
+        display: inline-block;
+        @include utils.section(var(--hue));
+    }
+
+    a {
+        all: unset;
+        cursor: pointer;
+        width: stretch;
+        padding: 1rem 2rem;
+        display: grid;
+        place-content: center;
+        text-align: center;
+        color: hsl(var(--hue), 100%, 10%);
+        background-color: hsl(var(--hue), 100%, 70%);
+        background-size: 150%;
+        background-repeat: no-repeat;
+        background-blend-mode: screen;
+        background-position: 50% 0%;
+        transition: color var(--time) ease-out, background-color var(--time) ease-out,
+            background-position var(--time) ease-out, background-blend-mode var(--time) ease-out;
+
+        @media (max-width: 800px) {
+            background-size: 200%;
+        }
+
+        &::selection,
+        & *::selection {
+            background: hsl(var(--hue), 100%, 10%);
+            color: hsl(var(--hue), 100%, 70%);
+        }
+
+        span {
+            display: inline-block;
+            font-family: utils.$font-mono;
+            font-weight: bold;
+            font-size: 1.4rem;
+            transition: transform var(--time) ease-out;
+        }
+
+        &:hover {
+            color: hsl(var(--hue), 100%, 70%);
+            background-color: hsl(var(--hue), 100%, 10%);
+            background-position: 20% 0%;
+            background-blend-mode: luminosity;
+
+            &::selection,
+            & *::selection {
+                background: hsl(var(--hue), 100%, 70%);
+                color: hsl(var(--hue), 100%, 10%);
+            }
+        }
+
+        &:hover span {
+            transform: scale(1.1);
+        }
+    }
+}
