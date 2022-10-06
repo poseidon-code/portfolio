@@ -56,7 +56,8 @@
 }
 
 .CTA {
-    @include utils.section(332);
+    $hue: 332;
+    @include utils.section($hue);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -73,6 +74,34 @@
     div {
         display: flex;
         flex-direction: column;
+
+        a {
+            all: unset;
+            cursor: pointer;
+            width: -webkit-fill-available;
+            padding: 1em 2em;
+            text-align: center;
+            color: hsl($hue, 100%, 10%);
+            background-color: hsl($hue, 100%, 70%);
+            transition: color var(--time) ease-out, background-color var(--time) ease-out;
+
+            span {
+                display: inline-block;
+                font-family: utils.$font-mono;
+                font-weight: bold;
+                font-size: 1rem;
+                transition: transform var(--time) ease-out;
+            }
+
+            &:hover {
+                color: hsl($hue, 100%, 70%);
+                background-color: hsl($hue, 100%, 10%);
+
+                span {
+                    transform: scale(1.1);
+                }
+            }
+        }
     }
 }
 

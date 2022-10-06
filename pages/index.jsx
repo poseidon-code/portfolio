@@ -1,7 +1,7 @@
 import { useEffect, Fragment } from 'react';
 import axios from 'axios';
 
-import { Button, SectionButton } from 'components/UI/Button';
+import { SectionButton } from 'components/UI/Button';
 import {
     Clock,
     Visitors,
@@ -48,12 +48,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                 <section className={styles.CTA}>
                     <p>{homeDataStore.introduction}</p>
                     <div>
-                        <Button href='#projects' style={{ '--hue': 332 }}>
-                            My Projects
-                        </Button>
-                        <Button href='#contact' style={{ '--hue': 332 }}>
-                            Get In Touch
-                        </Button>
+                        <a tabIndex={-1} href='#projects'>
+                            <span>My Projects &rarr;</span>
+                        </a>
+                        <a tabIndex={-1} href='#contact'>
+                            <span>Get In Touch &rarr;</span>
+                        </a>
                     </div>
                 </section>
 
