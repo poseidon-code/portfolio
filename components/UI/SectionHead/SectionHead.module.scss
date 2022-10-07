@@ -1,0 +1,61 @@
+@use '../../../styles/utils';
+
+.SectionHead {
+    $hue: var(--hue);
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+
+    color: hsl($hue, 100%, 10%);
+    background-repeat: no-repeat;
+    background-color: hsl($hue, 100%, 70%);
+    background-size: 150%;
+    background-blend-mode: screen;
+    background-position: 50% 0%;
+    transition: color var(--time) ease-out, background-color var(--time) ease-out,
+        background-position var(--time) ease-out, background-blend-mode var(--time) ease-out;
+
+    &:hover {
+        color: hsl($hue, 100%, 70%);
+        background-color: hsl($hue, 100%, 10%);
+        background-position: 20% 0%;
+        background-blend-mode: luminosity;
+
+        &::selection,
+        & *::selection {
+            background: hsl($hue, 100%, 70%);
+            color: hsl($hue, 100%, 10%);
+        }
+    }
+
+    &::selection,
+    & *::selection {
+        background: hsl($hue, 100%, 10%);
+        color: hsl($hue, 100%, 70%);
+    }
+
+    h1 {
+        font-size: 4rem;
+        pointer-events: none;
+    }
+    h2 {
+        font-family: utils.$font-mono;
+        font-size: 1.2rem;
+        pointer-events: none;
+    }
+
+    @media (max-width: 800px) {
+        height: 60vh;
+        padding: 1rem;
+        background-size: cover;
+
+        h1 {
+            font-size: 2.6rem;
+        }
+        h2 {
+            font-size: 1rem;
+        }
+    }
+}

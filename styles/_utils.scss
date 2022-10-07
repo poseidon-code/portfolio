@@ -32,36 +32,6 @@ $font-regular: 'Overpass', sans-serif;
     }
 }
 
-@mixin head($hue, $bg) {
-    height: 60vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    @include padding;
-    @include section-bg($bg, $hue, 150%);
-
-    h1 {
-        font-size: 4rem;
-        pointer-events: none;
-    }
-    h2 {
-        font-family: $font-mono;
-        font-size: 1.2rem;
-        pointer-events: none;
-    }
-
-    @media (max-width: 800px) {
-        height: 60vh;
-
-        h1 {
-            font-size: 2.6rem;
-        }
-        h2 {
-            font-size: 1rem;
-        }
-    }
-}
-
 @mixin section-bg($url, $hue, $bs) {
     color: hsl($hue, 100%, 10%);
     background: url($url) no-repeat;
