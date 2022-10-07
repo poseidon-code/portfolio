@@ -262,10 +262,6 @@
     flex-direction: column;
     gap: 0.5rem;
 
-    .osc_head {
-        @include utils.head(12, '../public/backgrounds/bg-4.jpg');
-    }
-
     .osc {
         width: 100%;
         @include utils.padding;
@@ -354,10 +350,6 @@
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-
-    .repos_head {
-        @include utils.head(74, '../public/backgrounds/bg-1.jpg');
-    }
 
     .repos_body {
         display: flex;

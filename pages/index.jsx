@@ -2,6 +2,7 @@ import { useEffect, Fragment } from 'react';
 import axios from 'axios';
 
 import SectionButton from 'components/UI/SectionButton';
+import SectionHead from 'components/UI/SectionHead';
 import {
     Clock,
     Visitors,
@@ -66,10 +67,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             </div>
 
             <section id='projects' className={styles.Projects} tabIndex={7}>
-                <div className={styles.ProjectsHead}>
-                    <h1>Featured Projects</h1>
-                    <h2>My creative mindset with a core background of computer science yeilded these fine results.</h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 238 }}
+                    background='backgrounds/bg-2.jpg'
+                    title='Featured Projects'
+                    text='My creative mindset with a core background of computer science yeilded these fine results.'
+                />
                 {homeDataStore.projects.map((project, i) => (
                     <Project key={`project-${i}`} project={project} />
                 ))}
@@ -84,13 +87,13 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             </section>
 
             <section className={styles.Skills} tabIndex={8}>
-                <div className={styles.SkillsHead}>
-                    <h1>Technical Skills</h1>
-                    <h2>
-                        Modern technologies & abundant freely accessible learning resources helped me to upgrade from
-                        traditional methods to new approaches along with my programming confidence.
-                    </h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 299 }}
+                    background='backgrounds/bg-3.jpg'
+                    title='Technical Skills'
+                    text='Modern technologies & abundant freely accessible learning resources helped me to upgrade from
+                    traditional methods to new approaches along with my programming confidence.'
+                />
                 {/* TODO : update @for-thorugh count in Home.module.scss (.Skills.SkillsBody.ul.li) */}
                 <ul>
                     {homeDataStore.skills.map((skill, i) => (
@@ -107,13 +110,13 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             </section>
 
             <section className={styles.Technologies} tabIndex={9}>
-                <div className={styles.TechnologiesHead}>
-                    <h1>Technologies Tackled</h1>
-                    <h2>
-                        Experienced with most of the important coding frameworks and proficient in both javascript based
-                        backend & frontend development.
-                    </h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 120 }}
+                    background='backgrounds/bg-4.jpg'
+                    title='Technologies Tackled'
+                    text='Experienced with most of the important coding frameworks and proficient in both javascript based
+                    backend & frontend development.'
+                />
                 {/* TODO : update @for-thorugh count in Home.module.scss (.Technologies.ul.technology) */}
                 <ul>
                     {homeDataStore.technologies.map((technology, i) => (
@@ -130,10 +133,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             </section>
 
             <section className={styles.About} tabIndex={10}>
-                <div className={styles.AboutHead}>
-                    <h1>About Myself</h1>
-                    <h2>Success is not final, failure is not fatal, it is the courage to continue that counts.</h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 189 }}
+                    background='backgrounds/bg-5.jpg'
+                    title='About Myself'
+                    text='Success is not final, failure is not fatal, it is the courage to continue that counts.'
+                />
                 <article>
                     <p>
                         {homeDataStore.about.map((line, i) => (
@@ -157,10 +162,12 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
             </section>
 
             <section id='contact' className={styles.Contact} tabIndex={12}>
-                <div className={styles.ContactHead}>
-                    <h1>Let's Connect</h1>
-                    <h2>Sometimes later becomes never...</h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 0 }}
+                    background='backgrounds/bg-6.jpg'
+                    title="Let's Connect"
+                    text='Sometimes later becomes never...'
+                />
                 <div className={styles.contact_links}>
                     <a
                         style={{ gridArea: 'mail' }}

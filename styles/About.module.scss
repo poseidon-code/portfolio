@@ -238,10 +238,6 @@
     gap: 0.5rem;
     @include utils.tabFocus($hue);
 
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
-    }
-
     &Body {
         @include utils.padding;
         position: relative;
@@ -345,10 +341,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
-    }
 
     &Body {
         @include utils.padding;
@@ -464,10 +456,6 @@
     gap: 0.5rem;
     @include utils.tabFocus($hue);
 
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
-    }
-
     ul {
         display: flex;
         flex-direction: column;
@@ -495,10 +483,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-1.jpg');
-    }
 
     ul {
         display: grid;
@@ -534,10 +518,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
-    }
 
     ul {
         display: flex;

@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 
 import SectionButton from 'components/UI/SectionButton';
+import SectionHead from 'components/UI/SectionHead';
 import { Star, Folder, Fork, Database } from '@icons';
 
 import styles from 'styles/Projects.module.scss';
@@ -57,10 +58,12 @@ const Projects = props => {
 
             {/* TODO : update @for-thorugh count in Projects.module.scss (.oscs.osc) */}
             <section className={styles.oscs}>
-                <div className={styles.osc_head}>
-                    <h1>Open Source Contributions</h1>
-                    <h2>In real open source, you have the right to control your own destiny.</h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 12 }}
+                    background='backgrounds/bg-4.jpg'
+                    title='Open Source Contributions'
+                    text='In real open source, you have the right to control your own destiny.'
+                />
                 {props.osc.map(o => (
                     <OSC
                         key={o.id}
@@ -75,10 +78,12 @@ const Projects = props => {
 
             {/* TODO : update @for-thorugh count in Projects.module.scss (.repos.repos_body.repo) */}
             <section className={styles.repos}>
-                <div className={styles.repos_head}>
-                    <h1>Github Repositories</h1>
-                    <h2>Simplicity is the soul of efficiency.</h2>
-                </div>
+                <SectionHead
+                    style={{ '--hue': 74 }}
+                    background='backgrounds/bg-1.jpg'
+                    title='Github Repositories'
+                    text='Simplicity is the soul of efficiency.'
+                />
                 <div className={styles.repos_body}>
                     {props.repos.map((r, i) => (
                         <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />

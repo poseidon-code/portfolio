@@ -78,7 +78,7 @@
         a {
             all: unset;
             cursor: pointer;
-            width: -webkit-fill-available;
+            width: stretch;
             padding: 1em 2em;
             text-align: center;
             color: hsl($hue, 100%, 10%);
@@ -153,10 +153,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-2.jpg');
-    }
 
     .project {
         display: flex;
@@ -247,10 +243,6 @@
     gap: 0.5rem;
     @include utils.tabFocus($hue);
 
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-3.jpg');
-    }
-
     ul {
         display: flex;
         flex-wrap: wrap;
@@ -284,10 +276,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-4.jpg');
-    }
 
     ul {
         display: flex;
@@ -334,10 +322,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-5.jpg');
-    }
 
     article {
         display: flex;
@@ -396,10 +380,6 @@
     flex-direction: column;
     gap: 0.5rem;
     @include utils.tabFocus($hue);
-
-    &Head {
-        @include utils.head($hue, '../public/backgrounds/bg-6.jpg');
-    }
 
     .contact_links {
         display: grid;
