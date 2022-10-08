@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import styles from 'styles/Projects.module.scss';
 
 import { Github, ExternalLink } from '@icons';
 import { SYMBOLS } from 'utility/ProjectsData';
@@ -11,17 +10,17 @@ const OSC = props => {
     }, []);
 
     return (
-        <div className={styles.osc}>
-            <h1>{SYMBOLS[symbol]}</h1>
+        <article>
+            <h6 aria-hidden={true}>{SYMBOLS[symbol]}</h6>
             <h1>{props.name}</h1>
-            <span>{props.description}</span>
+            <p>{props.description}</p>
             <ul>
                 {props.tech.map((t, i) => (
                     <li key={i}>{t}</li>
                 ))}
             </ul>
 
-            <div>
+            <span>
                 {props.github && (
                     <a href={props.github} target='_blank' rel='noopener noreferrer'>
                         <Github />
@@ -32,8 +31,8 @@ const OSC = props => {
                         <ExternalLink />
                     </a>
                 )}
-            </div>
-        </div>
+            </span>
+        </article>
     );
 };
 

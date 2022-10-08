@@ -43,7 +43,7 @@
     }
 }
 
-.stats {
+.Stats {
     width: 100%;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -54,36 +54,19 @@
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
 
-    .stat {
+    div {
         @include utils.padding;
         display: flex;
         flex-direction: column;
         align-items: center;
         font-size: 2rem;
-
-        $hue: 83;
-        color: hsl($hue, 100%, 10%);
-        background-color: hsl($hue, 100%, 70%);
-        transition: color var(--time) ease-out, background-color var(--time) ease-out;
-
         @media (max-width: 800px) {
             font-size: 1.4rem;
         }
 
-        &:hover {
-            color: hsl($hue, 100%, 70%);
-            background-color: hsl($hue, 100%, 10%);
-
-            ::selection {
-                background: hsl($hue, 100%, 70%);
-                color: hsl($hue, 100%, 10%);
-            }
-        }
-
-        ::selection {
-            background: hsl($hue, 100%, 10%);
-            color: hsl($hue, 100%, 70%);
-        }
+        $hue: 83;
+        transition: color var(--time) ease-out, background-color var(--time) ease-out;
+        @include utils.section($hue, true);
 
         span {
             font-family: utils.$font-mono;
@@ -92,26 +75,26 @@
         }
 
         svg {
-            --size: 1.4rem;
-            width: var(--size);
-            height: var(--size);
+            $size: 1.4rem;
+            width: $size;
+            height: $size;
             margin-bottom: 0.6rem;
         }
     }
 }
 
-.languages {
+.Languages {
     width: 100%;
     display: flex;
     flex-direction: column;
     gap: 1rem;
 
-    .bar {
+    .bars {
         width: 100%;
         display: flex;
         gap: 0.3rem;
 
-        .language {
+        span {
             width: var(--percent);
             height: 2rem;
         }
@@ -121,7 +104,6 @@
         display: flex;
         justify-content: space-between;
         user-select: none;
-        pointer-events: none;
         flex-wrap: wrap;
         gap: 1rem;
 
@@ -145,10 +127,11 @@
 
     @for $i from 1 through 10 {
         $hue: random(360);
-
-        .language:nth-of-type(#{$i}) {
-            background-color: hsl($hue, 100%, 70%);
-            color: hsl($hue, 100%, 10%);
+        .bars {
+            span:nth-of-type(#{$i}) {
+                background-color: hsl($hue, 100%, 70%);
+                color: hsl($hue, 100%, 10%);
+            }
         }
         .legends {
             span:nth-of-type(#{$i}) {
@@ -163,7 +146,7 @@
     }
 }
 
-.projects {
+.Projects {
     width: 100%;
     display: grid;
     gap: 0.5rem;
@@ -173,7 +156,7 @@
         grid-template-columns: repeat(1, 1fr);
     }
 
-    .project {
+    div {
         width: 100%;
         @include utils.padding;
         display: flex;
@@ -185,31 +168,11 @@
         @for $i from 1 through 10 {
             &:nth-of-type(#{$i}) {
                 $hue: random(360);
-                color: hsl($hue, 100%, 10%);
-                background-color: hsl($hue, 100%, 70%);
-
-                &:hover {
-                    color: hsl($hue, 100%, 70%);
-                    background-color: hsl($hue, 100%, 10%);
-
-                    ::selection {
-                        background: hsl($hue, 100%, 70%);
-                        color: hsl($hue, 100%, 10%);
-                    }
-                }
-
-                ::selection {
-                    background: hsl($hue, 100%, 10%);
-                    color: hsl($hue, 100%, 70%);
-                }
+                @include utils.section($hue, true);
             }
         }
 
-        & > * {
-            z-index: 10;
-        }
-
-        h1:first-of-type {
+        h6 {
             position: absolute;
             z-index: 1;
             left: -3rem;
@@ -225,7 +188,7 @@
             font-size: 2rem;
         }
 
-        span {
+        p {
             margin: 1rem 0;
             display: inline-block;
         }
@@ -238,31 +201,45 @@
             li {
                 font-family: utils.$font-mono;
                 font-weight: bold;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 margin-right: 1rem;
             }
         }
 
-        svg {
-            --size: 1.4rem;
-            width: var(--size);
-            height: var(--size);
+        span {
+            a {
+                color: inherit;
+                text-decoration: none;
+                margin-right: 1rem;
+
+                svg {
+                    --size: 1.4rem;
+                    width: var(--size);
+                    height: var(--size);
+                }
+            }
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            margin-right: 1rem;
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            span a svg {
+                --size: 1.2rem;
+            }
         }
     }
 }
 
-.oscs {
+.OSCs {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .osc {
+    article {
         width: 100%;
         @include utils.padding;
         display: flex;
@@ -271,34 +248,14 @@
         overflow: hidden;
         transition: color var(--time) ease-out, background-color var(--time) ease-out;
 
-        @for $i from 1 through 3 {
+        @for $i from 1 through 2 {
             &:nth-of-type(#{$i}) {
                 $hue: random(360);
-                color: hsl($hue, 100%, 10%);
-                background-color: hsl($hue, 100%, 70%);
-
-                &:hover {
-                    color: hsl($hue, 100%, 70%);
-                    background-color: hsl($hue, 100%, 10%);
-
-                    ::selection {
-                        background: hsl($hue, 100%, 70%);
-                        color: hsl($hue, 100%, 10%);
-                    }
-                }
-
-                ::selection {
-                    background: hsl($hue, 100%, 10%);
-                    color: hsl($hue, 100%, 70%);
-                }
+                @include utils.section($hue, true);
             }
         }
 
-        & > * {
-            z-index: 10;
-        }
-
-        h1:first-of-type {
+        h6 {
             position: absolute;
             z-index: 1;
             right: -3rem;
@@ -314,7 +271,7 @@
             font-size: 2rem;
         }
 
-        span {
+        p {
             margin: 1rem 0;
             display: inline-block;
         }
@@ -327,36 +284,50 @@
             li {
                 font-family: utils.$font-mono;
                 font-weight: bold;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
                 margin-right: 1rem;
             }
         }
 
-        svg {
-            --size: 1.4rem;
-            width: var(--size);
-            height: var(--size);
+        span {
+            a {
+                color: inherit;
+                text-decoration: none;
+                margin-right: 1rem;
+
+                svg {
+                    --size: 1.4rem;
+                    width: var(--size);
+                    height: var(--size);
+                }
+            }
         }
 
-        a {
-            color: inherit;
-            text-decoration: none;
-            margin-right: 1rem;
+        @media (max-width: 800px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            span a svg {
+                --size: 1.2rem;
+            }
         }
     }
 }
 
-.repos {
+.Repositories {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 
-    .repos_body {
+    ul {
         display: flex;
         flex-wrap: wrap;
         gap: 0.5rem;
 
-        .repo {
+        li {
             all: unset;
             padding: 1rem 2rem;
             display: flex;
@@ -368,53 +339,59 @@
             @for $i from 1 through 50 {
                 &:nth-of-type(#{$i}) {
                     $hue: random(360);
-                    color: hsl($hue, 100%, 10%);
-                    background-color: hsl($hue, 100%, 70%);
-
-                    &:hover {
-                        color: hsl($hue, 100%, 70%);
-                        background-color: hsl($hue, 100%, 10%);
-
-                        ::selection {
-                            background: hsl($hue, 100%, 70%);
-                            color: hsl($hue, 100%, 10%);
-                        }
-                    }
-
-                    ::selection {
-                        background: hsl($hue, 100%, 10%);
-                        color: hsl($hue, 100%, 70%);
-                    }
+                    @include utils.section($hue, true);
                 }
             }
 
-            svg {
-                --size: 2.4rem;
-                width: var(--size);
-                height: var(--size);
-            }
+            a {
+                text-decoration: none;
+                color: inherit;
 
-            p {
-                font-size: 1.4rem;
-                font-family: utils.$font-mono;
-                font-weight: bold;
-            }
+                svg {
+                    --size: 2.4rem;
+                    width: var(--size);
+                    height: var(--size);
+                }
 
-            div {
-                display: flex;
-                gap: 0.5rem;
-
-                span {
-                    display: flex;
-                    align-items: center;
-                    font-size: 1rem;
-                    font-weight: bold;
+                p {
+                    font-size: 1.4rem;
                     font-family: utils.$font-mono;
+                    font-weight: bold;
+                }
 
+                div {
+                    display: flex;
+                    gap: 0.5rem;
+
+                    span {
+                        display: flex;
+                        align-items: center;
+                        font-size: 1rem;
+                        font-weight: bold;
+                        font-family: utils.$font-mono;
+
+                        svg {
+                            --size: 1rem;
+                            width: var(--size);
+                            height: var(--size);
+                        }
+                    }
+                }
+
+                @media (max-width: 800px) {
                     svg {
-                        --size: 1rem;
-                        width: var(--size);
-                        height: var(--size);
+                        --size: 1.8rem;
+                    }
+                    p {
+                        font-size: 1rem;
+                    }
+                    div {
+                        span {
+                            font-size: 0.8rem;
+                            svg {
+                                --size: 0.8rem;
+                            }
+                        }
                     }
                 }
             }

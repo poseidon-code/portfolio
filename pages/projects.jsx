@@ -31,19 +31,19 @@ const Projects = props => {
                 <h2>Imagination is more important than knowledge.</h2>
             </section>
 
-            <section className={styles.stats}>
+            <section className={styles.Stats}>
                 <Stat icon={<Folder />} number={props.stats.repos} text='Repositories' />
                 <Stat icon={<Fork />} number={props.stats.forks} text='Total Forks' />
                 <Stat icon={<Star />} number={props.stats.stars} text='Total Stars' />
                 <Stat icon={<Database />} number={props.stats.size} text='Total Size' />
             </section>
 
-            <section className={styles.languages}>
+            <section className={styles.Languages}>
                 <Languages stats={props.languages} />
             </section>
 
             {/* TODO : update @for-thorugh count in Projects.module.scss (.projects.project) */}
-            <section className={styles.projects}>
+            <section className={styles.Projects}>
                 {props.projects.map(p => (
                     <Project
                         key={p.id}
@@ -57,7 +57,7 @@ const Projects = props => {
             </section>
 
             {/* TODO : update @for-thorugh count in Projects.module.scss (.oscs.osc) */}
-            <section className={styles.oscs}>
+            <section className={styles.OSCs}>
                 <SectionHead
                     style={{ '--hue': 12 }}
                     background='backgrounds/bg-4.jpg'
@@ -77,18 +77,18 @@ const Projects = props => {
             </section>
 
             {/* TODO : update @for-thorugh count in Projects.module.scss (.repos.repos_body.repo) */}
-            <section className={styles.repos}>
+            <section className={styles.Repositories}>
                 <SectionHead
                     style={{ '--hue': 74 }}
                     background='backgrounds/bg-1.jpg'
                     title='Github Repositories'
                     text='Simplicity is the soul of efficiency.'
                 />
-                <div className={styles.repos_body}>
+                <ul>
                     {props.repos.map((r, i) => (
                         <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />
                     ))}
-                </div>
+                </ul>
                 <SectionButton
                     style={{ '--hue': 74 }}
                     background='backgrounds/bg-1.jpg'
