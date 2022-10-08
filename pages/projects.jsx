@@ -42,17 +42,10 @@ const Projects = props => {
                 <Languages stats={props.languages} />
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.projects.project) */}
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.Projects.div) */}
             <section className={styles.Projects}>
-                {props.projects.map(p => (
-                    <Project
-                        key={p.id}
-                        name={p.name}
-                        github={p.links.github}
-                        website={p.links.website}
-                        description={p.description}
-                        tech={p.technologies}
-                    />
+                {props.projects.map((project, i) => (
+                    <Project key={`project-${i}`} project={project} />
                 ))}
             </section>
 
