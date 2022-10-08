@@ -49,7 +49,7 @@ const Projects = props => {
                 ))}
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.oscs.osc) */}
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.OSCs.article) */}
             <section className={styles.OSCs}>
                 <SectionHead
                     style={{ '--hue': 12 }}
@@ -57,15 +57,8 @@ const Projects = props => {
                     title='Open Source Contributions'
                     text='In real open source, you have the right to control your own destiny.'
                 />
-                {props.osc.map(o => (
-                    <OSC
-                        key={o.id}
-                        name={o.name}
-                        github={o.links.github}
-                        website={o.links.website}
-                        description={o.description}
-                        tech={o.technologies}
-                    />
+                {props.osc.map((osc, i) => (
+                    <OSC key={`osc-${i}`} osc={osc} />
                 ))}
             </section>
 
