@@ -7,7 +7,7 @@ import { Star, Folder, Fork, Database } from '@icons';
 
 import styles from 'styles/Projects.module.scss';
 import { projectData } from 'utility/ProjectsData';
-import { Languages, OSC, Project, Repo, Stat } from 'components/Projects';
+import { Languages, OSC, Project, Repository, Stat } from 'components/Projects';
 
 export const getStaticProps = async () => {
     const { projects, osc, repos, stats, languages } = await projectData();
@@ -62,7 +62,7 @@ const Projects = props => {
                 ))}
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.repos.repos_body.repo) */}
+            {/* TODO : update @for-thorugh count in Projects.module.scss (.Repositories.ul.li) */}
             <section className={styles.Repositories}>
                 <SectionHead
                     style={{ '--hue': 74 }}
@@ -71,8 +71,8 @@ const Projects = props => {
                     text='Simplicity is the soul of efficiency.'
                 />
                 <ul>
-                    {props.repos.map((r, i) => (
-                        <Repo key={i} name={r.name} url={r.url} stars={r.stars} forks={r.forks} />
+                    {props.repos.map((repository, i) => (
+                        <Repository key={`repository-${i}`} repository={repository} />
                     ))}
                 </ul>
                 <SectionButton
