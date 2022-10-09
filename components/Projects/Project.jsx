@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import { Github, ExternalLink } from '@icons';
-import { SYMBOLS } from 'utility/ProjectsData';
+import { SYMBOLS } from 'utility';
 
 const Project = ({ project }) => {
     const [symbol, setSymbol] = useState();

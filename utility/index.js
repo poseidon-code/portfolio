@@ -9,3 +9,8 @@ export const formatCount = number =>
         compactDisplay: 'short',
         maximumSignificantDigits: 2,
     }).format(number);
+
+// EXPORTED variable SYMBOLS ([character])
+// an array of Japanese Kanji single characters to use as background for '/projects' components
+// prettier-ignore
+export const SYMBOLS = ['出','長','前','道','意','和','定','思','民','明','高','雨','気','森','東','青','海','宮','命','聖'];
