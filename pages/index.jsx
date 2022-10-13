@@ -94,7 +94,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     text='Modern technologies & abundant freely accessible learning resources helped me to upgrade from
                     traditional methods to new approaches along with my programming confidence.'
                 />
-                {/* TODO : update @for-thorugh count in Home.module.scss (.Skills.SkillsBody.ul.li) */}
+                {/* TODO : update @for-through count in Home.module.scss (.Skills.SkillsBody.ul.li) */}
                 <ul>
                     {homeDataStore.skills.map((skill, i) => (
                         <Skill key={`skill-${i}`} skill={skill} />
@@ -117,7 +117,7 @@ const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
                     text='Experienced with most of the important coding frameworks and proficient in both javascript based
                     backend & frontend development.'
                 />
-                {/* TODO : update @for-thorugh count in Home.module.scss (.Technologies.ul.technology) */}
+                {/* TODO : update @for-through count in Home.module.scss (.Technologies.ul.technology) */}
                 <ul>
                     {homeDataStore.technologies.map((technology, i) => (
                         <Technology key={`technology-${i}`} technology={technology} />

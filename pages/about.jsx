@@ -138,7 +138,7 @@ const About = props => {
                 </ul>
             </section>
 
-            {/* TODO : update @for-thorugh count in About.module.scss (.Interests.ul.li) */}
+            {/* TODO : update @for-through count in About.module.scss (.Interests.ul.li) */}
             <section className={styles.Interests} tabIndex={14}>
                 <SectionHead
                     style={{ '--hue': 30 }}

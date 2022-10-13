@@ -42,14 +42,14 @@ const Projects = props => {
                 <Languages stats={props.languages} />
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.Projects.div) */}
+            {/* TODO : update @for-through count in Projects.module.scss (.Projects.div) */}
             <section className={styles.Projects}>
                 {props.projects.map((project, i) => (
                     <Project key={`project-${i}`} project={project} />
                 ))}
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.OSCs.article) */}
+            {/* TODO : update @for-through count in Projects.module.scss (.OSCs.article) */}
             <section className={styles.OSCs}>
                 <SectionHead
                     style={{ '--hue': 12 }}
@@ -62,7 +62,7 @@ const Projects = props => {
                 ))}
             </section>
 
-            {/* TODO : update @for-thorugh count in Projects.module.scss (.Repositories.ul.li) */}
+            {/* TODO : update @for-through count in Projects.module.scss (.Repositories.ul.li) */}
             <section className={styles.Repositories}>
                 <SectionHead
                     style={{ '--hue': 74 }}
