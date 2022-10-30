@@ -25,7 +25,8 @@ html,
 body,
 #__next {
     scroll-behavior: smooth;
-    overflow: auto;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 #__next {
@@ -65,6 +66,17 @@ ul {
     place-items: center;
     color: hsl(140, 100%, 70%);
     text-align: center;
+    height: calc(100vh - 6rem);
+
+    @media (max-width: 800px) {
+        height: calc(100vh - 4rem);
+    }
+
+    & > div {
+        display: grid;
+        place-items: center;
+        gap: 2rem;
+    }
 
     svg {
         --size: 80%;
