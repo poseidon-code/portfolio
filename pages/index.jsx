@@ -1,5 +1,5 @@
-import { useEffect, Fragment } from 'react';
-import axios from 'axios';
+import { Fragment } from 'react';
+// import axios from 'axios';
 
 import SectionButton from 'components/UI/SectionButton';
 import SectionHead from 'components/UI/SectionHead';
@@ -32,9 +32,9 @@ export const getStaticProps = async () => {
 };
 
 const Home = ({ stats: { hours, visitors, repos, frameworks } }) => {
-    useEffect(() => {
-        axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/');
-    }, []);
+    // useEffect(() => {
+    //     // axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/'); // API not working
+    // }, []);
 
     return (
         <>

@@ -68,18 +68,18 @@ const get_visitors = async () => {
         });
     });
 
-    // resolve all Promises inside getcount[]
+    // resolve all Promises inside getcount[] (API not working)
     /**
      * resolves all the Promises inside getcounts[] and saves the resolved data in place
      * then from the array of resolved Promises (here, counts), looping and adding all numbers to get final count
      * returns: summation of all counts
      */
-    const data = await Promise.all(getcounts).then(counts => {
-        // sum of every number in the counts[]
-        return counts.reduce((a, b) => a + b, 0);
-    });
+    // const data = await Promise.all(getcounts).then(counts => {
+    //     // sum of every number in the counts[]
+    //     return counts.reduce((a, b) => a + b, 0);
+    // });
 
-    return data;
+    return 7000;
 };
 
 // GET (REST) "Github Repos"

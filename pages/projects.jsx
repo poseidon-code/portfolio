@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
-import axios from 'axios';
+// import { useEffect } from 'react';
+// import axios from 'axios';
 
 import SectionButton from 'components/UI/SectionButton';
 import SectionHead from 'components/UI/SectionHead';
@@ -18,9 +18,9 @@ export const getStaticProps = async () => {
 };
 
 const Projects = props => {
-    useEffect(() => {
-        axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/projects');
-    }, []);
+    // useEffect(() => {
+    //     // axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/projects'); // API not working
+    // }, []);
 
     return (
         <>

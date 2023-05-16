@@ -23,7 +23,7 @@ const About = props => {
     const [joke, setJoke] = useState('');
 
     useEffect(async () => {
-        await axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about');
+        // await axios.get('https://api.countapi.xyz/hit/pritamh.netlify.app/about'); // API not working
         setFact(await axios.get('https://uselessfacts.jsph.pl/random.json?language=en').then(res => res.data.text));
         setJoke(
             await axios
