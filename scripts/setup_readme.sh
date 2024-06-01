@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env sh
 # must be ran inside scripts/ directory
 
 git clone https://github.com/poseidon-code/poseidon-code
