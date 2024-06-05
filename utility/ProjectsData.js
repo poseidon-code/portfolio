@@ -9,7 +9,7 @@ const projectDataStore = {
             aid: 1,
             name: 'Portfolio',
             description:
-                'This is my personal portfolio repository made with NextJs & Strapi. I am an aspiring software developer specialising in frontend and backend web technologies. I love to dabble with new and upcoming web technologies and provide solutions to real world problems.',
+                'This is my personal portfolio repository made with NextJs. I am an aspiring software developer specialising in frontend and backend web technologies. I love to dabble with new and upcoming web technologies and provide solutions to real world problems.',
             technologies: ['NextJs', 'SASS', 'GraphQL'],
             links: {
                 github: 'https://github.com/poseidon-code/portfolio',
@@ -190,7 +190,7 @@ const GITHUBLANGUAGES = `
     }
 `;
 
-// GET (GQL) "Projects" and "Open Source Contributions" from CMS
+// GET "Projects" and "Open Source Contributions" from `projectDataStore`
 const get_projects = async () => {
     const data = projectDataStore;
     data.projects.sort((a, b) => a.aid - b.aid);

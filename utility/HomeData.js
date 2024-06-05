@@ -129,8 +129,8 @@ export const homeDataStore = {
             github: 'https://github.com/poseidon-code/portfolio',
             deploy: 'https://pritamh.netlify.app',
             description:
-                'Personal portfolio website designed from scratch using NextJs and Strapi headless CMS to showcase my skills and projects for potential clients.',
-            tech: ['NextJs', 'Strapi', 'SASS'],
+                'Personal portfolio website designed from scratch using NextJs to showcase my skills and projects for potential clients.',
+            tech: ['NextJs', 'SASS'],
         },
         {
             name: 'Identicon',
