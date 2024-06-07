@@ -1,7 +1,17 @@
 {
     "name": "portfolio",
     "version": "0.1.0",
-    "private": true,
+    "description": "Personal portfolio website.",
+    "engines": {
+        "node": ">=18.19",
+        "npm": ">=9.2"
+    },
+    "homepage": "https://pritamh.netlify.app",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/poseidon-code/portfolio.git"
+    },
+    "author": "poseidon-code",
     "scripts": {
         "dev": "next dev",
         "build": "next build",
