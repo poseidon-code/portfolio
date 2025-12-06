@@ -219,7 +219,7 @@ export const homeDataStore = {
     ],
 
     about: [
-        `I am a self taught developer. I have started my developer journey during early pandemic (2019), learning JavaScript, ReactJs and Python from online courses. 
+        `I am a self taught developer. I have started my developer journey during early pandemic (2019), learning JavaScript, ReactJs and Python from online courses.
         I am glad that I did that because it taught me programming that really affects and makes the real world of the internet.`,
 
         `I am currently a University student under Masters of Science in Computer Science in final year.
